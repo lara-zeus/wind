@@ -1,0 +1,59 @@
+{
+    "name": "lara-zeus/wind",
+    "description": "laravel packages to create and manage contact us for your site",
+    "keywords": [
+        "laravel",
+        "lara-zeus",
+        "contact",
+        "form",
+        "forms",
+        "mailing"
+    ],
+    "homepage": "https://github.com/lara-zeus",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Ashraf Monshi",
+            "email": "wh7r.com@gmail.com",
+            "role": "Owner"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "lara-zeus/core": "dev-main"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.17",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "LaraZeus\\Wind\\": "src"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LaraZeus\\Wind\\WindServiceProvider"
+            ],
+            "aliases": {
+                "Wind": "LaraZeus\\Wind\\WindFacade"
+            }
+        }
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../core"
+        }
+    ]
+}
