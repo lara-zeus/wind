@@ -21,7 +21,7 @@
     ],
     "require": {
         "php": "^8.0",
-        "lara-zeus/core": "dev-main"
+        "lara-zeus/core": "main"
     },
     "require-dev": {
         "orchestra/testbench": "^6.17",
@@ -49,11 +49,5 @@
                 "Wind": "LaraZeus\\Wind\\WindFacade"
             }
         }
-    },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../core"
-        }
-    ]
+    }
 }

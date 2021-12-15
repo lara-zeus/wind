@@ -1,8 +1,14 @@
 # Lara Zeus Wind
 
-<p style="color: red; text-align: center">🔺 ========== Still Under development ========== 🔺</p>
+<p style="color: red; text-align: center">🔺 ========== Still Under Development ========== 🔺</p>
 
 Wind is another package from Lara-Zeus, it's simply provide you with a contact form, with simple dashboard to read and replay to any messages you recive from your website.
+
+<br>
+
+🔥 built with [TALL stack](https://tallstack.dev/)
+
+<br>
 
 >small tasks can be time-consuming, let us build these for you,
 
