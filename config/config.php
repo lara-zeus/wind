@@ -15,7 +15,7 @@ return [
     ],
     'admin' => [
         'prefix' => 'admin',
-        'middleware' => ['web','auth'],
+        'middleware' => ['web'], //,'auth'
     ],
 
     'defaultDateFormat' => 'M, d Y · h:i a',
