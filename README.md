@@ -2,7 +2,7 @@
 
 <p style="color: red; text-align: center">🔺 ========== Still Under Development ========== 🔺</p>
 
-Wind is another package from Lara-Zeus, it's simply provide you with a contact form, with simple dashboard to read and replay to any messages you recive from your website.
+Wind is another package from Lara-Zeus, it's simply provide you with a contact form, with simple dashboard to read and replay to any messages you receive from your website.
 
 <br>
 
