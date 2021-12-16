@@ -27,6 +27,7 @@ class CategoryFactory extends Factory
             'ordering' => $this->faker->numberBetween(1, 10),
             'is_active' => $this->faker->numberBetween(0, 1),
             'desc' => $this->faker->words(5, true),
+            'slug' => $this->faker->slug,
         ];
     }
 }

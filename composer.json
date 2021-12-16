@@ -21,7 +21,7 @@
     ],
     "require": {
         "php": "^8.0",
-        "lara-zeus/core": "main"
+        "lara-zeus/core": "v0.0.1"
     },
     "require-dev": {
         "orchestra/testbench": "^6.17",
