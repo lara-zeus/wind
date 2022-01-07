@@ -78,7 +78,7 @@
             </x-zeus::box>
 
             <div class="p-4 text-center">
-                <x-zeus::elements.button type="submit" class="g-recaptcha">Send</x-zeus::elements.button>
+                <x-zeus::button type="submit" class="g-recaptcha">Send</x-zeus::button>
             </div>
 
         </form>

@@ -11,8 +11,6 @@ class Letter extends Model
 {
     use SoftDeletes;
     use HasFactory;
-    use HasUpdates;
-    use HasActive;
 
     protected $fillable = [
         'name', 'email', 'category_id', 'title', 'message', 'status','reply_message','reply_title'
