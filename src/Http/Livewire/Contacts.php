@@ -1,14 +1,15 @@
 <?php
 
-namespace LaraZeus\Wind\Http\Livewire\User;
+namespace LaraZeus\Wind\Http\Livewire;
 
 use LaraZeus\Wind\Events\LetterSent;
 use LaraZeus\Wind\Models\Category;
 use LaraZeus\Wind\Models\Letter;
 use Livewire\Component;
 
-class ContactsForm extends Component
+class Contacts extends Component
 {
+    public ?string $category = null;
     public $name = 'sdfsdfsdf';
     public $email = 'sdfsdfsdf@sdfsdf.sdfsdf';
     public $category_id = 1;
@@ -24,9 +25,13 @@ class ContactsForm extends Component
         'message' => 'required',
     ];
 
-    public function mount()
+    public function mount(Category $category)
     {
-        $this->category_id = config('zeus.wind.defaultCategoryId');
+        if ($category->id === null) {
+            $this->category_id = config('zeus-wind.defaultCategoryId');
+        } else {
+            $this->category_id = $category->id;
+        }
     }
 
     public function store()
@@ -42,7 +47,8 @@ class ContactsForm extends Component
 
     public function render()
     {
-        return view('wind::wind-contact-form')
-            ->with('categories', Category::where('is_active', 1)->orderBy('ordering')->get());
+        return view('zeus-wind::contact')
+            ->layout(config('zeus-wind.layout'))
+            ->with('categories', Category::whereIsActive(1)->orderBy('ordering')->get());
     }
 }

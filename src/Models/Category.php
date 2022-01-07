@@ -15,8 +15,7 @@ class Category extends Model
     use HasActive;
 
     protected $fillable = [
-        'name', 'is_active', 'user_id', 'name', 'layout', 'ordering', 'is_active', 'desc', 'options','logo',
-        'start_date', 'end_date',
+        'name', 'is_active', 'user_id', 'name', 'layout', 'ordering', 'is_active', 'desc', 'options', 'logo', 'start_date', 'end_date', 'slug'
     ];
 
     protected $casts = [
@@ -24,6 +23,11 @@ class Category extends Model
         'end_date' => 'datetime',
         'options' => 'array',
     ];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
     protected static function newFactory()
     {
