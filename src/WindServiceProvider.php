@@ -2,66 +2,37 @@
 
 namespace LaraZeus\Wind;
 
-use Illuminate\Support\ServiceProvider;
-use LaraZeus\Wind\Console\InstallCommand;
-use LaraZeus\Wind\Http\Livewire\Admin\Categories;
-use LaraZeus\Wind\Http\Livewire\Admin\Letters;
-use LaraZeus\Wind\Http\Livewire\Admin\Reply;
-use LaraZeus\Wind\Http\Livewire\User\ContactsForm;
+use Filament\PluginServiceProvider;
+use LaraZeus\Wind\Filament\Resources\CategoryResource;
+use LaraZeus\Wind\Filament\Resources\LetterResource;
+use LaraZeus\Wind\Http\Livewire\Contacts;
 use Livewire\Livewire;
-use Validator;
+use Spatie\LaravelPackageTools\Package;
 
-class WindServiceProvider extends ServiceProvider
+class WindServiceProvider extends PluginServiceProvider
 {
-    /**
-     * Bootstrap the application services.
-     */
-    public function boot()
+    public static string $name = 'zeus-wind';
+
+    protected function getResources(): array
     {
-        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
-        $this->loadViewsFrom(__DIR__.'/../resources/views', 'wind');
-
-        Livewire::component('categories', Categories::class);
-        Livewire::component('letters', Letters::class);
-        Livewire::component('wind-contact-form', ContactsForm::class);
-        Livewire::component('reply', Reply::class);
-
-        if ($this->app->runningInConsole()) {
-            $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('zeus/wind.php'),
-            ], 'wind-config');
-
-            $this->publishes([
-                __DIR__.'/../database/migrations' => database_path('migrations'),
-            ], 'wind-migrations');
-
-            $this->publishes([
-                __DIR__.'/../database/seeders' => database_path('seeders'),
-            ], 'wind-seeder');
-
-            $this->publishes([
-                __DIR__.'/../database/factories' => database_path('factories'),
-            ], 'wind-factories');
-
-            $this->publishes([
-                __DIR__.'/../resources/views' => resource_path('views/vendor/wind'),
-            ], 'wind-views');
-        }
-
-        $this->commands([
-            InstallCommand::class,
-        ]);
+        return [
+            CategoryResource::class,
+            LetterResource::class,
+        ];
     }
 
-    /**
-     * Register the application services.
-     */
-    public function register()
+    public function boot()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'zeus');
+        Livewire::component('contact', Contacts::class);
 
-        $this->app->singleton('wind', function () {
-            return new Wind;
-        });
+        return parent::boot();
+    }
+
+    public function configurePackage(Package $package): void
+    {
+        parent::configurePackage($package);
+        $package
+            ->hasConfigFile()
+            ->hasRoute('web');
     }
 }

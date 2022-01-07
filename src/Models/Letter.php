@@ -15,7 +15,7 @@ class Letter extends Model
     use HasActive;
 
     protected $fillable = [
-        'name', 'email', 'category_id', 'title', 'message', 'status',
+        'name', 'email', 'category_id', 'title', 'message', 'status','reply_message','reply_title'
     ];
 
     protected static function newFactory()

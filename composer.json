@@ -21,6 +21,7 @@
     ],
     "require": {
         "php": "^8.0",
+        "filament/filament": "^2.0",
         "lara-zeus/core": "dev-main"
     },
     "require-dev": {
@@ -49,5 +50,11 @@
                 "Wind": "LaraZeus\\Wind\\WindFacade"
             }
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../core"
+        }
+    ]
 }
