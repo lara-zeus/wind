@@ -33,6 +33,7 @@ class WindServiceProvider extends PluginServiceProvider
         parent::configurePackage($package);
         $package
             ->hasConfigFile()
+            ->hasMigrations(['create_category_table', 'create_letters_table'])
             ->hasRoute('web');
     }
 }
