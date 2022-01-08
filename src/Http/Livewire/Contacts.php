@@ -10,11 +10,11 @@ use Livewire\Component;
 class Contacts extends Component
 {
     public ?string $category = null;
-    public $name = 'sdfsdfsdf';
-    public $email = 'sdfsdfsdf@sdfsdf.sdfsdf';
+    public $name = '';
+    public $email = '';
     public $category_id = 1;
-    public $title = 'sdfsdfsdf';
-    public $message = 'sdfsdfsdf';
+    public $title = '';
+    public $message = '';
     public $sent = false;
 
     protected $rules = [

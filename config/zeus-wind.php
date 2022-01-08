@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'defaultCategoryId' => 1,
-
     'enableCategories' => true,
+
+    'defaultCategoryId' => 1,
 
     'layout' => 'zeus::components.layouts.app',
 ];
