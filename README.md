@@ -12,6 +12,10 @@ Wind is another package from Lara-Zeus, it's simply provide you with a contact f
 - 🔥 you can add logos for all categories.
 - 🔥 direct URL to contact on specific category.
 
+## full documentation
+
+> visit our website to get the full documentation: https://larazeus.com
+
 ## Installation
 
 You can install the package via composer:
@@ -26,35 +30,10 @@ run the command:
 php artisan wind:install
 ```
 
-which will run the following commands:
-
-```bash
-php artisan vendor:publish --tag=zeus-wind-config
-php artisan vendor:publish --tag=zeus-wind-migrations
-php artisan vendor:publish --tag=zeus-wind-views
-php artisan vendor:publish --tag=zeus-wind-seeder
-php artisan vendor:publish --tag=zeus-wind-factories
-php artisan vendor:publish --tag=zeus-zeus-config
-php artisan vendor:publish --tag=zeus-zeus-views
-php artisan vendor:publish --tag=zeus-zeus-assets
-php artisan migrate
-```
-
-you can pass `--force` option to force publishing all files
-
-```bash
-php artisan wind:install --force
-```
-
 ## Usage
 
 visit the url `/admin` to manage the Letters, and `/contact-us` to access the contact form.
 > you can configure the URL from the config file
-
-if you dont have a user, or it's a fresh instalation of laravel, you can use the command to create a new user
-```bash
-php artisan make:filament-user
-```
 
 ## Changelog
 
