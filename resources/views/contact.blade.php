@@ -32,7 +32,7 @@
                                         <input wire:model="category_id" type="radio" class="checkbox-input" name="group" value="{{ $category->id }}"/>
                                         <span class="checkbox-tile hover:border-secondary-500 p-4">
                                         <span class="text-primary-600 flex flex-col items-center justify-center gap-2">
-                                            <img class="w-full h-32 object-center object-cover" src="{{ asset('storage/'.$category->logo) }}">
+                                            <img class="w-full h-32 object-center object-cover" src="{{ (filter_var($category->logo, FILTER_VALIDATE_URL) === false) ? asset('storage/'.$category->logo) : $category->logo }}">
                                             {{ $category->name ?? '' }}
                                         </span>
                                         <span class="text-gray-500 text-center px-2 overflow-clip overflow-hidden ">{{ $category->desc ?? '' }}</span>

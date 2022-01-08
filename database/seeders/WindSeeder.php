@@ -12,12 +12,12 @@ class WindSeeder extends Seeder
     {
         Category::factory()->has(
             Letter::factory()
-                ->count(2)
+                ->count(5)
                 ->state(function (array $attributes, Category $category) {
                     return [
                         'category_id' => $category->id,
                     ];
                 })
-        )->count(2)->create();
+        )->count(3)->create();
     }
 }

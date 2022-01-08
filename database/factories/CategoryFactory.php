@@ -28,6 +28,7 @@ class CategoryFactory extends Factory
             'is_active' => $this->faker->numberBetween(0, 1),
             'desc' => $this->faker->words(5, true),
             'slug' => $this->faker->slug,
+            'logo' => 'https://picsum.photos/200/300?random='.$this->faker->numberBetween(10, 99),
         ];
     }
 }
