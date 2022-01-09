@@ -5,6 +5,8 @@ namespace LaraZeus\Wind\Filament\Resources;
 use Closure;
 use Filament\Forms;
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
@@ -26,35 +28,25 @@ class CategoryResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
+                TextInput::make('name')
                     ->required()
                     ->maxLength(255)
                     ->reactive()
                     ->afterStateUpdated(function (Closure $set, $state) {
                         $set('slug', Str::slug($state));
                     }),
-                Forms\Components\TextInput::make('slug')
+                TextInput::make('slug')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('ordering')
+                TextInput::make('ordering')
                     ->required(),
-                Forms\Components\Toggle::make('is_active')
+                Toggle::make('is_active')
                     ->required(),
                 Forms\Components\Textarea::make('desc')
                     ->maxLength(65535)
-                    ->columnSpan([
-                        'sm' => 2,
-                        'xl' => 2,
-                        '2xl' => 2,
-                    ]),
-
+                    ->columnSpan(['sm' => 2,]),
                 FileUpload::make('logo')
-                    ->columnSpan([
-                        'sm' => 2,
-                        'xl' => 2,
-                        '2xl' => 2,
-                    ])
-
+                    ->columnSpan(['sm' => 2,])
             ]);
     }
 
@@ -62,27 +54,18 @@ class CategoryResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('id')->sortable(),
                 Tables\Columns\TextColumn::make('name')
                     ->sortable()
                     ->searchable()
                     ->url(fn(Category $record): string => route('contact', ['category' => $record]))
                     ->openUrlInNewTab(),
-
                 Tables\Columns\TextColumn::make('desc'),
                 Tables\Columns\TextColumn::make('ordering'),
                 Tables\Columns\BooleanColumn::make('is_active'),
                 ImageColumn::make('logo'),
             ])
-            ->filters([
-                //
-            ]);
-    }
-
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
+            ->defaultSort('id', 'desc');
     }
 
     public static function getPages(): array
