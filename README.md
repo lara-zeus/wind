@@ -5,16 +5,18 @@
 Wind is another package from Lara-Zeus, it's simply provide you with a contact form, with simple dashboard to read and replay to any messages you receive from your website.
 >small tasks can be time-consuming, let us build these for you,
 
-## features:
+## features
 - 🔥 built with [TALL stack](https://tallstack.dev/)
 - 🔥 using [filament](https://filamentadmin.com) as an admin panel
 - 🔥 optionally you can add categories to the contact form like 'sales','dev','report bug' etc.
 - 🔥 you can add logos for all categories.
 - 🔥 direct URL to contact on specific category.
 
-## full documentation
+## Demo
 
-> visit our website to get the full documentation: https://larazeus.com
+> visit our website to get the full documentation: https://larazeus.com/wind
+
+> real use: https://atm-code.com/contact-us
 
 ## Installation
 
@@ -33,7 +35,10 @@ php artisan wind:install
 ## Usage
 
 visit the url `/admin` to manage the Letters, and `/contact-us` to access the contact form.
-> you can configure the URL from the config file
+
+## more documentation
+
+> visit our website to get the full documentation: https://larazeus.com/wind
 
 ## Changelog
 
