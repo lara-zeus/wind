@@ -28,10 +28,12 @@ class LetterResource extends Resource
             ->schema([
                 TextInput::make('name')
                     ->required()
+                    ->disabled()
                     ->maxLength(255),
                 TextInput::make('email')
                     ->email()
                     ->required()
+                    ->disabled()
                     ->maxLength(255),
                 Select::make('category_id')
                     ->options(Category::all()->pluck('name', 'id'))
@@ -41,14 +43,14 @@ class LetterResource extends Resource
                     ->maxLength(255),
                 TextInput::make('title')
                     ->required()
+                    ->disabled()
                     ->maxLength(255)
                     ->columnSpan(['sm' => 2]),
                 Forms\Components\Textarea::make('message')
-                    ->required()
+                    ->disabled()
                     ->maxLength(65535)
                     ->columnSpan(['sm' => 2]),
                 TextInput::make('reply_title')
-                    ->default('re')
                     ->required()
                     ->maxLength(255)
                     ->columnSpan(['sm' => 2]),
@@ -76,7 +78,6 @@ class LetterResource extends Resource
     {
         return [
             'index' => Pages\ListLetters::route('/'),
-            'create' => Pages\CreateLetter::route('/create'),
             'edit' => Pages\EditLetter::route('/{record}/edit'),
         ];
     }

@@ -9,28 +9,38 @@ use Livewire\Component;
 
 class Contacts extends Component
 {
-    public ?string $category = null;
+    public Category|null $category = null;
     public $name = '';
     public $email = '';
-    public $category_id = 1;
     public $title = '';
     public $message = '';
+    public $category_id = '';
     public $sent = false;
 
-    protected $rules = [
-        'name' => 'required|min:6',
-        'email' => 'required|email',
-        'category_id' => 'required|integer',
-        'title' => 'required',
-        'message' => 'required',
-    ];
+    protected function rules()
+    {
+        $rules = [
+            'name' => 'required|min:6',
+            'email' => 'required|email',
+            'title' => 'required',
+            'message' => 'required',
+        ];
+
+        if (config('zeus-wind.enableCategories')) {
+            $rules['category_id'] = 'required|integer';
+        }
+
+        return $rules;
+    }
 
     public function mount(Category $category)
     {
-        if ($category->id === null) {
-            $this->category_id = config('zeus-wind.defaultCategoryId');
-        } else {
-            $this->category_id = $category->id;
+        if (config('zeus-wind.enableCategories')) {
+            if ($category->id === null) {
+                $this->category = Category::find(config('zeus-wind.defaultCategoryId'));
+            } else {
+                $this->category = $category;
+            }
         }
     }
 

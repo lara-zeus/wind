@@ -21,6 +21,7 @@
     ],
     "require": {
         "php": "^8.0",
+        "doctrine/dbal": "^3.2",
         "filament/filament": "^2.0",
         "lara-zeus/core": "dev-main"
     },

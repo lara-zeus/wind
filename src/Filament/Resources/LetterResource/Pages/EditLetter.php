@@ -2,8 +2,8 @@
 
 namespace LaraZeus\Wind\Filament\Resources\LetterResource\Pages;
 
-use LaraZeus\Wind\Filament\Resources\LetterResource;
 use Filament\Resources\Pages\EditRecord;
+use LaraZeus\Wind\Filament\Resources\LetterResource;
 
 class EditLetter extends EditRecord
 {

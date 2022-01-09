@@ -13,7 +13,7 @@ class Letter extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'email', 'category_id', 'title', 'message', 'status','reply_message','reply_title'
+        'name', 'email', 'category_id', 'title', 'message', 'status', 'reply_message', 'reply_title'
     ];
 
     protected static function newFactory()
@@ -24,5 +24,10 @@ class Letter extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function getReplyTitleAttribute($value)
+    {
+        return $value ?? 're: '.$this->title;
     }
 }
