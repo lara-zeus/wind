@@ -2,8 +2,8 @@
 
 namespace LaraZeus\Wind\Filament\Resources\CategoryResource\Pages;
 
-use LaraZeus\Wind\Filament\Resources\CategoryResource;
 use Filament\Resources\Pages\EditRecord;
+use LaraZeus\Wind\Filament\Resources\CategoryResource;
 
 class EditCategory extends EditRecord
 {

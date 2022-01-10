@@ -19,6 +19,7 @@ class LetterFactory extends Factory
      * Define the model's default state.
      *
      * @return array
+     *
      * @throws \JsonException
      */
     public function definition()
