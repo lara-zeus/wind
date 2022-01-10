@@ -2,10 +2,8 @@
 
 namespace LaraZeus\Wind\Filament\Resources\CategoryResource\Pages;
 
-use LaraZeus\Wind\Filament\Resources\CategoryResource;
 use Filament\Resources\Pages\ListRecords;
-use Illuminate\Database\Eloquent\Builder;
-use LaraZeus\Wind\Models\Category;
+use LaraZeus\Wind\Filament\Resources\CategoryResource;
 
 class ListCategories extends ListRecords
 {

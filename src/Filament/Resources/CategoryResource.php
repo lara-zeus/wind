@@ -44,9 +44,9 @@ class CategoryResource extends Resource
                     ->required(),
                 Forms\Components\Textarea::make('desc')
                     ->maxLength(65535)
-                    ->columnSpan(['sm' => 2,]),
+                    ->columnSpan(['sm' => 2]),
                 FileUpload::make('logo')
-                    ->columnSpan(['sm' => 2,])
+                    ->columnSpan(['sm' => 2]),
             ]);
     }
 
@@ -58,7 +58,7 @@ class CategoryResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->sortable()
                     ->searchable()
-                    ->url(fn(Category $record): string => route('contact', ['category' => $record]))
+                    ->url(fn (Category $record): string => route('contact', ['category' => $record]))
                     ->openUrlInNewTab(),
                 Tables\Columns\TextColumn::make('desc'),
                 Tables\Columns\TextColumn::make('ordering'),
