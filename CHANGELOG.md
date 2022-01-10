@@ -4,11 +4,11 @@ All notable changes to `bolt` will be documented in this file
 
 ## 0.1.1 - 2022-01-10
 
-- added the package `doctrine/dbal` for modding the database
+- added the package `doctrine/dbal` for modifying the database
 
 ### fixes:
 
-- set default value if the categories are disabled
+- set a default value if the categories are disabled
 - disable category_id validation if categories are disabled
 
 ### improvements:

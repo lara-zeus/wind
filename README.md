@@ -1,6 +1,11 @@
 # Lara Zeus Wind
 
-<p style="color: red; text-align: center">🔺 ========== Still Under Development ========== 🔺</p>
+<p align="center">
+<a href="https://packagist.org/packages/lara-zeus/wind"><img src="https://img.shields.io/packagist/v/lara-zeus/wind?style=for-the-badge" /></a>
+<a href="https://github.styleci.io/repos/438676758?branch=main"><img src="https://github.styleci.io/repos/438676758/shield?branch=main" alt="StyleCI"></a>
+<a href="https://packagist.org/packages/lara-zeus/wind"><img src="https://img.shields.io/packagist/dt/lara-zeus/wind?style=for-the-badge" /></a>
+<a href="https://github.com/lara-zeus/wind"><img src="https://img.shields.io/github/stars/lara-zeus/wind?style=for-the-badge" /></a>
+</p>
 
 Wind is another package from Lara-Zeus, it's simply provide you with a contact form, with simple dashboard to read and replay to any messages you receive from your website.
 >small tasks can be time-consuming, let us build these for you,
