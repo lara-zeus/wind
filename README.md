@@ -1,7 +1,7 @@
 <h1 align="center">Lara Zeus Wind</h1>
 
 <p align="center">
-<a href="https://packagist.org/packages/lara-zeus/wind"><img src="https://larazeus.com/images/zeus-wind-banner.png" /></a>
+<a href="https://larazeus.com"><img src="https://larazeus.com/images/zeus-wind-banner.png" /></a>
 </p>
 
 <p align="center">
