@@ -1,4 +1,8 @@
-# Lara Zeus Wind
+<h1 align="center">Lara Zeus Wind</h1>
+
+<p align="center">
+<a href="https://packagist.org/packages/lara-zeus/wind"><img src="https://larazeus.com/images/zeus-wind-banner.png" /></a>
+</p>
 
 <p align="center">
 <a href="https://packagist.org/packages/lara-zeus/wind"><img src="https://img.shields.io/packagist/v/lara-zeus/wind?style=flat-square" /></a>
@@ -7,7 +11,7 @@
 <a href="https://github.com/lara-zeus/wind"><img src="https://img.shields.io/github/stars/lara-zeus/wind?style=flat-square" /></a>
 </p>
 
-Wind is another package from Lara-Zeus, it's simply provide you with a contact form, with simple dashboard to read and replay to any messages you receive from your website.
+Lara-zeus wind is a contact form, with simple dashboard to read and replay to any messages you receive from your website.
 >small tasks can be time-consuming, let us build these for you,
 
 ## features
@@ -41,7 +45,7 @@ php artisan wind:install
 
 visit the url `/admin` to manage the Letters, and `/contact-us` to access the contact form.
 
-## more documentation
+## Full Documentation
 
 > visit our website to get the full documentation: https://larazeus.com/wind
 
