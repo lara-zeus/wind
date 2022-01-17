@@ -9,6 +9,7 @@
 <a href="https://github.styleci.io/repos/438676758?branch=main"><img src="https://github.styleci.io/repos/438676758/shield?branch=main" alt="StyleCI"></a>
 <a href="https://packagist.org/packages/lara-zeus/wind"><img src="https://img.shields.io/packagist/dt/lara-zeus/wind?style=flat-square" /></a>
 <a href="https://github.com/lara-zeus/wind"><img src="https://img.shields.io/github/stars/lara-zeus/wind?style=flat-square" /></a>
+<a href="https://www.codefactor.io/repository/github/lara-zeus/wind"><img src="https://www.codefactor.io/repository/github/lara-zeus/wind/badge" alt="CodeFactor" /></a>
 </p>
 
 Lara-zeus wind is a contact form, with simple dashboard to read and replay to any messages you receive from your website.
