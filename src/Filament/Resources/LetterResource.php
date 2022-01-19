@@ -66,9 +66,9 @@ class LetterResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('id')->sortable(),
-                ViewColumn::make('from')->view('zeus-wind::message-from')->sortable('name'),
-                Tables\Columns\TextColumn::make('title'),
-                Tables\Columns\TextColumn::make('category.name'),
+                ViewColumn::make('from')->view('zeus-wind::message-from')->sortable(['name']),
+                Tables\Columns\TextColumn::make('title')->sortable(),
+                Tables\Columns\TextColumn::make('category.name')->sortable(),
                 Tables\Columns\TextColumn::make('status')->sortable(),
             ])
             ->defaultSort('id', 'desc');

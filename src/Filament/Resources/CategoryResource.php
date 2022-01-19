@@ -61,8 +61,8 @@ class CategoryResource extends Resource
                     ->url(fn (Category $record): string => route('contact', ['category' => $record]))
                     ->openUrlInNewTab(),
                 Tables\Columns\TextColumn::make('desc'),
-                Tables\Columns\TextColumn::make('ordering'),
-                Tables\Columns\BooleanColumn::make('is_active'),
+                Tables\Columns\TextColumn::make('ordering')->sortable(),
+                Tables\Columns\BooleanColumn::make('is_active')->sortable(),
                 ImageColumn::make('logo'),
             ])
             ->defaultSort('id', 'desc');
