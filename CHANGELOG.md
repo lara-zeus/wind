@@ -2,7 +2,11 @@
 
 All notable changes to `bolt` will be documented in this file
 
-## 0.1.1 - 2022-01-10
+## 0.1.3 - 2022-01-19
+
+- fix sorting in Category and Letter Resources
+
+## 0.1.2 - 2022-01-10
 
 - added the package `doctrine/dbal` for modifying the database
 
@@ -17,6 +21,10 @@ All notable changes to `bolt` will be documented in this file
 
 - disable adding new Letter
 - set default replay message
+
+## 0.1.1 - 2022-01-07
+
+small fixes and update zeus-core package.
 
 ## 0.1.0 - 2022-01-07
 
