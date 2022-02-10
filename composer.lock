@@ -1411,12 +1411,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/lara-zeus/core.git",
-                "reference": "408f3b7ff9b1ffa7148de63ce7387a3bd4af46e8"
+                "reference": "856d58e3ead9239825b52b36f3079bbe919a14b2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lara-zeus/core/zipball/408f3b7ff9b1ffa7148de63ce7387a3bd4af46e8",
-                "reference": "408f3b7ff9b1ffa7148de63ce7387a3bd4af46e8",
+                "url": "https://api.github.com/repos/lara-zeus/core/zipball/856d58e3ead9239825b52b36f3079bbe919a14b2",
+                "reference": "856d58e3ead9239825b52b36f3079bbe919a14b2",
                 "shasum": ""
             },
             "require": {
@@ -1472,7 +1472,7 @@
                 "issues": "https://github.com/lara-zeus/core/issues",
                 "source": "https://github.com/lara-zeus/core/tree/main"
             },
-            "time": "2022-02-10T14:21:37+00:00"
+            "time": "2022-02-10T14:26:51+00:00"
         },
         {
             "name": "laravel/framework",
