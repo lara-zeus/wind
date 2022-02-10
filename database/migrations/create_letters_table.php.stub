@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLettersTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -17,7 +17,7 @@ class CreateLettersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email');
-            $table->foreignId('category_id')->constrained('categories');
+            $table->foreignId('department_id')->nullable()->constrained();
             $table->string('title');
             $table->text('message');
             $table->string('status')->default('new');
@@ -37,4 +37,4 @@ class CreateLettersTable extends Migration
     {
         Schema::dropIfExists('letters');
     }
-}
+};

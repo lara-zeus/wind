@@ -3,8 +3,8 @@
 namespace LaraZeus\Wind;
 
 use Filament\PluginServiceProvider;
-use LaraZeus\Wind\Console\InstallCommand;
-use LaraZeus\Wind\Filament\Resources\CategoryResource;
+use LaraZeus\Wind\Console\PublishCommand;
+use LaraZeus\Wind\Filament\Resources\DepartmentResource;
 use LaraZeus\Wind\Filament\Resources\LetterResource;
 use LaraZeus\Wind\Http\Livewire\Contacts;
 use Livewire\Livewire;
@@ -17,7 +17,7 @@ class WindServiceProvider extends PluginServiceProvider
     protected function getResources(): array
     {
         return [
-            CategoryResource::class,
+            DepartmentResource::class,
             LetterResource::class,
         ];
     }
@@ -44,8 +44,8 @@ class WindServiceProvider extends PluginServiceProvider
         parent::configurePackage($package);
         $package
             ->hasConfigFile()
-            ->hasMigrations(['create_category_table', 'create_letters_table', 'set_default_category_id_in_letters_table'])
-            ->hasCommand(InstallCommand::class)
+            ->hasMigrations(['create_department_table', 'create_letters_table'])
+            ->hasCommand(PublishCommand::class)
             ->hasRoute('web');
     }
 }

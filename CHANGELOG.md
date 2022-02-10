@@ -2,6 +2,13 @@
 
 All notable changes to `bolt` will be documented in this file
 
+## 1.0.0 - 2022-02-10
+
+- refactor Categories to Departments
+- change the command 'install' to 'publish'
+- update readme
+- update the docs
+
 ## 0.1.3 - 2022-01-19
 
 - fix sorting in Category and Letter Resources

@@ -1,9 +1,14 @@
 <?php
 
 return [
-    'enableCategories' => true,
+    'enableDepartments' => true,
 
-    'defaultCategoryId' => 1,
+    'defaultDepartmentId' => 1,
 
     'layout' => 'zeus::components.layouts.app',
+
+    'uploads' => [
+        'disk' => 'public',
+        'directory' => 'logos',
+    ],
 ];

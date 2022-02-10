@@ -39,7 +39,7 @@ composer require lara-zeus/wind
 run the command:
 
 ```bash
-php artisan wind:install
+php artisan wind:publish
 ```
 
 ## Usage

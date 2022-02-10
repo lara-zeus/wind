@@ -4,20 +4,20 @@ namespace LaraZeus\Wind\Console;
 
 use Illuminate\Console\Command;
 
-class InstallCommand extends Command
+class PublishCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'wind:install {--force : Overwrite any existing files}';
+    protected $signature = 'wind:publish {--force : Overwrite any existing files}';
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Install the Wind components and resources';
+    protected $description = 'PublishCommand all Zeus and Wind components and resources';
 
     /**
      * Execute the console command.
@@ -40,8 +40,6 @@ class InstallCommand extends Command
         $this->callSilent('vendor:publish', ['--tag' => 'zeus-views', '--force' => $this->option('force') ?? false]);
         $this->callSilent('vendor:publish', ['--tag' => 'zeus-assets', '--force' => $this->option('force') ?? false]);
 
-        $this->callSilent('migrate');
-
-        $this->output->success('Zeus Wind has been installed successfully');
+        $this->output->success('Zeus and Wind has been Published successfully');
     }
 }

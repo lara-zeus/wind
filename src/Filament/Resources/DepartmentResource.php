@@ -13,12 +13,12 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Columns\ImageColumn;
 use Illuminate\Support\Str;
-use LaraZeus\Wind\Filament\Resources\CategoryResource\Pages;
-use LaraZeus\Wind\Models\Category;
+use LaraZeus\Wind\Filament\Resources\DepartmentResource\Pages;
+use LaraZeus\Wind\Models\Department;
 
-class CategoryResource extends Resource
+class DepartmentResource extends Resource
 {
-    protected static ?string $model = Category::class;
+    protected static ?string $model = Department::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-document-duplicate';
     protected static ?int $navigationSort = 1;
@@ -46,6 +46,8 @@ class CategoryResource extends Resource
                     ->maxLength(65535)
                     ->columnSpan(['sm' => 2]),
                 FileUpload::make('logo')
+                    ->disk(config('zeus-wind.uploads.disk','public'))
+                    ->directory(config('zeus-wind.uploads.dir','logos'))
                     ->columnSpan(['sm' => 2]),
             ]);
     }
@@ -58,12 +60,12 @@ class CategoryResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->sortable()
                     ->searchable()
-                    ->url(fn (Category $record): string => route('contact', ['category' => $record]))
+                    ->url(fn (Department $record): string => route('contact', ['department' => $record]))
                     ->openUrlInNewTab(),
                 Tables\Columns\TextColumn::make('desc'),
                 Tables\Columns\TextColumn::make('ordering')->sortable(),
                 Tables\Columns\BooleanColumn::make('is_active')->sortable(),
-                ImageColumn::make('logo'),
+                ImageColumn::make('logo')->disk(config('zeus-wind.uploads.disk','public')),
             ])
             ->defaultSort('id', 'desc');
     }
@@ -71,9 +73,9 @@ class CategoryResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListCategories::route('/'),
-            'create' => Pages\CreateCategory::route('/create'),
-            'edit' => Pages\EditCategory::route('/{record}/edit'),
+            'index' => Pages\ListDepartments::route('/'),
+            'create' => Pages\CreateDepartment::route('/create'),
+            'edit' => Pages\EditDepartment::route('/{record}/edit'),
         ];
     }
 }

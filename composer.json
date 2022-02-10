@@ -21,23 +21,17 @@
     ],
     "require": {
         "php": "^8.0",
-        "doctrine/dbal": "^3.2",
-        "filament/filament": "^2.0",
+        "doctrine/dbal": "^3.3",
+        "filament/filament": "^2.10",
         "lara-zeus/core": "dev-main"
     },
     "require-dev": {
-        "orchestra/testbench": "^6.17",
-        "phpunit/phpunit": "^9.0"
+        "orchestra/testbench": "^7.0"
     },
     "autoload": {
         "psr-4": {
             "LaraZeus\\Wind\\": "src"
         }
-    },
-    "scripts": {
-        "test": "vendor/bin/phpunit",
-        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
-
     },
     "config": {
         "sort-packages": true

@@ -3,18 +3,18 @@
 namespace LaraZeus\Wind\Http\Livewire;
 
 use LaraZeus\Wind\Events\LetterSent;
-use LaraZeus\Wind\Models\Category;
+use LaraZeus\Wind\Models\Department;
 use LaraZeus\Wind\Models\Letter;
 use Livewire\Component;
 
 class Contacts extends Component
 {
-    public Category|null $category = null;
+    public Department|null $department = null;
     public $name = '';
     public $email = '';
     public $title = '';
     public $message = '';
-    public $category_id = '';
+    public $department_id = '';
     public $sent = false;
 
     protected function rules()
@@ -26,20 +26,20 @@ class Contacts extends Component
             'message' => 'required',
         ];
 
-        if (config('zeus-wind.enableCategories')) {
-            $rules['category_id'] = 'required|integer';
+        if (config('zeus-wind.enableDepartments')) {
+            $rules['department_id'] = 'required|integer';
         }
 
         return $rules;
     }
 
-    public function mount(Category $category)
+    public function mount(Department $department)
     {
-        if (config('zeus-wind.enableCategories')) {
-            if ($category->id === null) {
-                $this->category = Category::find(config('zeus-wind.defaultCategoryId'));
+        if (config('zeus-wind.enableDepartments')) {
+            if ($department->id === null) {
+                $this->department = Department::find(config('zeus-wind.defaultDepartmentId'));
             } else {
-                $this->category = $category;
+                $this->department = $department;
             }
         }
     }
@@ -59,6 +59,6 @@ class Contacts extends Component
     {
         return view('zeus-wind::contact')
             ->layout(config('zeus-wind.layout'))
-            ->with('categories', Category::whereIsActive(1)->orderBy('ordering')->get());
+            ->with('departments', Department::whereIsActive(1)->orderBy('ordering')->get());
     }
 }

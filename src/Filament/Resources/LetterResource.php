@@ -11,7 +11,7 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Columns\ViewColumn;
 use LaraZeus\Wind\Filament\Resources\LetterResource\Pages;
-use LaraZeus\Wind\Models\Category;
+use LaraZeus\Wind\Models\Department;
 use LaraZeus\Wind\Models\Letter;
 
 class LetterResource extends Resource
@@ -35,8 +35,8 @@ class LetterResource extends Resource
                     ->required()
                     ->disabled()
                     ->maxLength(255),
-                Select::make('category_id')
-                    ->options(Category::all()->pluck('name', 'id'))
+                Select::make('department_id')
+                    ->options(Department::all()->pluck('name', 'id'))
                     ->required(),
                 TextInput::make('status')
                     ->required()
@@ -68,7 +68,7 @@ class LetterResource extends Resource
                 Tables\Columns\TextColumn::make('id')->sortable(),
                 ViewColumn::make('from')->view('zeus-wind::message-from')->sortable(['name']),
                 Tables\Columns\TextColumn::make('title')->sortable(),
-                Tables\Columns\TextColumn::make('category.name')->sortable(),
+                Tables\Columns\TextColumn::make('department.name')->sortable(),
                 Tables\Columns\TextColumn::make('status')->sortable(),
             ])
             ->defaultSort('id', 'desc');
