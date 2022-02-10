@@ -46,8 +46,8 @@ class DepartmentResource extends Resource
                     ->maxLength(65535)
                     ->columnSpan(['sm' => 2]),
                 FileUpload::make('logo')
-                    ->disk(config('zeus-wind.uploads.disk','public'))
-                    ->directory(config('zeus-wind.uploads.dir','logos'))
+                    ->disk(config('zeus-wind.uploads.disk', 'public'))
+                    ->directory(config('zeus-wind.uploads.dir', 'logos'))
                     ->columnSpan(['sm' => 2]),
             ]);
     }
@@ -65,7 +65,7 @@ class DepartmentResource extends Resource
                 Tables\Columns\TextColumn::make('desc'),
                 Tables\Columns\TextColumn::make('ordering')->sortable(),
                 Tables\Columns\BooleanColumn::make('is_active')->sortable(),
-                ImageColumn::make('logo')->disk(config('zeus-wind.uploads.disk','public')),
+                ImageColumn::make('logo')->disk(config('zeus-wind.uploads.disk', 'public')),
             ])
             ->defaultSort('id', 'desc');
     }
