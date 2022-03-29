@@ -26,7 +26,7 @@ class LetterResource extends Resource
 
     protected static function getNavigationBadge(): ?string
     {
-        return static::getModel()::where('status','NEW')->count();
+        return static::getModel()::where('status', 'NEW')->count();
     }
 
     public static function form(Form $form): Form
