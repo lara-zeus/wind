@@ -69,7 +69,7 @@ class Contacts extends Component implements Forms\Contracts\HasForms
                     ->view('zeus-wind::departments')
                     ->columnSpan(2)
                     ->label(__('Departments'))
-                    ->hidden(fn(): bool => !config('zeus-wind.enableDepartments')),
+                    ->hidden(fn (): bool => ! config('zeus-wind.enableDepartments')),
 
                 TextInput::make('name')->required()->minLength('6'),
                 TextInput::make('email')->required()->email(),
@@ -80,7 +80,7 @@ class Contacts extends Component implements Forms\Contracts\HasForms
                 Textarea::make('message')->required(),
             ])->columns(1),
 
-            Forms\Components\Hidden::make('status')->default('NEW')
+            Forms\Components\Hidden::make('status')->default('NEW'),
         ];
     }
 
