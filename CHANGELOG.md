@@ -2,11 +2,20 @@
 
 All notable changes to `wind` will be documented in this file
 
-## 1.1.0 - 2022-03-29
+## 1.0.3 - 2022-03-29
 
 - add support for laravel 9
 - use filament forms as the frontend
 - Improve the admin and the forms
+
+## 1.0.2 - 2022-02-10
+
+- update assets from zeus-core
+
+## 1.0.1 - 2022-02-10
+
+- fix DepartmentFactory
+
 
 ## 1.0.0 - 2022-02-10
 
