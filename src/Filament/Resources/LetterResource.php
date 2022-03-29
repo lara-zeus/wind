@@ -19,8 +19,15 @@ class LetterResource extends Resource
     protected static ?string $model = Letter::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-inbox';
+
     protected static ?int $navigationSort = 2;
+
     protected static ?string $navigationGroup = 'Wind';
+
+    protected static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::where('status','NEW')->count();
+    }
 
     public static function form(Form $form): Form
     {
