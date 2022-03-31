@@ -35,16 +35,12 @@ class DepartmentResource extends Resource
                     ->afterStateUpdated(function (Closure $set, $state) {
                         $set('slug', Str::slug($state));
                     }),
-                TextInput::make('slug')
-                    ->required()
-                    ->maxLength(255),
-                TextInput::make('ordering')
-                    ->required(),
-                Toggle::make('is_active')
-                    ->required(),
-                Forms\Components\Textarea::make('desc')
-                    ->maxLength(65535)
-                    ->columnSpan(['sm' => 2]),
+                
+                TextInput::make('slug')->required()->maxLength(255),
+                TextInput::make('ordering')->required()->numeric(),
+                Toggle::make('is_active')->required(),
+                Forms\Components\Textarea::make('desc')->maxLength(65535)->columnSpan(['sm' => 2]),
+
                 FileUpload::make('logo')
                     ->disk(config('zeus-wind.uploads.disk', 'public'))
                     ->directory(config('zeus-wind.uploads.dir', 'logos'))
