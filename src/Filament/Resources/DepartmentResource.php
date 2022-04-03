@@ -35,7 +35,7 @@ class DepartmentResource extends Resource
                     ->afterStateUpdated(function (Closure $set, $state) {
                         $set('slug', Str::slug($state));
                     }),
-                
+
                 TextInput::make('slug')->required()->maxLength(255),
                 TextInput::make('ordering')->required()->numeric(),
                 Toggle::make('is_active')->required(),
