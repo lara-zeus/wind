@@ -2,13 +2,13 @@
 
 namespace LaraZeus\Wind\Filament\Resources;
 
-use Filament\Forms;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
-use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ViewColumn;
 use LaraZeus\Wind\Filament\Resources\LetterResource\Pages;
 use LaraZeus\Wind\Models\Department;
@@ -54,7 +54,7 @@ class LetterResource extends Resource
                     ->disabled()
                     ->maxLength(255)
                     ->columnSpan(['sm' => 2]),
-                Forms\Components\Textarea::make('message')
+                Textarea::make('message')
                     ->disabled()
                     ->maxLength(65535)
                     ->columnSpan(['sm' => 2]),
@@ -62,7 +62,7 @@ class LetterResource extends Resource
                     ->required()
                     ->maxLength(255)
                     ->columnSpan(['sm' => 2]),
-                Forms\Components\Textarea::make('reply_message')
+                Textarea::make('reply_message')
                     ->required()
                     ->maxLength(65535)
                     ->columnSpan(['sm' => 2]),
@@ -73,11 +73,11 @@ class LetterResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('id')->sortable(),
+                TextColumn::make('id')->sortable(),
                 ViewColumn::make('from')->view('zeus-wind::filament.message-from')->sortable(['name']),
-                Tables\Columns\TextColumn::make('title')->sortable(),
-                Tables\Columns\TextColumn::make('department.name')->sortable(),
-                Tables\Columns\TextColumn::make('status')->sortable(),
+                TextColumn::make('title')->sortable(),
+                TextColumn::make('department.name')->sortable(),
+                TextColumn::make('status')->sortable(),
             ])
             ->defaultSort('id', 'desc');
     }

@@ -5,7 +5,7 @@ return [
 
     'defaultDepartmentId' => 1,
 
-    'layout' => 'zeus::components.layouts.app',
+    'layout' => 'zeus::components.app',
 
     'uploads' => [
         'disk' => 'public',
