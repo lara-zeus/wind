@@ -87,6 +87,7 @@ class Contacts extends Component implements Forms\Contracts\HasForms
     public function render()
     {
         return view('zeus-wind::contact')
+            ->with('departments', Department::whereIsActive(1)->orderBy('ordering')->get())
             ->layout(config('zeus-wind.layout'));
     }
 }
