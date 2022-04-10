@@ -10,6 +10,11 @@ All notable changes to `wind` will be documented in this file
 - allow to configure the default status for new messages
 - hide the Departments from the admin panel when it's disabled in the config
 
+## 1.0.4 - 2022-04-10
+
+- fix missing `departments` from Contacts Component
+- add validation for ordering in `DepartmentResource`
+
 ## 1.0.3 - 2022-03-29
 
 - add support for laravel 9
