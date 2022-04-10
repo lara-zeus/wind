@@ -26,7 +26,7 @@ class LetterResource extends Resource
 
     protected static function getNavigationBadge(): ?string
     {
-        return static::getModel()::where('status', 'NEW')->count();
+        return static::getModel()::where('status', config('zeus-wind.default_status'))->count();
     }
 
     public static function form(Form $form): Form
@@ -44,7 +44,8 @@ class LetterResource extends Resource
                     ->maxLength(255),
                 Select::make('department_id')
                     ->options(Department::all()->pluck('name', 'id'))
-                    ->required(),
+                    ->required()
+                    ->visible(fn (): bool => config('zeus-wind.enableDepartments')),
                 TextInput::make('status')
                     ->required()
                     ->maxLength(255),
@@ -73,7 +74,7 @@ class LetterResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('id')->sortable(),
-                ViewColumn::make('from')->view('zeus-wind::message-from')->sortable(['name']),
+                ViewColumn::make('from')->view('zeus-wind::filament.message-from')->sortable(['name']),
                 Tables\Columns\TextColumn::make('title')->sortable(),
                 Tables\Columns\TextColumn::make('department.name')->sortable(),
                 Tables\Columns\TextColumn::make('status')->sortable(),

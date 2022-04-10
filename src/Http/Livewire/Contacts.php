@@ -23,23 +23,7 @@ class Contacts extends Component implements Forms\Contracts\HasForms
     public $message = '';
     public $department_id = '';
     public $sent = false;
-    public $status = 'NEW';
-
-    /*protected function rules()
-    {
-        $rules = [
-            'name' => 'required|min:6',
-            'email' => 'required|email',
-            'title' => 'required',
-            'message' => 'required',
-        ];
-
-        if (config('zeus-wind.enableDepartments')) {
-            $rules['department_id'] = 'required|integer';
-        }
-
-        return $rules;
-    }*/
+    public $status;
 
     public function mount(Department $department)
     {
@@ -80,12 +64,21 @@ class Contacts extends Component implements Forms\Contracts\HasForms
                 Textarea::make('message')->required(),
             ])->columns(1),
 
-            Forms\Components\Hidden::make('status')->default('NEW'),
+            Forms\Components\Hidden::make('status')->default(config('zeus-wind.default_status')),
         ];
     }
 
     public function render()
     {
+        seo()
+            ->site(config('app.name', 'Laravel'))
+            ->title(config('zeus-wind.title'))
+            ->description(config('zeus-wind.description'))
+            ->rawTag('favicon', '<link rel="icon" type="image/x-icon" href="'.asset('favicon/favicon.ico').'">')
+            ->rawTag('<meta name="theme-color" content="'.config('zeus-wind.color').'" />')
+            ->withUrl()
+            ->twitter();
+
         return view('zeus-wind::contact')
             ->layout(config('zeus-wind.layout'));
     }

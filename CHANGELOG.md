@@ -2,6 +2,14 @@
 
 All notable changes to `wind` will be documented in this file
 
+## 2.0.0 - 2022-04-19
+
+- remove title slot and useing laravel-seo
+- fix validations on all resources
+- clean up some blade files
+- allow to configure the default status for new messages
+- hide the Departments from the admin panel when it's disabled in the config
+
 ## 1.0.3 - 2022-03-29
 
 - add support for laravel 9
