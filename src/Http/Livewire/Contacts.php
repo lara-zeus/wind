@@ -4,6 +4,7 @@ namespace LaraZeus\Wind\Http\Livewire;
 
 use Filament\Forms;
 use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\ViewField;
@@ -64,7 +65,7 @@ class Contacts extends Component implements Forms\Contracts\HasForms
                 Textarea::make('message')->required(),
             ])->columns(1),
 
-            Forms\Components\Hidden::make('status')->default(config('zeus-wind.default_status')),
+            Hidden::make('status')->default(config('zeus-wind.default_status')),
         ];
     }
 

@@ -44,7 +44,7 @@ class DepartmentResource extends Resource
 
                 TextInput::make('slug')->required()->maxLength(255),
                 TextInput::make('ordering')->required()->numeric(),
-                Toggle::make('is_active')->required(),
+                Toggle::make('is_active'),
                 Textarea::make('desc')->maxLength(65535)->columnSpan(['sm' => 2]),
 
                 FileUpload::make('logo')

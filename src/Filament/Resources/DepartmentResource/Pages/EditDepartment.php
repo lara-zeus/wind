@@ -12,5 +12,7 @@ class EditDepartment extends EditRecord
     public function mount($record): void
     {
         abort_unless(config('zeus-wind.enableDepartments'), 404);
+
+        parent::mount($record);
     }
 }
