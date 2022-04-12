@@ -73,8 +73,8 @@ class Contacts extends Component implements Forms\Contracts\HasForms
     {
         seo()
             ->site(config('app.name', 'Laravel'))
-            ->title(config('zeus-wind.title'))
-            ->description(config('zeus-wind.description'))
+            ->title(config('zeus-wind.site_title'))
+            ->description(config('zeus-wind.site_description'))
             ->rawTag('favicon', '<link rel="icon" type="image/x-icon" href="'.asset('favicon/favicon.ico').'">')
             ->rawTag('<meta name="theme-color" content="'.config('zeus-wind.color').'" />')
             ->withUrl()
