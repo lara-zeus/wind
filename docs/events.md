@@ -1,12 +1,13 @@
 ---
 title: Events
-weight: 4
+weight: 5
 ---
 
 ## Available Events
 
 wind will fire these events:
 - `LaraZeus\Wind\Events\LetterSent`
+- `LaraZeus\Wind\Events\ReplySent`
 
 ## Register a Listener:
 * first create your listener:
