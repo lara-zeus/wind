@@ -15,6 +15,12 @@
 Lara-zeus wind is a contact form, with simple dashboard to read and replay to any messages you receive from your website.
 >small tasks can be time-consuming, let us build these for you,
 
+## Support Filament
+
+<a href="https://github.com/sponsors/danharrin">
+<img width="320" alt="filament-logo" src="https://filamentadmin.com/images/sponsor-banner.jpg">
+</a>
+
 ## features
 - 🔥 built with [TALL stack](https://tallstack.dev/)
 - 🔥 using [filament](https://filamentadmin.com) as an admin panel
