@@ -14,12 +14,12 @@ to customize the layout, you can change the default layout in the config file
 or if you don't have a layout yet, you can publish the default one:
 
 ```bash
-php artisan vendor:publish --tag=zeus-zeus-views
+php artisan vendor:publish --tag=zeus-views
 ```
 
 ## Publishing the default views
 
-to custmize the default views for wind:
+to customize the default views for wind:
 
 ```bash
 php artisan vendor:publish --tag=zeus-wind-views
