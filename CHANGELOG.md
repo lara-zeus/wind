@@ -10,6 +10,7 @@ All notable changes to `wind` will be documented in this file
 - allow to configure the default status for new messages
 - hide the Departments from the admin panel when it's disabled in the config
 - update the config file
+- add translations
 
 ## 1.0.4 - 2022-04-10
 

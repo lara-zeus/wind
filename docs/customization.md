@@ -25,5 +25,13 @@ to customize the default views for wind:
 php artisan vendor:publish --tag=zeus-wind-views
 ```
 
+## Publishing Translations
+
+to customize the translations:
+
+```bash
+php artisan vendor:publish --tag=zeus-wind-translations
+```
+
 ## themes
 soon

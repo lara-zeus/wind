@@ -3,6 +3,8 @@ title: Introduction
 weight: 1
 ---
 
+## Introduction
+
 Lara-zeus Wind, is a package provides a simple contact form manger, with the abilety to store the messages in the database, and you can reply to them from the dashboard.
 
 
@@ -20,4 +22,9 @@ Lara-zeus Wind, is a package provides a simple contact form manger, with the abi
 
 🔥 direct URL to contact on specific department.
 
-More Documentation are coming soon...
+## Support
+
+available support channels:
+* using our channel `#wind` on [Discord](https://filamentphp.com/discord)
+* open an issue on [GitHub](https://github.com/lara-zeus/wind/issues)
+* email us using the [contact center](https://atm-code.com/contact-us/lara-zeus)

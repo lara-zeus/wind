@@ -22,8 +22,8 @@ class DepartmentResource extends Resource
     protected static ?string $model = Department::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-document-duplicate';
+
     protected static ?int $navigationSort = 1;
-    protected static ?string $navigationGroup = 'Wind';
 
     protected static function shouldRegisterNavigation() : bool
     {
@@ -38,19 +38,21 @@ class DepartmentResource extends Resource
                     ->required()
                     ->maxLength(255)
                     ->reactive()
+                    ->label(__('name'))
                     ->afterStateUpdated(function (Closure $set, $state) {
                         $set('slug', Str::slug($state));
                     }),
 
-                TextInput::make('slug')->required()->maxLength(255),
-                TextInput::make('ordering')->required()->numeric(),
-                Toggle::make('is_active'),
-                Textarea::make('desc')->maxLength(65535)->columnSpan(['sm' => 2]),
+                TextInput::make('slug')->required()->maxLength(255)->label(__('slug')),
+                TextInput::make('ordering')->required()->numeric()->label(__('ordering')),
+                Toggle::make('is_active')->label(__('is_active')),
+                Textarea::make('desc')->maxLength(65535)->columnSpan(['sm' => 2])->label(__('desc')),
 
                 FileUpload::make('logo')
                     ->disk(config('zeus-wind.uploads.disk', 'public'))
                     ->directory(config('zeus-wind.uploads.dir', 'logos'))
-                    ->columnSpan(['sm' => 2]),
+                    ->columnSpan(['sm' => 2])
+                    ->label(__('logo')),
             ]);
     }
 
@@ -58,16 +60,16 @@ class DepartmentResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('id')->sortable(),
                 TextColumn::make('name')
+                    ->label(__('name'))
                     ->sortable()
                     ->searchable()
                     ->url(fn (Department $record): string => route('contact', ['department' => $record]))
                     ->openUrlInNewTab(),
-                TextColumn::make('desc'),
-                TextColumn::make('ordering')->sortable(),
-                BooleanColumn::make('is_active')->sortable(),
-                ImageColumn::make('logo')->disk(config('zeus-wind.uploads.disk', 'public')),
+                TextColumn::make('desc')->label(__('desc')),
+                TextColumn::make('ordering')->sortable()->label(__('ordering')),
+                BooleanColumn::make('is_active')->sortable()->label(__('is_active')),
+                ImageColumn::make('logo')->disk(config('zeus-wind.uploads.disk', 'public'))->label(__('logo')),
             ])
             ->defaultSort('id', 'desc');
     }
@@ -79,5 +81,25 @@ class DepartmentResource extends Resource
             'create' => Pages\CreateDepartment::route('/create'),
             'edit' => Pages\EditDepartment::route('/{record}/edit'),
         ];
+    }
+
+    public static function getLabel() : string
+    {
+        return __('Department');
+    }
+
+    public static function getPluralLabel() : string
+    {
+        return __('Departments');
+    }
+
+    protected static function getNavigationLabel() : string
+    {
+        return __('Departments');
+    }
+
+    protected static function getNavigationGroup() : ?string
+    {
+        return __('Wind');
     }
 }

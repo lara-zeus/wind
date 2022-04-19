@@ -1,7 +1,7 @@
 <h1 align="center">Lara Zeus Wind</h1>
 
 <p align="center">
-<a href="https://larazeus.com"><img src="https://larazeus.com/images/zeus-wind-banner.png" /></a>
+<a href="https://larazeus.com"><img src="https://larazeus.com/images/wind-banner.png" /></a>
 </p>
 
 <p align="center">
@@ -59,6 +59,13 @@ visit the url `/admin` to manage the Letters, and `/contact-us` to access the co
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+
+## Support
+
+available support channels:
+* using our channel `#wind` on [Discord](https://filamentphp.com/discord)
+* open an issue on [GitHub](https://github.com/lara-zeus/wind/issues)
+* email us using the [contact center](https://atm-code.com/contact-us/lara-zeus)
 
 ## Contributing
 

@@ -14,7 +14,7 @@
             @if($departments->isEmpty())
                 <x-zeus::box shadowless class="max-w-4xl mx-auto">
                     <div class="text-red-400">
-                        {{ __('no departments available!.') }}
+                        {{ __('no departments available!') }}
                     </div>
                 </x-zeus::box>
                 <input type="hidden" name="{{ $getStatePath() }}" wire:model="{{ $getStatePath() }}" value="{{ config('zeus-wind.defaultDepartmentId') }}">

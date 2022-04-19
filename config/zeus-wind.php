@@ -2,6 +2,17 @@
 
 return [
     /**
+     * set the default path for the blogs homepage
+     */
+    'path' => 'blog',
+
+    /**
+     * the middleware you want to apply on all the blogs routes
+     * for example if you want to make your blog for users only, add the middleware 'auth'
+     */
+    'middleware' => ['web'],
+
+    /**
      * allows you to create multiple departments to receive the messages from your website.
      */
     'enableDepartments' => true,

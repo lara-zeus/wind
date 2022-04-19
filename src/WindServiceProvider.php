@@ -46,6 +46,7 @@ class WindServiceProvider extends PluginServiceProvider
             ->hasConfigFile()
             ->hasMigrations(['create_department_table', 'create_letters_table'])
             ->hasCommand(PublishCommand::class)
-            ->hasRoute('web');
+            ->hasRoute('web')
+            ->hasTranslations();
     }
 }
