@@ -13,8 +13,8 @@ class Letter extends Model
     use HasFactory;
 
     protected $fillable = [
-            'name', 'email', 'department_id', 'title', 'message', 'status', 'reply_message', 'reply_title',
-        ];
+        'name', 'email', 'department_id', 'title', 'message', 'status', 'reply_message', 'reply_title',
+    ];
 
     protected static function newFactory()
     {
@@ -28,6 +28,6 @@ class Letter extends Model
 
     public function getReplyTitleAttribute($value)
     {
-        return $value ?? __('re') . ': ' . $this->title;
+        return $value ?? __('re').': '.$this->title;
     }
 }

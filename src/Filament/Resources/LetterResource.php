@@ -96,22 +96,22 @@ class LetterResource extends Resource
         ];
     }
 
-    public static function getLabel() : string
+    public static function getLabel(): string
     {
         return __('Letter');
     }
 
-    public static function getPluralLabel() : string
+    public static function getPluralLabel(): string
     {
         return __('Letters');
     }
 
-    protected static function getNavigationLabel() : string
+    protected static function getNavigationLabel(): string
     {
         return __('Letters');
     }
 
-    protected static function getNavigationGroup() : ?string
+    protected static function getNavigationGroup(): ?string
     {
         return __('Wind');
     }
