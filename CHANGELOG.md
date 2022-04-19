@@ -2,6 +2,16 @@
 
 All notable changes to `wind` will be documented in this file
 
+## 2.0.0 - 2022-04-19
+
+- remove title slot and using laravel-seo
+- fix validations on all resources
+- clean up some blade files
+- allow to configure the default status for new messages
+- hide the Departments from the admin panel when it's disabled in the config
+- update the config file
+- add translations
+
 ## 1.0.4 - 2022-04-10
 
 - fix missing `departments` from Contacts Component

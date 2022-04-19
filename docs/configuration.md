@@ -1,17 +1,23 @@
-<?php
+---
+title: Configuration
+weight: 3
+---
+
+## Configuration
+
+to publish the config file run the command:
+
+```bash
+php artisan vendor:publish --tag=zeus-wind-config
+```
+
+you can pass `--force` option to force publishing the config file
+
+the config file will contain the following:
+
+```php
 
 return [
-    /**
-     * set the default path for the blogs homepage
-     */
-    'path' => 'blog',
-
-    /**
-     * the middleware you want to apply on all the blogs routes
-     * for example if you want to make your blog for users only, add the middleware 'auth'
-     */
-    'middleware' => ['web'],
-
     /**
      * allows you to create multiple departments to receive the messages from your website.
      */
@@ -56,3 +62,4 @@ return [
      */
     'default_status' => 'NEW',
 ];
+```

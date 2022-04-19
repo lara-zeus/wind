@@ -29,11 +29,11 @@ class WindServiceProvider extends PluginServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__.'/../database/seeders' => database_path('seeders'),
-            ], 'wind-seeder');
+            ], 'zeus-wind-seeder');
 
             $this->publishes([
                 __DIR__.'/../database/factories' => database_path('factories'),
-            ], 'wind-factories');
+            ], 'zeus-wind-factories');
         }
 
         return parent::boot();
@@ -46,6 +46,7 @@ class WindServiceProvider extends PluginServiceProvider
             ->hasConfigFile()
             ->hasMigrations(['create_department_table', 'create_letters_table'])
             ->hasCommand(PublishCommand::class)
-            ->hasRoute('web');
+            ->hasRoute('web')
+            ->hasTranslations();
     }
 }

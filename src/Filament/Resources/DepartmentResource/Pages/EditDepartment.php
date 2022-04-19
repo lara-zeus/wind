@@ -8,4 +8,11 @@ use LaraZeus\Wind\Filament\Resources\DepartmentResource;
 class EditDepartment extends EditRecord
 {
     protected static string $resource = DepartmentResource::class;
+
+    public function mount($record): void
+    {
+        abort_unless(config('zeus-wind.enableDepartments'), 404);
+
+        parent::mount($record);
+    }
 }

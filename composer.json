@@ -43,5 +43,11 @@
                 "Wind": "LaraZeus\\Wind\\WindFacade"
             }
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../core"
+        }
+    ]
 }

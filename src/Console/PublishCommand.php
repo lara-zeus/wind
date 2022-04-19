@@ -26,14 +26,14 @@ class PublishCommand extends Command
      */
     public function handle()
     {
-        // art vendor:publish --tag=zeus-wind-migrations
         // publish Wind files
         $this->callSilent('vendor:publish', ['--tag' => 'zeus-wind-config', '--force' => $this->option('force') ?? false]);
         $this->callSilent('vendor:publish', ['--tag' => 'zeus-wind-migrations', '--force' => $this->option('force') ?? false]);
         $this->callSilent('vendor:publish', ['--tag' => 'zeus-wind-views', '--force' => $this->option('force') ?? false]);
+        $this->callSilent('vendor:publish', ['--tag' => 'zeus-wind-translations', '--force' => $this->option('force') ?? false]);
 
-        $this->callSilent('vendor:publish', ['--tag' => 'wind-seeder', '--force' => $this->option('force') ?? false]);
-        $this->callSilent('vendor:publish', ['--tag' => 'wind-factories', '--force' => $this->option('force') ?? false]);
+        $this->callSilent('vendor:publish', ['--tag' => 'zeus-wind-seeder', '--force' => $this->option('force') ?? false]);
+        $this->callSilent('vendor:publish', ['--tag' => 'zeus-wind-factories', '--force' => $this->option('force') ?? false]);
 
         // publish Zeus files
         $this->callSilent('vendor:publish', ['--tag' => 'zeus-config', '--force' => $this->option('force') ?? false]);
