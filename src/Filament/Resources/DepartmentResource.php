@@ -25,7 +25,7 @@ class DepartmentResource extends Resource
 
     protected static ?int $navigationSort = 1;
 
-    protected static function shouldRegisterNavigation() : bool
+    protected static function shouldRegisterNavigation(): bool
     {
         return config('zeus-wind.enableDepartments');
     }
@@ -83,22 +83,22 @@ class DepartmentResource extends Resource
         ];
     }
 
-    public static function getLabel() : string
+    public static function getLabel(): string
     {
         return __('Department');
     }
 
-    public static function getPluralLabel() : string
+    public static function getPluralLabel(): string
     {
         return __('Departments');
     }
 
-    protected static function getNavigationLabel() : string
+    protected static function getNavigationLabel(): string
     {
         return __('Departments');
     }
 
-    protected static function getNavigationGroup() : ?string
+    protected static function getNavigationGroup(): ?string
     {
         return __('Wind');
     }

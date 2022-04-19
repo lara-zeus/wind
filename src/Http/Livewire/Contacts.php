@@ -39,18 +39,18 @@ class Contacts extends Component implements Forms\Contracts\HasForms
         }
 
         $this->form->fill(
-            [ 'department_id' => $this->department->id ?? 0 ]
+            ['department_id' => $this->department->id ?? 0]
         );
     }
 
     public function store()
     {
-        $letter     = Letter::create($this->form->getState());
+        $letter = Letter::create($this->form->getState());
         $this->sent = true;
         LetterSent::dispatch($letter);
     }
 
-    protected function getFormSchema() : array
+    protected function getFormSchema(): array
     {
         return [
             Grid::make()->schema([
@@ -58,7 +58,7 @@ class Contacts extends Component implements Forms\Contracts\HasForms
                     ->view('zeus-wind::departments')
                     ->columnSpan(2)
                     ->label(__('Departments'))
-                    ->visible(fn() : bool => config('zeus-wind.enableDepartments')),
+                    ->visible(fn (): bool => config('zeus-wind.enableDepartments')),
 
                 TextInput::make('name')->required()->minLength('6')->label(__('name')),
                 TextInput::make('email')->required()->email()->label(__('email')),
@@ -79,8 +79,8 @@ class Contacts extends Component implements Forms\Contracts\HasForms
             ->site(config('app.name', 'Laravel'))
             ->title(config('zeus-wind.site_title'))
             ->description(config('zeus-wind.site_description'))
-            ->rawTag('favicon', '<link rel="icon" type="image/x-icon" href="' . asset('favicon/favicon.ico') . '">')
-            ->rawTag('<meta name="theme-color" content="' . config('zeus-wind.color') . '" />')
+            ->rawTag('favicon', '<link rel="icon" type="image/x-icon" href="'.asset('favicon/favicon.ico').'">')
+            ->rawTag('<meta name="theme-color" content="'.config('zeus-wind.color').'" />')
             ->withUrl()
             ->twitter();
 
