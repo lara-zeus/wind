@@ -2,6 +2,14 @@
 
 All notable changes to `wind` will be documented in this file
 
+## 2.1.1 - 2022-06-21
+
+### What's Changed
+
+- update core version by @atmonshi in https://github.com/lara-zeus/wind/pull/14
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/2.1.0...2.1.1
+
 ## 2.1.0 - 2022-06-21
 
 ### What's Changed
