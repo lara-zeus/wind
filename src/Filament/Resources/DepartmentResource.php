@@ -64,7 +64,7 @@ class DepartmentResource extends Resource
                     ->label(__('name'))
                     ->sortable()
                     ->searchable()
-                    ->url(fn (Department $record): string => route('contact', ['department' => $record]))
+                    ->url(fn (Department $record): string => route('contact', ['departmentSlug' => $record]))
                     ->openUrlInNewTab(),
                 TextColumn::make('desc')->label(__('desc')),
                 TextColumn::make('ordering')->sortable()->label(__('ordering')),

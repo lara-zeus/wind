@@ -7,6 +7,7 @@ use LaraZeus\Wind\Console\PublishCommand;
 use LaraZeus\Wind\Filament\Resources\DepartmentResource;
 use LaraZeus\Wind\Filament\Resources\LetterResource;
 use LaraZeus\Wind\Http\Livewire\Contacts;
+use LaraZeus\Wind\Http\Livewire\ContactsForm;
 use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Package;
 
@@ -25,6 +26,7 @@ class WindServiceProvider extends PluginServiceProvider
     public function boot()
     {
         Livewire::component('contact', Contacts::class);
+        Livewire::component('contact-form', ContactsForm::class);
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
