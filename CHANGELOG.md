@@ -2,6 +2,14 @@
 
 All notable changes to `wind` will be documented in this file
 
+## 2.1.0 - 2022-06-21
+
+### What's Changed
+
+- allow embedding the contact form in any blade template by @atmonshi in https://github.com/lara-zeus/wind/pull/12
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/2.0.1...2.1.0
+
 ## 2.0.0 - 2022-04-19
 
 - remove title slot and use laravel-seo
@@ -30,7 +38,6 @@ All notable changes to `wind` will be documented in this file
 ## 1.0.1 - 2022-02-10
 
 - fix DepartmentFactory
-
 
 ## 1.0.0 - 2022-02-10
 
