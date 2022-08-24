@@ -2,6 +2,14 @@
 
 All notable changes to `wind` will be documented in this file
 
+## 2.2.1 - 2022-08-24
+
+### What's Changed
+
+- update composer and assets by @atmonshi in https://github.com/lara-zeus/wind/pull/16
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/2.2.0...2.2.1
+
 ## 2.1.1 - 2022-06-21
 
 ### What's Changed
