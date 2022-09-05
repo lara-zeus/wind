@@ -56,13 +56,21 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
             Grid::make()->schema([
                 ViewField::make('department_id')
                     ->view('zeus-wind::departments')
-                    ->columnSpan(2)
+                    ->columnSpan([
+                        'default' => 1,
+                        'sm' => 1,
+                        'md' => 2,
+                    ])
                     ->label(__('Departments'))
                     ->visible(fn (): bool => config('zeus-wind.enableDepartments')),
 
                 TextInput::make('name')->required()->minLength('6')->label(__('name')),
                 TextInput::make('email')->required()->email()->label(__('email')),
-            ])->columns(2),
+            ])->columns([
+                'default' => 1,
+                'sm' => 1,
+                'md' => 2,
+            ]),
 
             Grid::make()->schema([
                 TextInput::make('title')->required()->label(__('title')),
