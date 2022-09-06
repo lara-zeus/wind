@@ -1420,16 +1420,16 @@
         },
         {
             "name": "lara-zeus/core",
-            "version": "2.2.6",
+            "version": "2.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lara-zeus/core.git",
-                "reference": "3e31944abf09883fb33471b9ddf662f1b1326f61"
+                "reference": "6d63190ae0b1b5ffad247642547e525775b65155"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lara-zeus/core/zipball/3e31944abf09883fb33471b9ddf662f1b1326f61",
-                "reference": "3e31944abf09883fb33471b9ddf662f1b1326f61",
+                "url": "https://api.github.com/repos/lara-zeus/core/zipball/6d63190ae0b1b5ffad247642547e525775b65155",
+                "reference": "6d63190ae0b1b5ffad247642547e525775b65155",
                 "shasum": ""
             },
             "require": {
@@ -1482,7 +1482,7 @@
             ],
             "support": {
                 "issues": "https://github.com/lara-zeus/core/issues",
-                "source": "https://github.com/lara-zeus/core/tree/2.2.6"
+                "source": "https://github.com/lara-zeus/core/tree/2.2.7"
             },
             "funding": [
                 {
@@ -1490,20 +1490,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-09-05T22:07:34+00:00"
+            "time": "2022-09-06T22:07:30+00:00"
         },
         {
             "name": "laravel/framework",
-            "version": "v9.27.0",
+            "version": "v9.28.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "27572f45120fd3977d92651a71d8c711a9aaa790"
+                "reference": "396a89e1f3654123d1c7f56306051212e5c75bc0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/27572f45120fd3977d92651a71d8c711a9aaa790",
-                "reference": "27572f45120fd3977d92651a71d8c711a9aaa790",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/396a89e1f3654123d1c7f56306051212e5c75bc0",
+                "reference": "396a89e1f3654123d1c7f56306051212e5c75bc0",
                 "shasum": ""
             },
             "require": {
@@ -1670,7 +1670,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2022-08-30T13:34:43+00:00"
+            "time": "2022-09-06T14:57:01+00:00"
         },
         {
             "name": "laravel/serializable-closure",
