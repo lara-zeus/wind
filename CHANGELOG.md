@@ -2,6 +2,15 @@
 
 All notable changes to `wind` will be documented in this file
 
+## 2.2.5 - 2022-09-14
+
+### What's Changed
+
+- Apply fixes from StyleCI by @atmonshi in https://github.com/lara-zeus/wind/pull/21
+- Fix new status by @atmonshi in https://github.com/lara-zeus/wind/pull/20
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/2.2.4...2.2.5
+
 ## 2.2.4 - 2022-09-06
 
 ### What's Changed
