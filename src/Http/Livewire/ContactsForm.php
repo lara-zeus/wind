@@ -75,6 +75,7 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
             Grid::make()->schema([
                 TextInput::make('title')->required()->label(__('title')),
                 Textarea::make('message')->required()->label(__('message')),
+                Forms\Components\Hidden::make('status')->default('NEW')
             ])->columns(1),
         ];
     }

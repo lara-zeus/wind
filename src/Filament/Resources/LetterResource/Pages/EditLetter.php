@@ -12,7 +12,8 @@ class EditLetter extends EditRecord
     public function mount($record): void
     {
         parent::mount($record);
-        if ($this->record->status === config('zeus-wind.default_status')) {
+        
+        if (strtoupper($this->record->status) === config('zeus-wind.default_status')) {
             $this->record->update(['status' => 'READ']);
         }
     }

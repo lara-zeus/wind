@@ -25,6 +25,11 @@ class DepartmentResource extends Resource
 
     protected static ?int $navigationSort = 1;
 
+    protected static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
     protected static function shouldRegisterNavigation(): bool
     {
         return config('zeus-wind.enableDepartments');
@@ -39,7 +44,11 @@ class DepartmentResource extends Resource
                     ->maxLength(255)
                     ->reactive()
                     ->label(__('name'))
-                    ->afterStateUpdated(function (Closure $set, $state) {
+                    ->afterStateUpdated(function (Closure $set, $state, $context) {
+                        if ($context === 'edit') {
+                            return;
+                        }
+
                         $set('slug', Str::slug($state));
                     }),
 
