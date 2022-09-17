@@ -12,6 +12,9 @@ use LaraZeus\Wind\Models\Department;
 use LaraZeus\Wind\Models\Letter;
 use Livewire\Component;
 
+/**
+ * @property mixed $form
+ */
 class ContactsForm extends Component implements Forms\Contracts\HasForms
 {
     use Forms\Concerns\InteractsWithForms;
@@ -36,7 +39,7 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
     {
         if (config('zeus-wind.enableDepartments')) {
             if ($departmentSlug !== null) {
-                $this->department = Department::whereSlug($departmentSlug)->first();
+                $this->department = Department::where('slug',$departmentSlug)->first();
             } else {
                 $this->department = Department::find(config('zeus-wind.defaultDepartmentId'));
             }
@@ -90,6 +93,6 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
     public function render()
     {
         return view(app('wind-theme') . '.contact-form')
-            ->with('departments', Department::whereIsActive(1)->orderBy('ordering')->get());
+            ->with('departments', Department::where('is_active',1)->orderBy('ordering')->get());
     }
 }

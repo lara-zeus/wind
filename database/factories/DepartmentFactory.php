@@ -19,7 +19,6 @@ class DepartmentFactory extends Factory
      *
      * @return array
      *
-     * @throws \JsonException
      */
     public function definition()
     {
