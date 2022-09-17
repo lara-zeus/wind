@@ -68,7 +68,7 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
                         'sm' => 1,
                         'md' => 2,
                     ])
-                    ->label(__('Departments'))
+                    ->label('')
                     ->visible(fn (): bool => config('zeus-wind.enableDepartments')),
 
                 TextInput::make('name')->required()->minLength('6')->label(__('name')),

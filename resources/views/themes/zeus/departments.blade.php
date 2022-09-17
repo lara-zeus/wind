@@ -30,13 +30,13 @@
                             <label class="checkbox-wrapper">
                                 <input wire:model="{{ $getStatePath() }}" {{--@checked($departments->count() === 1 || request('department') === $dept->slug)--}} type="radio" class="checkbox-input" name="group" value="{{ $dept->id }}"/>
                                 <span class="checkbox-tile hover:border-secondary-500 p-4">
-                                    <span class="text-primary-600 flex flex-col items-center justify-center gap-2">
+                                    <span class="text-primary-600 dark:text-primary-500 flex flex-col items-center justify-center gap-2">
                                         @if($dept->logo !== null)
                                             <img class="w-full h-32 object-center object-cover" src="{{ \Illuminate\Support\Facades\Storage::disk(config('zeus-wind.uploads.disk','public'))->url($dept->logo) }}">
                                         @endif
                                         {{ $dept->name ?? '' }}
                                     </span>
-                                    <span class="text-gray-500 text-center px-2 overflow-clip overflow-hidden ">{{ $dept->desc ?? '' }}</span>
+                                    <span class="text-gray-500 dark:text-gray-100 text-center px-2 overflow-clip overflow-hidden ">{{ $dept->desc ?? '' }}</span>
                                 </span>
                             </label>
                         </div>
