@@ -3,6 +3,8 @@
 namespace LaraZeus\Wind;
 
 use Filament\PluginServiceProvider;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\View;
 use LaraZeus\Wind\Console\PublishCommand;
 use LaraZeus\Wind\Filament\Resources\DepartmentResource;
 use LaraZeus\Wind\Filament\Resources\LetterResource;
@@ -27,6 +29,12 @@ class WindServiceProvider extends PluginServiceProvider
     {
         Livewire::component('contact', Contacts::class);
         Livewire::component('contact-form', ContactsForm::class);
+
+        View::share('theme', 'zeus-wind::themes.' . config('zeus-wind.theme', 'zeus'));
+
+        App::singleton('theme', function () {
+            return 'zeus-wind::themes.' . config('zeus-wind.theme', 'zeus');
+        });
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
