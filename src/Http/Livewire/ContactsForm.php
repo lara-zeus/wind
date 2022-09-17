@@ -62,7 +62,7 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
         return [
             Grid::make()->schema([
                 ViewField::make('department_id')
-                    ->view(app('theme') . '.departments')
+                    ->view(app('wind-theme') . '.departments')
                     ->columnSpan([
                         'default' => 1,
                         'sm' => 1,
@@ -89,7 +89,7 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
 
     public function render()
     {
-        return view(app('theme') . '.contact-form')
+        return view(app('wind-theme') . '.contact-form')
             ->with('departments', Department::whereIsActive(1)->orderBy('ordering')->get());
     }
 }
