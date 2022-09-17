@@ -12,24 +12,34 @@ use LaraZeus\Wind\Models\Department;
 use LaraZeus\Wind\Models\Letter;
 use Livewire\Component;
 
+/**
+ * @property mixed $form
+ */
 class ContactsForm extends Component implements Forms\Contracts\HasForms
 {
     use Forms\Concerns\InteractsWithForms;
 
     public Department|null $department = null;
+
     public $name = '';
+
     public $email = '';
+
     public $title = '';
+
     public $message = '';
+
     public $department_id;
+
     public $sent = false;
+
     public $status = 'NEW';
 
     public function mount($departmentSlug)
     {
         if (config('zeus-wind.enableDepartments')) {
             if ($departmentSlug !== null) {
-                $this->department = Department::whereSlug($departmentSlug)->first();
+                $this->department = Department::where('slug', $departmentSlug)->first();
             } else {
                 $this->department = Department::find(config('zeus-wind.defaultDepartmentId'));
             }
@@ -55,13 +65,13 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
         return [
             Grid::make()->schema([
                 ViewField::make('department_id')
-                    ->view('zeus-wind::departments')
+                    ->view(app('wind-theme') . '.departments')
                     ->columnSpan([
                         'default' => 1,
                         'sm' => 1,
                         'md' => 2,
                     ])
-                    ->label(__('Departments'))
+                    ->label('')
                     ->visible(fn (): bool => config('zeus-wind.enableDepartments')),
 
                 TextInput::make('name')->required()->minLength('6')->label(__('name')),
@@ -82,7 +92,7 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
 
     public function render()
     {
-        return view('zeus-wind::contact-form')
-            ->with('departments', Department::whereIsActive(1)->orderBy('ordering')->get());
+        return view(app('wind-theme') . '.contact-form')
+            ->with('departments', Department::where('is_active', 1)->orderBy('ordering')->get());
     }
 }

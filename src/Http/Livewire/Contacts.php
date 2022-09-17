@@ -19,11 +19,11 @@ class Contacts extends Component
             ->site(config('app.name', 'Laravel'))
             ->title(config('zeus-wind.site_title'))
             ->description(config('zeus-wind.site_description'))
-            ->rawTag('favicon', '<link rel="icon" type="image/x-icon" href="'.asset('favicon/favicon.ico').'">')
-            ->rawTag('<meta name="theme-color" content="'.config('zeus-wind.color').'" />')
+            ->rawTag('favicon', '<link rel="icon" type="image/x-icon" href="' . asset('favicon/favicon.ico') . '">')
+            ->rawTag('<meta name="theme-color" content="' . config('zeus-wind.color') . '" />')
             ->withUrl()
             ->twitter();
 
-        return view('zeus-wind::contact')->layout(config('zeus-wind.layout'));
+        return view(app('wind-theme') . '.contact')->layout(config('zeus-wind.layout'));
     }
 }

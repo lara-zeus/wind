@@ -39,17 +39,22 @@ return [
     /**
      * this will be setup the default seo site title. read more about it in 'laravel-seo'.
      */
-    'site_title' => config('app.name', 'Laravel').' | Contact Us',
+    'site_title' => config('app.name', 'Laravel') . ' | Contact Us',
 
     /**
      * this will be setup the default seo site description. read more about it in 'laravel-seo'.
      */
-    'site_description' => config('app.name', 'Laravel').' Contact Us',
+    'site_description' => config('app.name', 'Laravel') . ' Contact Us',
 
     /**
      * this will be setup the default seo site color theme. read more about it in 'laravel-seo'.
      */
     'color' => '#F5F5F4',
+
+    /**
+     * the default theme, for now we only have one theme, and soon we will provide more free and premium themes.
+     */
+    'theme' => 'zeus',
 
     /**
      * set the default status that all messages will have when received.

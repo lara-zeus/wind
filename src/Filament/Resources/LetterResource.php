@@ -44,7 +44,7 @@ class LetterResource extends Resource
                     ->maxLength(255),
                 Select::make('department_id')
                     ->label(__('department'))
-                    ->options(Department::all()->pluck('name', 'id'))
+                    ->options(Department::pluck('name', 'id'))
                     ->required()
                     ->visible(fn (): bool => config('zeus-wind.enableDepartments')),
                 TextInput::make('status')

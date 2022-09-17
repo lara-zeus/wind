@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * @property string $title
+ */
 class Letter extends Model
 {
     use SoftDeletes;
@@ -28,6 +31,6 @@ class Letter extends Model
 
     public function getReplyTitleAttribute($value)
     {
-        return $value ?? __('re').': '.$this->title;
+        return $value ?? __('re') . ': ' . $this->title;
     }
 }
