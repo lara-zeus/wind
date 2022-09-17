@@ -28,6 +28,6 @@ class Letter extends Model
 
     public function getReplyTitleAttribute($value)
     {
-        return $value ?? __('re').': '.$this->title;
+        return $value ?? __('re') . ': ' . $this->title;
     }
 }

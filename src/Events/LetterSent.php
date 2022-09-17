@@ -10,7 +10,9 @@ use LaraZeus\Wind\Models\Letter;
 
 class LetterSent
 {
-    use Dispatchable, InteractsWithSockets, SerializesModels;
+    use Dispatchable;
+    use InteractsWithSockets;
+    use SerializesModels;
 
     public Letter $letter;
 

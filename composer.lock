@@ -1425,7 +1425,7 @@
             "dist": {
                 "type": "path",
                 "url": "../core",
-                "reference": "195c4306713bbef1f23003243bbf24069c3277d2"
+                "reference": "5b0469833be756ac4c886d23c17a1a8c7e422d81"
             },
             "require": {
                 "archtechx/laravel-seo": "^0.5",
@@ -1437,9 +1437,17 @@
                 "php": "^8.0"
             },
             "require-dev": {
-                "laravel/pint": "^1.2",
+                "laravel/pint": "^1.0",
+                "nunomaduro/larastan": "^2.0.1",
                 "orchestra/testbench": "^6.0 || ^7.0",
-                "phpunit/phpunit": "^9.5.10"
+                "pestphp/pest": "^1.21",
+                "pestphp/pest-plugin-laravel": "^1.1",
+                "pestphp/pest-plugin-livewire": "^1.0",
+                "pestphp/pest-plugin-parallel": "^0.3",
+                "phpstan/extension-installer": "^1.1",
+                "phpstan/phpstan-deprecation-rules": "^1.0",
+                "phpstan/phpstan-phpunit": "^1.0",
+                "phpunit/phpunit": "^9.5"
             },
             "type": "library",
             "extra": {
@@ -1463,11 +1471,18 @@
                 }
             },
             "scripts": {
-                "test": [
-                    "vendor/bin/phpunit"
+                "pint": [
+                    "vendor/bin/pint"
                 ],
-                "test-coverage": [
-                    "vendor/bin/phpunit --coverage-html coverage"
+                "test:pest": [
+                    "vendor/bin/pest --parallel"
+                ],
+                "test:phpstan": [
+                    "vendor/bin/phpstan analyse"
+                ],
+                "test": [
+                    "@test:pest",
+                    "@test:phpstan"
                 ]
             },
             "license": [
