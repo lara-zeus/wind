@@ -17,12 +17,19 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
     use Forms\Concerns\InteractsWithForms;
 
     public Department|null $department = null;
+
     public $name = '';
+
     public $email = '';
+
     public $title = '';
+
     public $message = '';
+
     public $department_id;
+
     public $sent = false;
+
     public $status = 'NEW';
 
     public function mount($departmentSlug)

@@ -30,10 +30,10 @@ class WindServiceProvider extends PluginServiceProvider
         Livewire::component('contact', Contacts::class);
         Livewire::component('contact-form', ContactsForm::class);
 
-        View::share('theme', 'zeus-wind::themes.' . config('zeus-wind.theme', 'zeus'));
+        View::share('theme', 'zeus-wind::themes.'.config('zeus-wind.theme', 'zeus'));
 
         App::singleton('theme', function () {
-            return 'zeus-wind::themes.' . config('zeus-wind.theme', 'zeus');
+            return 'zeus-wind::themes.'.config('zeus-wind.theme', 'zeus');
         });
 
         if ($this->app->runningInConsole()) {

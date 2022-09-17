@@ -1,6 +1,6 @@
 <div>
     @if($sent)
-        @include('zeus-wind::submitted')
+        @include($theme.'.submitted')
     @else
         <form wire:submit.prevent="store">
             <div class="max-w-4xl mx-auto my-4 px-4">
