@@ -2,6 +2,16 @@
 
 All notable changes to `wind` will be documented in this file
 
+## 2.3.0 - 2022-09-17
+
+### What's Changed
+
+improve skeleton and add tests and dark mode
+separate the CSS for frontend and filament
+update .github workflows
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/2.2.5...2.3.0
+
 ## 2.2.5 - 2022-09-14
 
 ### What's Changed
