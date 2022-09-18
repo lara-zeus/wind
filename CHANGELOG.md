@@ -2,6 +2,14 @@
 
 All notable changes to `wind` will be documented in this file
 
+## 2.3.1 - 2022-09-18
+
+### What's Changed
+
+- improve responsive layout by @atmonshi in https://github.com/lara-zeus/wind/pull/23
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/2.3.0...2.3.1
+
 ## 2.3.0 - 2022-09-17
 
 ### What's Changed
