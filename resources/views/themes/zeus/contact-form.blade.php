@@ -6,7 +6,9 @@
             <div class="max-w-4xl mx-auto my-4 px-4">
                 {{ $this->form }}
                 <div class="p-4 text-center">
-                    <x-zeus::button type="submit">{{ __('Send') }}</x-zeus::button>
+                    <x-filament::button type="submit">
+                        {{ __('Send') }}
+                    </x-filament::button>
                 </div>
             </div>
         </form>
