@@ -2,6 +2,21 @@
 
 All notable changes to `wind` will be documented in this file
 
+## 2.3.2 - 2022-11-07
+
+### What's Changed
+
+- Bump dependabot/fetch-metadata from 1.3.3 to 1.3.4 by @dependabot in https://github.com/lara-zeus/wind/pull/24
+- Bump dependabot/fetch-metadata from 1.3.4 to 1.3.5 by @dependabot in https://github.com/lara-zeus/wind/pull/26
+- Fixed "Undefined property: Closure::$name" error by @leekaimun in https://github.com/lara-zeus/wind/pull/25
+
+### New Contributors
+
+- @dependabot made their first contribution in https://github.com/lara-zeus/wind/pull/24
+- @leekaimun made their first contribution in https://github.com/lara-zeus/wind/pull/25
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/2.3.1...2.3.2
+
 ## 2.3.1 - 2022-09-18
 
 ### What's Changed
