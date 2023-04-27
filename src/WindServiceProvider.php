@@ -17,15 +17,12 @@ class WindServiceProvider extends PluginServiceProvider
 {
     public static string $name = 'zeus-wind';
 
-    protected function getResources(): array
-    {
-        return [
-            DepartmentResource::class,
-            LetterResource::class,
-        ];
-    }
+    protected array $resources = [
+        DepartmentResource::class,
+        LetterResource::class,
+    ];
 
-    public function boot()
+    public function bootingPackage(): void
     {
         Livewire::component('contact', Contacts::class);
         Livewire::component('contact-form', ContactsForm::class);
@@ -45,18 +42,19 @@ class WindServiceProvider extends PluginServiceProvider
                 __DIR__ . '/../database/factories' => database_path('factories'),
             ], 'zeus-wind-factories');
         }
-
-        return parent::boot();
     }
 
-    public function configurePackage(Package $package): void
+    protected function getCommands(): array
     {
-        parent::configurePackage($package);
+        return [
+            PublishCommand::class
+        ];
+    }
+
+    public function packageConfiguring(Package $package): void
+    {
         $package
-            ->hasConfigFile()
             ->hasMigrations(['create_department_table', 'create_letters_table'])
-            ->hasCommand(PublishCommand::class)
-            ->hasRoute('web')
-            ->hasTranslations();
+            ->hasRoute('web');
     }
 }
