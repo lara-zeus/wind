@@ -47,7 +47,7 @@ class WindServiceProvider extends PluginServiceProvider
     protected function getCommands(): array
     {
         return [
-            PublishCommand::class
+            PublishCommand::class,
         ];
     }
 
