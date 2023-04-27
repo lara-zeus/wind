@@ -2,6 +2,16 @@
 
 All notable changes to `wind` will be documented in this file
 
+## 2.4.1 - 2023-04-27
+
+### What's Changed
+
+- Bump guzzlehttp/psr7 from 2.4.4 to 2.5.0 by @dependabot in https://github.com/lara-zeus/wind/pull/32
+- Bump dependabot/fetch-metadata from 1.3.6 to 1.4.0 by @dependabot in https://github.com/lara-zeus/wind/pull/33
+- Fix boot by @atmonshi in https://github.com/lara-zeus/wind/pull/34
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/2.4.0...2.4.1
+
 ## 2.4.0 - 2023-04-10
 
 ### What's Changed
