@@ -11,10 +11,6 @@ class DepartmentFactory extends Factory
      *
      * @var string
      */
-
-    /**
-     * @return string
-     */
     public function getModel(): string
     {
         return config('zeus-wind.models.department');
