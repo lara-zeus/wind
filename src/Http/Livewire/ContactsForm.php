@@ -9,7 +9,6 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\ViewField;
 use LaraZeus\Wind\Events\LetterSent;
 use LaraZeus\Wind\Models\Department;
-use LaraZeus\Wind\Models\Letter;
 use Livewire\Component;
 
 /**
@@ -39,9 +38,9 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
     {
         if (config('zeus-wind.enableDepartments')) {
             if ($departmentSlug !== null) {
-                $this->department = Department::where('slug', $departmentSlug)->first();
+                $this->department = config('zeus-wind.models.department')::where('slug', $departmentSlug)->first();
             } else {
-                $this->department = Department::find(config('zeus-wind.defaultDepartmentId'));
+                $this->department = config('zeus-wind.models.department')::find(config('zeus-wind.defaultDepartmentId'));
             }
         }
 
@@ -55,7 +54,7 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
 
     public function store()
     {
-        $letter = Letter::create($this->form->getState());
+        $letter = config('zeus-wind.models.letter')::create($this->form->getState());
         $this->sent = true;
         LetterSent::dispatch($letter);
     }
@@ -93,6 +92,6 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
     public function render()
     {
         return view(app('wind-theme') . '.contact-form')
-            ->with('departments', Department::where('is_active', 1)->orderBy('ordering')->get());
+            ->with('departments', config('zeus-wind.models.department')::where('is_active', 1)->orderBy('ordering')->get());
     }
 }

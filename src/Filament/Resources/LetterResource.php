@@ -11,12 +11,13 @@ use Filament\Resources\Table;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ViewColumn;
 use LaraZeus\Wind\Filament\Resources\LetterResource\Pages;
-use LaraZeus\Wind\Models\Department;
-use LaraZeus\Wind\Models\Letter;
 
 class LetterResource extends Resource
 {
-    protected static ?string $model = Letter::class;
+    public static function getModel(): string
+    {
+        return config('zeus-wind.models.letter');
+    }
 
     protected static ?string $navigationIcon = 'heroicon-o-inbox';
 
@@ -44,7 +45,7 @@ class LetterResource extends Resource
                     ->maxLength(255),
                 Select::make('department_id')
                     ->label(__('department'))
-                    ->options(Department::pluck('name', 'id'))
+                    ->options(config('zeus-wind.models.department')::pluck('name', 'id'))
                     ->required()
                     ->visible(fn (): bool => config('zeus-wind.enableDepartments')),
                 TextInput::make('status')

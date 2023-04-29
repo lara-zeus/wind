@@ -3,7 +3,6 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use LaraZeus\Wind\Models\Department;
 
 class DepartmentFactory extends Factory
 {
@@ -12,7 +11,10 @@ class DepartmentFactory extends Factory
      *
      * @var string
      */
-    protected $model = Department::class;
+    public function getModel(): string
+    {
+        return config('zeus-wind.models.department');
+    }
 
     /**
      * Define the model's default state.

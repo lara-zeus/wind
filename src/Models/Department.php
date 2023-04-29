@@ -38,6 +38,6 @@ class Department extends Model
 
     public function letters()
     {
-        return $this->hasMany(Letter::class);
+        return $this->hasMany(config('zeus-wind.models.letter'));
     }
 }
