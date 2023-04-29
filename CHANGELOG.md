@@ -2,6 +2,14 @@
 
 All notable changes to `wind` will be documented in this file
 
+## 2.4.2 - 2023-04-29
+
+### What's Changed
+
+- allow to config the models by @atmonshi in https://github.com/lara-zeus/wind/pull/35
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/2.4.1...2.4.2
+
 ## 2.4.1 - 2023-04-27
 
 ### What's Changed
