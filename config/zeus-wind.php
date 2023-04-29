@@ -2,15 +2,23 @@
 
 return [
     /**
-     * set the default path for the blogs homepage.
+     * set the default path for the contact form homepage.
      */
-    'path' => 'blog',
+    'path' => '/',
 
     /**
      * the middleware you want to apply on all the blogs routes
      * for example if you want to make your blog for users only, add the middleware 'auth'.
      */
     'middleware' => ['web'],
+
+    /**
+     * customize the models
+     */
+    'models' => [
+        'department' => \LaraZeus\Wind\Models\Department::class,
+        'letter' => \LaraZeus\Wind\Models\Letter::class,
+    ],
 
     /**
      * allows you to create multiple departments to receive the messages from your website.

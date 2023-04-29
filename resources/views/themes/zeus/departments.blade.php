@@ -10,7 +10,7 @@
 >
     <div x-data="{ state: $wire.entangle('{{ $getStatePath() }}') }">
         @if(config('zeus-wind.enableDepartments'))
-            @php $departments = \LaraZeus\Wind\Models\Department::whereIsActive(1)->orderBy('ordering')->get(); @endphp
+            @php $departments = config('zeus-wind.models.department')::whereIsActive(1)->orderBy('ordering')->get(); @endphp
             @if($departments->isEmpty())
                 <x-zeus::box shadowless class="max-w-4xl mx-auto">
                     <div class="text-red-400">

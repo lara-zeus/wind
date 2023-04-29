@@ -10,7 +10,7 @@ use Filament\Forms\Components\Toggle;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
-use Filament\Tables\Columns\BooleanColumn;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Support\Str;
@@ -19,7 +19,10 @@ use LaraZeus\Wind\Models\Department;
 
 class DepartmentResource extends Resource
 {
-    protected static ?string $model = Department::class;
+    public static function getModel(): string
+    {
+        return config('zeus-wind.models.department');
+    }
 
     protected static ?string $navigationIcon = 'heroicon-o-document-duplicate';
 
@@ -77,7 +80,7 @@ class DepartmentResource extends Resource
                     ->openUrlInNewTab(),
                 TextColumn::make('desc')->label(__('desc')),
                 TextColumn::make('ordering')->sortable()->label(__('ordering')),
-                BooleanColumn::make('is_active')->sortable()->label(__('is_active')),
+                IconColumn::make('is_active')->boolean()->sortable()->label(__('is_active')),
                 ImageColumn::make('logo')->disk(config('zeus-wind.uploads.disk', 'public'))->label(__('logo')),
             ])
             ->defaultSort('id', 'desc');

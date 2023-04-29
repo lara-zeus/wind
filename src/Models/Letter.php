@@ -26,7 +26,7 @@ class Letter extends Model
 
     public function department()
     {
-        return $this->belongsTo(Department::class);
+        return $this->belongsTo(config('zeus-wind.models.department'));
     }
 
     public function getReplyTitleAttribute($value)
