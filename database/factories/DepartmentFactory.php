@@ -9,7 +9,7 @@ class DepartmentFactory extends Factory
     /**
      * The name of the factory's corresponding model.
      *
-     * @var string
+     * @return string
      */
     public function getModel(): string
     {
@@ -21,7 +21,7 @@ class DepartmentFactory extends Factory
      *
      * @return array
      */
-    public function definition()
+    public function definition(): array
     {
         return [
             'name' => $this->faker->words(3, true),

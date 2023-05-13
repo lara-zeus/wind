@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 
 class LetterFactory extends Factory
 {
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @return string
+     */
     public function getModel(): string
     {
         return config('zeus-wind.models.letter');
@@ -16,9 +21,8 @@ class LetterFactory extends Factory
      *
      * @return array
      *
-     * @throws \JsonException
      */
-    public function definition()
+    public function definition(): array
     {
         return [
             'name' => $this->faker->name,

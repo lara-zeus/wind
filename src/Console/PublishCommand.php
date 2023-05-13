@@ -28,18 +28,18 @@ class PublishCommand extends Command
     public function handle()
     {
         // publish Wind files
-        $this->callSilent('vendor:publish', ['--tag' => 'zeus-wind-config', '--force' => $this->option('force') ?? false]);
-        $this->callSilent('vendor:publish', ['--tag' => 'zeus-wind-migrations', '--force' => $this->option('force') ?? false]);
-        $this->callSilent('vendor:publish', ['--tag' => 'zeus-wind-views', '--force' => $this->option('force') ?? false]);
-        $this->callSilent('vendor:publish', ['--tag' => 'zeus-wind-translations', '--force' => $this->option('force') ?? false]);
+        $this->callSilent('vendor:publish', ['--tag' => 'zeus-wind-config', '--force' => (bool) $this->option('force')]);
+        $this->callSilent('vendor:publish', ['--tag' => 'zeus-wind-migrations', '--force' => (bool) $this->option('force')]);
+        $this->callSilent('vendor:publish', ['--tag' => 'zeus-wind-views', '--force' => (bool) $this->option('force')]);
+        $this->callSilent('vendor:publish', ['--tag' => 'zeus-wind-translations', '--force' => (bool) $this->option('force')]);
 
-        $this->callSilent('vendor:publish', ['--tag' => 'zeus-wind-seeder', '--force' => $this->option('force') ?? false]);
-        $this->callSilent('vendor:publish', ['--tag' => 'zeus-wind-factories', '--force' => $this->option('force') ?? false]);
+        $this->callSilent('vendor:publish', ['--tag' => 'zeus-wind-seeder', '--force' => (bool) $this->option('force')]);
+        $this->callSilent('vendor:publish', ['--tag' => 'zeus-wind-factories', '--force' => (bool) $this->option('force')]);
 
         // publish Zeus files
-        $this->callSilent('vendor:publish', ['--tag' => 'zeus-config', '--force' => $this->option('force') ?? false]);
-        $this->callSilent('vendor:publish', ['--tag' => 'zeus-views', '--force' => $this->option('force') ?? false]);
-        $this->callSilent('vendor:publish', ['--tag' => 'zeus-assets', '--force' => $this->option('force') ?? false]);
+        $this->callSilent('vendor:publish', ['--tag' => 'zeus-config', '--force' => (bool) $this->option('force')]);
+        $this->callSilent('vendor:publish', ['--tag' => 'zeus-views', '--force' => (bool) $this->option('force')]);
+        $this->callSilent('vendor:publish', ['--tag' => 'zeus-assets', '--force' => (bool) $this->option('force')]);
 
         $this->output->success('Zeus and Wind has been Published successfully');
     }
