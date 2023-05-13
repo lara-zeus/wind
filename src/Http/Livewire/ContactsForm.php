@@ -91,7 +91,6 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
 
     public function render()
     {
-        return view(app('wind-theme') . '.contact-form')
-            ->with('departments', config('zeus-wind.models.department')::where('is_active', 1)->orderBy('ordering')->get());
+        return view(app('wind-theme') . '.contact-form');
     }
 }
