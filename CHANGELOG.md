@@ -2,6 +2,14 @@
 
 All notable changes to `wind` will be documented in this file
 
+## 2.4.5 - 2023-05-13
+
+### What's Changed
+
+- improve the queries by @atmonshi in https://github.com/lara-zeus/wind/pull/38
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/2.4.4...2.4.5
+
 ## 2.4.4 - 2023-05-13
 
 ### What's Changed
