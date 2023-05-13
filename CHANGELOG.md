@@ -2,6 +2,14 @@
 
 All notable changes to `wind` will be documented in this file
 
+## 2.4.3 - 2023-05-13
+
+### What's Changed
+
+- allow to configure navigation group by @atmonshi in https://github.com/lara-zeus/wind/pull/36
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/2.4.2...2.4.3
+
 ## 2.4.2 - 2023-04-29
 
 ### What's Changed
