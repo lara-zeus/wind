@@ -8,8 +8,6 @@ class LetterFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
-     *
-     * @return string
      */
     public function getModel(): string
     {
@@ -18,9 +16,6 @@ class LetterFactory extends Factory
 
     /**
      * Define the model's default state.
-     *
-     * @return array
-     *
      */
     public function definition(): array
     {
