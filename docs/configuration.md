@@ -61,5 +61,10 @@ return [
      * set the default status that all messages will have when received
      */
     'default_status' => 'NEW',
+    
+    /**
+     * Navigation Group Label
+     */
+    'navigation_group_label' => 'wind',
 ];
 ```
