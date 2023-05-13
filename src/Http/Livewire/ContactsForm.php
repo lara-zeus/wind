@@ -39,7 +39,7 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
         if (config('zeus-wind.enableDepartments')) {
             if ($departmentSlug !== null) {
                 $this->department = config('zeus-wind.models.department')::where('slug', $departmentSlug)->first();
-            } else {
+            } elseif (config('zeus-wind.defaultDepartmentId') !== null) {
                 $this->department = config('zeus-wind.models.department')::find(config('zeus-wind.defaultDepartmentId'));
             }
         }
