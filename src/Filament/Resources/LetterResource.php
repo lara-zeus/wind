@@ -114,6 +114,6 @@ class LetterResource extends Resource
 
     protected static function getNavigationGroup(): ?string
     {
-        return __('Wind');
+        return __(config('zeus-wind.navigation_group_label', __('Wind')));
     }
 }
