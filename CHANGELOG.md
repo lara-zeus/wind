@@ -2,6 +2,21 @@
 
 All notable changes to `wind` will be documented in this file
 
+## 2.4.6 - 2023-05-28
+
+### What's Changed
+
+- Bump dependabot/fetch-metadata from 1.4.0 to 1.5.0 by @dependabot in https://github.com/lara-zeus/wind/pull/39
+- improvements and core update by @atmonshi in https://github.com/lara-zeus/wind/pull/40
+
+🔥 Adding `Filament Plugin Purge` for better and thinner CSS file.
+
+🚩 The component `<x-zeus::box>` is retired, and now we using `<x-filament::card>` instead.
+
+🟢 Always add `@php artisan vendor:publish --tag=zeus-assets --ansi --force` to `post-update-cmd` in your composer file.
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/2.4.5...2.4.6
+
 ## 2.4.5 - 2023-05-13
 
 ### What's Changed
