@@ -4,9 +4,9 @@
     </x-slot>
 
     <div class="max-w-4xl mx-auto">
-        <x-zeus::box shadowless class="mx-4 text-gray-500 dark:text-gray-100 text-sm">
+        <x-filament::card>
             {{ __('feel free to contact us.') }}
-        </x-zeus::box>
+        </x-filament::card>
     </div>
 
     <livewire:contact-form :departmentSlug="$departmentSlug" />
