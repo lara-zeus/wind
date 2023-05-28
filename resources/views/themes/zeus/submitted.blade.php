@@ -1,5 +1,5 @@
-<div class="max-w-4xl mx-auto">
-    <x-zeus::box class="mx-4 text-xs text-gray-600 dark:text-gray-100">
+<div class="max-w-4xl mx-auto my-4">
+    <x-filament::card>
         {{ __('we received your message, and will get back to you shortly.') }}
-    </x-zeus::box>
+    </x-filament::card>
 </div>
