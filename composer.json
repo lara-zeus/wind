@@ -1,6 +1,6 @@
 {
     "name": "lara-zeus/wind",
-    "description": "laravel packages to create and manage contact us for your site",
+    "description": "Zeus Wind is simple contact form for your website with easy to use dashboard, works as a plugin for Filament Admin Panel",
     "keywords": [
         "laravel",
         "lara-zeus",
