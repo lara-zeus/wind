@@ -2,6 +2,16 @@
 
 All notable changes to `wind` will be documented in this file
 
+## 2.4.7 - 2023-06-04
+
+### What's Changed
+
+- Bump dependabot/fetch-metadata from 1.5.0 to 1.5.1 by @dependabot in https://github.com/lara-zeus/wind/pull/41
+- Bump aglipanci/laravel-pint-action from 2.2.0 to 2.3.0 by @dependabot in https://github.com/lara-zeus/wind/pull/42
+- update core by @atmonshi in https://github.com/lara-zeus/wind/pull/43
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/2.4.6...2.4.7
+
 ## 2.4.6 - 2023-05-28
 
 ### What's Changed
