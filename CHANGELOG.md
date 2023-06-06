@@ -2,6 +2,15 @@
 
 All notable changes to `wind` will be documented in this file
 
+## 2.4.8 - 2023-06-06
+
+### What's Changed
+
+- better actions by @atmonshi in https://github.com/lara-zeus/wind/pull/44
+- update zeus core
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/2.4.7...2.4.8
+
 ## 2.4.7 - 2023-06-04
 
 ### What's Changed
