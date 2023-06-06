@@ -8,8 +8,14 @@ use Filament\Forms\Components\TextInput;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
+use Filament\Tables\Actions\Action;
+use Filament\Tables\Actions\ActionGroup;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ViewColumn;
+use Illuminate\Database\Eloquent\Model;
 use LaraZeus\Wind\Filament\Resources\LetterResource\Pages;
 
 class LetterResource extends Resource
@@ -80,13 +86,39 @@ class LetterResource extends Resource
     {
         return $table
             ->columns([
-                ViewColumn::make('from')->view('zeus-wind::filament.message-from')->sortable(['name'])->label(__('from')),
-                TextColumn::make('title')->sortable()->label(__('title')),
-                TextColumn::make('department.name')->sortable()->visible(fn (): bool => config('zeus-wind.enableDepartments'))->label(__('department')),
-                TextColumn::make('status')->sortable()->label(__('status'))
+                ViewColumn::make('from')
+                    ->view('zeus-wind::filament.message-from')
+                    ->sortable(['name'])
+                    ->label(__('from')),
+                TextColumn::make('title')
+                    ->sortable()
+                    ->label(__('title')),
+                TextColumn::make('department.name')
+                    ->sortable()
+                    ->visible(fn (): bool => config('zeus-wind.enableDepartments'))
+                    ->label(__('department')),
+                TextColumn::make('status')
+                    ->sortable()
+                    ->label(__('status'))
                     ->formatStateUsing(fn (string $state): string => __("status_{$state}")),
             ])
-            ->defaultSort('id', 'desc');
+            ->defaultSort('id', 'desc')
+            ->actions([
+                ActionGroup::make([
+                    EditAction::make('edit')->label(__('Edit')),
+                    ViewAction::make('view')
+                        ->color('primary')
+                        ->label(__('View')),
+                    Action::make('Open')
+                        ->color('warning')
+                        ->icon('heroicon-o-external-link')
+                        ->label(__('Open'))
+                        ->url(fn (Model $record): string => route('contact', ['departmentSlug' => $record]))
+                        ->openUrlInNewTab(),
+                    DeleteAction::make('delete')
+                        ->label(__('Delete')),
+                ]),
+            ]);
     }
 
     public static function getPages(): array

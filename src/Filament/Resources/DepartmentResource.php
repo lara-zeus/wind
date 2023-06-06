@@ -10,12 +10,16 @@ use Filament\Forms\Components\Toggle;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
+use Filament\Tables\Actions\Action;
+use Filament\Tables\Actions\ActionGroup;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
-use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Model;
 use LaraZeus\Wind\Filament\Resources\DepartmentResource\Pages;
-use LaraZeus\Wind\Models\Department;
 
 class DepartmentResource extends Resource
 {
@@ -52,7 +56,7 @@ class DepartmentResource extends Resource
                             return;
                         }
 
-                        $set('slug', Str::slug($state));
+                        $set('slug', str()->slug($state));
                     }),
 
                 TextInput::make('slug')->required()->maxLength(255)->label(__('slug')),
@@ -75,15 +79,29 @@ class DepartmentResource extends Resource
                 TextColumn::make('name')
                     ->label(__('name'))
                     ->sortable()
-                    ->searchable()
-                    ->url(fn (Department $record): string => route('contact', ['departmentSlug' => $record]))
-                    ->openUrlInNewTab(),
+                    ->searchable(),
                 TextColumn::make('desc')->label(__('desc')),
                 TextColumn::make('ordering')->sortable()->label(__('ordering')),
                 IconColumn::make('is_active')->boolean()->sortable()->label(__('is_active')),
                 ImageColumn::make('logo')->disk(config('zeus-wind.uploads.disk', 'public'))->label(__('logo')),
             ])
-            ->defaultSort('id', 'desc');
+            ->defaultSort('id', 'desc')
+            ->actions([
+                ActionGroup::make([
+                    EditAction::make('edit')->label(__('Edit')),
+                    ViewAction::make('view')
+                        ->color('primary')
+                        ->label(__('View')),
+                    Action::make('Open')
+                        ->color('warning')
+                        ->icon('heroicon-o-external-link')
+                        ->label(__('Open'))
+                        ->url(fn (Model $record): string => route('contact', ['departmentSlug' => $record]))
+                        ->openUrlInNewTab(),
+                    DeleteAction::make('delete')
+                        ->label(__('Delete')),
+                ]),
+            ]);
     }
 
     public static function getPages(): array

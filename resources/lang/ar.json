@@ -26,5 +26,8 @@
   "Send": "ارسال",
   "no departments available!": "لاتوجد اقسام متاحة!",
   "Select Department": "اختر القسم",
-  "we received your message, and will get back to you shortly.": "تم استلام رسالتك وسيتم الرد عليها في اقرب وقت ممكن"
+  "we received your message, and will get back to you shortly.": "تم استلام رسالتك وسيتم الرد عليها في اقرب وقت ممكن",
+  "Edit": "تعديل",
+  "Open": "فتح",
+  "Delete": "حذف"
 }
