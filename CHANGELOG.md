@@ -2,6 +2,14 @@
 
 All notable changes to `wind` will be documented in this file
 
+## 2.4.10 - 2023-06-13
+
+### What's Changed
+
+- enable searches and filters in all resources by @atmonshi in https://github.com/lara-zeus/wind/pull/46
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/2.4.9...2.4.10
+
 ## 2.4.9 - 2023-06-12
 
 ### What's Changed
