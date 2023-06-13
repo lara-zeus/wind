@@ -18,6 +18,8 @@ use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\Filter;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use LaraZeus\Wind\Filament\Resources\DepartmentResource\Pages;
 
@@ -61,7 +63,7 @@ class DepartmentResource extends Resource
 
                 TextInput::make('slug')->required()->maxLength(255)->label(__('slug')),
                 TextInput::make('ordering')->required()->numeric()->label(__('ordering')),
-                Toggle::make('is_active')->label(__('is_active')),
+                Toggle::make('is_active')->label(__('is active')),
                 Textarea::make('desc')->maxLength(65535)->columnSpan(['sm' => 2])->label(__('desc')),
 
                 FileUpload::make('logo')
@@ -79,13 +81,39 @@ class DepartmentResource extends Resource
                 TextColumn::make('name')
                     ->label(__('name'))
                     ->sortable()
-                    ->searchable(),
-                TextColumn::make('desc')->label(__('desc')),
-                TextColumn::make('ordering')->sortable()->label(__('ordering')),
-                IconColumn::make('is_active')->boolean()->sortable()->label(__('is_active')),
-                ImageColumn::make('logo')->disk(config('zeus-wind.uploads.disk', 'public'))->label(__('logo')),
+                    ->searchable()
+                    ->toggleable(),
+                TextColumn::make('desc')
+                    ->searchable()
+                    ->label(__('desc'))
+                    ->toggleable(),
+                TextColumn::make('ordering')
+                    ->searchable()
+                    ->sortable()
+                    ->label(__('ordering'))
+                    ->toggleable(),
+                IconColumn::make('is_active')
+                    ->boolean()
+                    ->searchable()
+                    ->sortable()
+                    ->label(__('is active'))
+                    ->toggleable(),
+                ImageColumn::make('logo')
+                    ->disk(config('zeus-wind.uploads.disk', 'public'))
+                    ->label(__('logo'))
+                    ->toggleable(),
             ])
             ->defaultSort('id', 'desc')
+            ->filters([
+                Filter::make('is_active')
+                    ->label(__('is active'))
+                    ->toggle()
+                    ->query(fn (Builder $query): Builder => $query->where('is_active', true)),
+                Filter::make('not_active')
+                    ->label(__('not active'))
+                    ->toggle()
+                    ->query(fn (Builder $query): Builder => $query->where('is_active', false)),
+            ])
             ->actions([
                 ActionGroup::make([
                     EditAction::make('edit')->label(__('Edit')),

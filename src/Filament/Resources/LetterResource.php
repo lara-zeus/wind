@@ -15,6 +15,7 @@ use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ViewColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Model;
 use LaraZeus\Wind\Filament\Resources\LetterResource\Pages;
 
@@ -89,20 +90,41 @@ class LetterResource extends Resource
                 ViewColumn::make('from')
                     ->view('zeus-wind::filament.message-from')
                     ->sortable(['name'])
+                    ->searchable(['name', 'email'])
+                    ->toggleable()
                     ->label(__('from')),
                 TextColumn::make('title')
                     ->sortable()
+                    ->searchable()
+                    ->toggleable()
                     ->label(__('title')),
                 TextColumn::make('department.name')
                     ->sortable()
+                    ->searchable()
+                    ->toggleable()
                     ->visible(fn (): bool => config('zeus-wind.enableDepartments'))
                     ->label(__('department')),
                 TextColumn::make('status')
                     ->sortable()
+                    ->searchable()
+                    ->toggleable()
                     ->label(__('status'))
                     ->formatStateUsing(fn (string $state): string => __("status_{$state}")),
             ])
             ->defaultSort('id', 'desc')
+            ->filters([
+                SelectFilter::make('status')
+                    ->options([
+                        'NEW' => __('NEW'),
+                        'READ' => __('READ'),
+                        'REPLIED' => __('REPLIED'),
+                    ])
+                    ->label(__('status')),
+                SelectFilter::make('department_id')
+                    ->visible(fn (): bool => config('zeus-wind.enableDepartments'))
+                    ->options(config('zeus-wind.models.department')::pluck('name', 'id'))
+                    ->label(__('department')),
+            ])
             ->actions([
                 ActionGroup::make([
                     EditAction::make('edit')->label(__('Edit')),
