@@ -46,7 +46,7 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
 
         $this->form->fill(
             [
-                'department_id' => $this->department->id ?? 0,
+                'department_id' => $this->department->id ?? null,
                 'status' => config('zeus-wind.default_status'),
             ]
         );
