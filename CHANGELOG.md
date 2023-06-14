@@ -2,6 +2,14 @@
 
 All notable changes to `wind` will be documented in this file
 
+## 2.4.11 - 2023-06-14
+
+### What's Changed
+
+- fix department when its not found by @atmonshi in https://github.com/lara-zeus/wind/pull/47
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/2.4.10...2.4.11
+
 ## 2.4.10 - 2023-06-13
 
 ### What's Changed
