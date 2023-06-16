@@ -2,6 +2,15 @@
 
 All notable changes to `wind` will be documented in this file
 
+## 2.4.12 - 2023-06-16
+
+### What's Changed
+
+- update to rain by @atmonshi in https://github.com/lara-zeus/wind/pull/48
+- small update the the core CSS to include some classes for our newest package Zeus Rain
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/2.4.11...2.4.12
+
 ## 2.4.11 - 2023-06-14
 
 ### What's Changed
