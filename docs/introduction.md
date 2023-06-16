@@ -25,6 +25,5 @@ Lara-zeus Wind, is a package provides a simple contact form manger, with the abi
 ## Support
 
 available support channels:
-* using our channel `#wind` on [Discord](https://filamentphp.com/discord)
 * open an issue on [GitHub](https://github.com/lara-zeus/wind/issues)
-* email us using the [contact center](https://atm-code.com/contact-us/lara-zeus)
+* email us using the [contact center](https://still-code.com/contact-us/lara-zeus)
