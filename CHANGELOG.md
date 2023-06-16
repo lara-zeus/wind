@@ -2,6 +2,14 @@
 
 All notable changes to `wind` will be documented in this file
 
+## 2.4.13 - 2023-06-16
+
+### What's Changed
+
+- update readme and docs and composer and refactor config and route by @atmonshi in https://github.com/lara-zeus/wind/pull/49
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/2.4.12...2.4.13
+
 ## 2.4.12 - 2023-06-16
 
 ### What's Changed
