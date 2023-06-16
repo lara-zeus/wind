@@ -1,5 +1,3 @@
-<h1 align="center">Lara Zeus Wind</h1>
-
 <p align="center">
 <a href="https://larazeus.com"><img src="https://larazeus.com/images/wind-banner.png" /></a>
 </p>
@@ -15,7 +13,9 @@
 
 </p>
 
-Lara-zeus wind is a contact form, with simple dashboard to read and replay to any messages you receive from your website.
+<h1 align="center">Lara Zeus Wind</h1>
+
+contact form, with simple dashboard to read and replay to any messages you receive from your website.
 >small tasks can be time-consuming, let us build these for you,
 
 ## Support Filament
@@ -35,7 +35,7 @@ Lara-zeus wind is a contact form, with simple dashboard to read and replay to an
 
 > visit our website to get the full documentation: https://larazeus.com/wind
 
-> real use: https://atm-code.com/contact-us
+> real use: https://still-code.com/contact-us
 
 ## Installation
 
@@ -66,7 +66,6 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 ## Support
 
 available support channels:
-* using our channel `#wind` on [Discord](https://filamentphp.com/discord)
 * open an issue on [GitHub](https://github.com/lara-zeus/wind/issues)
 * email us using the [contact center](https://atm-code.com/contact-us/lara-zeus)
 
