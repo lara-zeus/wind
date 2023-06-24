@@ -1431,16 +1431,16 @@
         },
         {
             "name": "lara-zeus/core",
-            "version": "2.4.16",
+            "version": "2.4.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lara-zeus/core.git",
-                "reference": "806450f8d55cbc82d6e144426c5c7b30337ad70b"
+                "reference": "044463e14fefbccffde54a934fe361ad8e6507b0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lara-zeus/core/zipball/806450f8d55cbc82d6e144426c5c7b30337ad70b",
-                "reference": "806450f8d55cbc82d6e144426c5c7b30337ad70b",
+                "url": "https://api.github.com/repos/lara-zeus/core/zipball/044463e14fefbccffde54a934fe361ad8e6507b0",
+                "reference": "044463e14fefbccffde54a934fe361ad8e6507b0",
                 "shasum": ""
             },
             "require": {
@@ -1503,7 +1503,7 @@
             ],
             "support": {
                 "issues": "https://github.com/lara-zeus/core/issues",
-                "source": "https://github.com/lara-zeus/core/tree/2.4.16"
+                "source": "https://github.com/lara-zeus/core/tree/2.4.17"
             },
             "funding": [
                 {
@@ -1511,7 +1511,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-06-19T01:00:24+00:00"
+            "time": "2023-06-24T18:14:40+00:00"
         },
         {
             "name": "laravel/framework",
@@ -2377,16 +2377,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "3.3.1",
+            "version": "3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "9b5daeaffce5b926cac47923798bba91059e60e2"
+                "reference": "e2392369686d420ca32df3803de28b5d6f76867d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/9b5daeaffce5b926cac47923798bba91059e60e2",
-                "reference": "9b5daeaffce5b926cac47923798bba91059e60e2",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/e2392369686d420ca32df3803de28b5d6f76867d",
+                "reference": "e2392369686d420ca32df3803de28b5d6f76867d",
                 "shasum": ""
             },
             "require": {
@@ -2401,7 +2401,7 @@
                 "doctrine/couchdb": "~1.0@dev",
                 "elasticsearch/elasticsearch": "^7 || ^8",
                 "ext-json": "*",
-                "graylog2/gelf-php": "^1.4.2 || ^2@dev",
+                "graylog2/gelf-php": "^1.4.2 || ^2.0",
                 "guzzlehttp/guzzle": "^7.4.5",
                 "guzzlehttp/psr7": "^2.2",
                 "mongodb/mongodb": "^1.8",
@@ -2409,7 +2409,7 @@
                 "phpstan/phpstan": "^1.9",
                 "phpstan/phpstan-deprecation-rules": "^1.0",
                 "phpstan/phpstan-strict-rules": "^1.4",
-                "phpunit/phpunit": "^9.5.26",
+                "phpunit/phpunit": "^10.1",
                 "predis/predis": "^1.1 || ^2",
                 "ruflin/elastica": "^7",
                 "symfony/mailer": "^5.4 || ^6",
@@ -2462,7 +2462,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Seldaek/monolog/issues",
-                "source": "https://github.com/Seldaek/monolog/tree/3.3.1"
+                "source": "https://github.com/Seldaek/monolog/tree/3.4.0"
             },
             "funding": [
                 {
@@ -2474,7 +2474,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-02-06T13:46:10+00:00"
+            "time": "2023-06-21T08:46:11+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -6630,16 +6630,16 @@
         },
         {
             "name": "laravel/pint",
-            "version": "v1.10.2",
+            "version": "v1.10.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/pint.git",
-                "reference": "f78de1a1bbab7aa41a6ea211c5962b0530d1a301"
+                "reference": "c472786bca01e4812a9bb7933b23edfc5b6877b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/pint/zipball/f78de1a1bbab7aa41a6ea211c5962b0530d1a301",
-                "reference": "f78de1a1bbab7aa41a6ea211c5962b0530d1a301",
+                "url": "https://api.github.com/repos/laravel/pint/zipball/c472786bca01e4812a9bb7933b23edfc5b6877b7",
+                "reference": "c472786bca01e4812a9bb7933b23edfc5b6877b7",
                 "shasum": ""
             },
             "require": {
@@ -6650,7 +6650,7 @@
                 "php": "^8.1.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.17.0",
+                "friendsofphp/php-cs-fixer": "^3.18.0",
                 "illuminate/view": "^10.5.1",
                 "laravel-zero/framework": "^10.0.2",
                 "mockery/mockery": "^1.5.1",
@@ -6692,7 +6692,7 @@
                 "issues": "https://github.com/laravel/pint/issues",
                 "source": "https://github.com/laravel/pint"
             },
-            "time": "2023-06-12T10:50:04+00:00"
+            "time": "2023-06-20T15:55:03+00:00"
         },
         {
             "name": "mockery/mockery",
@@ -7128,16 +7128,16 @@
         },
         {
             "name": "orchestra/testbench-core",
-            "version": "v8.5.7",
+            "version": "v8.5.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/testbench-core.git",
-                "reference": "c300e901f434809e414fe83325d9750603a017cb"
+                "reference": "c9c36e8ef9a8b91cbcc85f629be5ff3670133737"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/testbench-core/zipball/c300e901f434809e414fe83325d9750603a017cb",
-                "reference": "c300e901f434809e414fe83325d9750603a017cb",
+                "url": "https://api.github.com/repos/orchestral/testbench-core/zipball/c9c36e8ef9a8b91cbcc85f629be5ff3670133737",
+                "reference": "c9c36e8ef9a8b91cbcc85f629be5ff3670133737",
                 "shasum": ""
             },
             "require": {
@@ -7205,7 +7205,7 @@
                 "issues": "https://github.com/orchestral/testbench/issues",
                 "source": "https://github.com/orchestral/testbench-core"
             },
-            "time": "2023-06-13T06:23:28+00:00"
+            "time": "2023-06-22T05:28:42+00:00"
         },
         {
             "name": "pestphp/pest",
@@ -7855,16 +7855,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.19",
+            "version": "1.10.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "af5a296ff02610c1bfb4ddfac9fd4a08657b9046"
+                "reference": "b2a30186be2e4d97dce754ae4e65eb0ec2f04eb5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/af5a296ff02610c1bfb4ddfac9fd4a08657b9046",
-                "reference": "af5a296ff02610c1bfb4ddfac9fd4a08657b9046",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/b2a30186be2e4d97dce754ae4e65eb0ec2f04eb5",
+                "reference": "b2a30186be2e4d97dce754ae4e65eb0ec2f04eb5",
                 "shasum": ""
             },
             "require": {
@@ -7913,7 +7913,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-06-14T15:26:58+00:00"
+            "time": "2023-06-21T20:07:58+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
@@ -9669,16 +9669,16 @@
         },
         {
             "name": "spatie/laravel-ray",
-            "version": "1.32.4",
+            "version": "1.32.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-ray.git",
-                "reference": "2274653f0a90dd87fbb887437be1c1ea1388a47c"
+                "reference": "288f30c94c9725dfd78d8a1b82b230521f4d697e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-ray/zipball/2274653f0a90dd87fbb887437be1c1ea1388a47c",
-                "reference": "2274653f0a90dd87fbb887437be1c1ea1388a47c",
+                "url": "https://api.github.com/repos/spatie/laravel-ray/zipball/288f30c94c9725dfd78d8a1b82b230521f4d697e",
+                "reference": "288f30c94c9725dfd78d8a1b82b230521f4d697e",
                 "shasum": ""
             },
             "require": {
@@ -9738,7 +9738,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-ray/issues",
-                "source": "https://github.com/spatie/laravel-ray/tree/1.32.4"
+                "source": "https://github.com/spatie/laravel-ray/tree/1.32.5"
             },
             "funding": [
                 {
@@ -9750,7 +9750,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2023-03-23T08:04:54+00:00"
+            "time": "2023-06-23T07:04:32+00:00"
         },
         {
             "name": "spatie/macroable",
