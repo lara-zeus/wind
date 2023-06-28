@@ -2,9 +2,9 @@
 
 namespace LaraZeus\Wind\Filament\Resources\DepartmentResource\Pages;
 
+use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 use LaraZeus\Wind\Filament\Resources\DepartmentResource;
-use Filament\Actions;
 
 class ListDepartments extends ListRecords
 {

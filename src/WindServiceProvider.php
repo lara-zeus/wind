@@ -12,6 +12,7 @@ use Filament\Support\Facades\FilamentIcon;
 use Filament\Support\Icons\Icon;
 use Filament\Support\Icons\IconManager;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\View;
 use LaraZeus\Wind\Commands\PublishCommand;
 use LaraZeus\Wind\Http\Livewire\Contacts;
@@ -20,7 +21,6 @@ use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Illuminate\Support\Facades\Blade;
 
 class WindServiceProvider extends PackageServiceProvider
 {
@@ -94,8 +94,8 @@ class WindServiceProvider extends PackageServiceProvider
     {
         return [
             // todo add from core
-            Css::make('zeus-wind-styles', __DIR__.'/../resources/dist/filament.css'),
-            Js::make('zeus-wind-scripts', __DIR__.'/../resources/dist/filament.js'),
+            Css::make('zeus-wind-styles', __DIR__ . '/../resources/dist/filament.css'),
+            Js::make('zeus-wind-scripts', __DIR__ . '/../resources/dist/filament.js'),
         ];
     }
 
@@ -140,7 +140,7 @@ class WindServiceProvider extends PackageServiceProvider
     {
         return [
             'create_department_table',
-            'create_letters_table'
+            'create_letters_table',
         ];
     }
 

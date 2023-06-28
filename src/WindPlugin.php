@@ -7,23 +7,7 @@ use Filament\Panel;
 use LaraZeus\Wind\Commands\PublishCommand;
 use LaraZeus\Wind\Filament\Resources\DepartmentResource;
 use LaraZeus\Wind\Filament\Resources\LetterResource;
-
-
-use Filament\Facades\Filament;
-use Filament\Support\Assets\AlpineComponent;
-use Filament\Support\Assets\Asset;
-use Filament\Support\Assets\AssetManager;
-use Filament\Support\Assets\Css;
-use Filament\Support\Assets\Js;
-use Filament\Support\Facades\FilamentAsset;
-use Filament\Support\Facades\FilamentIcon;
-use Filament\Support\Icons\Icon;
-use Filament\Support\Icons\IconManager;
-use Illuminate\Filesystem\Filesystem;
-use Livewire\Testing\TestableLivewire;
-use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class WindPlugin implements Plugin
 {
@@ -55,9 +39,6 @@ class WindPlugin implements Plugin
     {
         //
     }
-
-
-
 
     /*public function bootingPackage(): void
     {
