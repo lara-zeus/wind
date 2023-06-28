@@ -9,7 +9,7 @@ class EditDepartment extends EditRecord
 {
     protected static string $resource = DepartmentResource::class;
 
-    public function mount($record): void
+    public function mount($record): void /* @phpstan-ignore-line */
     {
         abort_unless(config('zeus-wind.enableDepartments'), 404);
 
