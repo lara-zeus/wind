@@ -2,6 +2,14 @@
 
 All notable changes to `wind` will be documented in this file
 
+## 2.4.18 - 2023-06-28
+
+### What's Changed
+
+- clean up some code and phpstan level: 6 by @atmonshi in https://github.com/lara-zeus/wind/pull/54
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/2.4.17...2.4.18
+
 ## 2.4.17 - 2023-06-24
 
 ### What's Changed
