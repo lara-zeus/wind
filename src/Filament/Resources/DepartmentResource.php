@@ -2,14 +2,13 @@
 
 namespace LaraZeus\Wind\Filament\Resources;
 
-use Closure;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
-use Filament\Resources\Form;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Resources\Table;
+use Filament\Tables\Table;
 use Filament\Tables\Actions\Action;
 use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Actions\DeleteAction;
@@ -34,12 +33,12 @@ class DepartmentResource extends Resource
 
     protected static ?int $navigationSort = 1;
 
-    protected static function getNavigationBadge(): ?string
+    public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();
     }
 
-    protected static function shouldRegisterNavigation(): bool
+    public static function shouldRegisterNavigation(): bool
     {
         return config('zeus-wind.enableDepartments');
     }
@@ -53,7 +52,7 @@ class DepartmentResource extends Resource
                     ->maxLength(255)
                     ->reactive()
                     ->label(__('name'))
-                    ->afterStateUpdated(function (Closure $set, $state, $context) {
+                    ->afterStateUpdated(function (\Filament\Forms\Set $set, $state, $context) {
                         if ($context === 'edit') {
                             return;
                         }
@@ -122,7 +121,7 @@ class DepartmentResource extends Resource
                         ->label(__('View')),
                     Action::make('Open')
                         ->color('warning')
-                        ->icon('heroicon-o-external-link')
+                        ->icon('heroicon-o-arrow-top-right-on-square')
                         ->label(__('Open'))
                         ->url(fn (Model $record): string => route('contact', ['departmentSlug' => $record]))
                         ->openUrlInNewTab(),
@@ -151,12 +150,12 @@ class DepartmentResource extends Resource
         return __('Departments');
     }
 
-    protected static function getNavigationLabel(): string
+    public static function getNavigationLabel(): string
     {
         return __('Departments');
     }
 
-    protected static function getNavigationGroup(): ?string
+    public static function getNavigationGroup(): ?string
     {
         return __(config('zeus-wind.navigation_group_label', __('Wind')));
     }

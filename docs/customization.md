@@ -6,7 +6,7 @@ weight: 6
 to customize the layout, you can change the default layout in the config file
 
 ```php
-'layout' => 'zeus::components.app',
+'layout' => 'components.app',
 ```
 
 ## Publishing the default layout

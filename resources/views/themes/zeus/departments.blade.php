@@ -1,14 +1,8 @@
-<x-forms::field-wrapper
-        :id="$getId()"
-        :label="$getLabel()"
-        :label-sr-only="$isLabelHidden()"
-        :helper-text="$getHelperText()"
-        :hint="$getHint()"
-        :hint-icon="$getHintIcon()"
-        :required="$isRequired()"
-        :state-path="$getStatePath()"
+<x-dynamic-component
+        :component="$getFieldWrapperView()"
+        :field="$field"
 >
-    <div x-data="{ state: $wire.entangle('{{ $getStatePath() }}') }">
+    <div x-data="{ state: $wire.entangle('{{ $getStatePath() }}').defer }">
         @if(config('zeus-wind.enableDepartments'))
             @php $departments = config('zeus-wind.models.department')::whereIsActive(1)->orderBy('ordering')->get(); @endphp
             @if($departments->isEmpty())
@@ -44,5 +38,6 @@
                 </div>
             @endif
         @endif
+
     </div>
-</x-forms::field-wrapper>
+</x-dynamic-component>

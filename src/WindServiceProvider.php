@@ -2,25 +2,185 @@
 
 namespace LaraZeus\Wind;
 
-use Filament\PluginServiceProvider;
+use Filament\Facades\Filament;
+use Filament\Support\Assets\Asset;
+use Filament\Support\Assets\AssetManager;
+use Filament\Support\Assets\Css;
+use Filament\Support\Assets\Js;
+use Filament\Support\Facades\FilamentAsset;
+use Filament\Support\Facades\FilamentIcon;
+use Filament\Support\Icons\Icon;
+use Filament\Support\Icons\IconManager;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\View;
-use LaraZeus\Wind\Console\PublishCommand;
-use LaraZeus\Wind\Filament\Resources\DepartmentResource;
-use LaraZeus\Wind\Filament\Resources\LetterResource;
+use LaraZeus\Wind\Commands\PublishCommand;
 use LaraZeus\Wind\Http\Livewire\Contacts;
 use LaraZeus\Wind\Http\Livewire\ContactsForm;
 use Livewire\Livewire;
+use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Illuminate\Support\Facades\Blade;
 
-class WindServiceProvider extends PluginServiceProvider
+class WindServiceProvider extends PackageServiceProvider
 {
     public static string $name = 'zeus-wind';
 
-    protected array $resources = [
-        DepartmentResource::class,
-        LetterResource::class,
-    ];
+    public static string $viewNamespace = 'zeus-wind';
+
+    public function configurePackage(Package $package): void
+    {
+        $package->name(static::$name)
+            ->hasCommands($this->getCommands())
+            ->hasRoute('web')
+            ->hasInstallCommand(function (InstallCommand $command) {
+                $command
+                    ->publishConfigFile()
+                    ->publishMigrations()
+                    ->askToRunMigrations()
+                    ->askToStarRepoOnGitHub('lara-zeus/wind');
+            });
+
+        $configFileName = $package->shortName();
+
+        //$this->package
+        if (file_exists($package->basePath("/../config/{$configFileName}.php"))) {
+            $package->hasConfigFile();
+        }
+
+        if (file_exists($package->basePath('/../database/migrations'))) {
+            $package->hasMigrations($this->getMigrations());
+        }
+
+        if (file_exists($package->basePath('/../resources/lang'))) {
+            $package->hasTranslations();
+        }
+
+        if (file_exists($package->basePath('/../resources/views'))) {
+            $package->hasViews(static::$viewNamespace);
+        }
+    }
+
+    public function packageRegistered(): void
+    {
+        // Context Registration
+        $this->app->resolving('zeus-wind', function () {
+            foreach ($this->getContexts() as $context) {
+                Filament::registerContext($context);
+            }
+        });
+
+        // Asset Registration
+        $this->app->resolving(AssetManager::class, function () {
+            FilamentAsset::register($this->getAssets(), $this->getAssetPackage());
+            FilamentAsset::registerScriptData($this->getScriptData(), $this->getAssetPackage());
+        });
+
+        // Icon Registration
+        $this->app->resolving(IconManager::class, function () {
+            FilamentIcon::register($this->getIcons());
+        });
+    }
+
+    protected function getAssetPackage(): ?string
+    {
+        return static::$name ?? null;
+    }
+
+    /**
+     * @return array<Asset>
+     */
+    protected function getAssets(): array
+    {
+        return [
+            // todo add from core
+            Css::make('zeus-wind-styles', __DIR__.'/../resources/dist/filament.css'),
+            Js::make('zeus-wind-scripts', __DIR__.'/../resources/dist/filament.js'),
+        ];
+    }
+
+    /**
+     * @return array<class-string>
+     */
+    protected function getCommands(): array
+    {
+        return [
+            PublishCommand::class,
+        ];
+    }
+
+    /**
+     * @return array<string, Icon>
+     */
+    protected function getIcons(): array
+    {
+        return [];
+    }
+
+    /**
+     * @return array<string>
+     */
+    protected function getRoutes(): array
+    {
+        return ['web'];
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    protected function getScriptData(): array
+    {
+        return [];
+    }
+
+    /**
+     * @return array<string>
+     */
+    protected function getMigrations(): array
+    {
+        return [
+            'create_department_table',
+            'create_letters_table'
+        ];
+    }
+
+    /*public function panel(Panel $panel): Panel
+    {
+        return $panel
+            ->id('zeus-wind')
+            ->path('zeus-wind')
+            ->resources([
+                DepartmentResource::class,
+                LetterResource::class,
+            ])
+            ->pages([
+                // ...
+            ])
+            ->widgets([
+                // ...
+            ])
+            ->middleware([
+                // ...
+            ])
+            ->authMiddleware([
+                // ...
+            ]);
+    }*/
+
+    /*public static function make(): static
+    {
+        return app(static::class);
+    }*/
+
+    public function boot()
+    {
+        // let me have my fun 🤷🏽‍
+        Blade::directive('zeus', function () {
+            return '<span class="text-secondary-700 group"><span class="font-semibold text-primary-600 group-hover:text-secondary-500 transition ease-in-out duration-300">Lara&nbsp;<span class="line-through italic text-secondary-500 group-hover:text-primary-600 transition ease-in-out duration-300">Z</span>eus</span></span>';
+        });
+
+        return parent::boot();
+    }
 
     public function bootingPackage(): void
     {
@@ -42,19 +202,5 @@ class WindServiceProvider extends PluginServiceProvider
                 __DIR__ . '/../database/factories' => database_path('factories'),
             ], 'zeus-wind-factories');
         }
-    }
-
-    protected function getCommands(): array
-    {
-        return [
-            PublishCommand::class,
-        ];
-    }
-
-    public function packageConfiguring(Package $package): void
-    {
-        $package
-            ->hasMigrations(['create_department_table', 'create_letters_table'])
-            ->hasRoute('web');
     }
 }

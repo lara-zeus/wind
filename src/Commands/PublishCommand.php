@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraZeus\Wind\Console;
+namespace LaraZeus\Wind\Commands;
 
 use Illuminate\Console\Command;
 

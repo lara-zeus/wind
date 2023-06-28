@@ -5,9 +5,9 @@ namespace LaraZeus\Wind\Filament\Resources;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
-use Filament\Resources\Form;
+use Filament\Forms\Form;
 use Filament\Resources\Resource;
-use Filament\Resources\Table;
+use Filament\Tables\Table;
 use Filament\Tables\Actions\Action;
 use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Actions\DeleteAction;
@@ -30,7 +30,7 @@ class LetterResource extends Resource
 
     protected static ?int $navigationSort = 2;
 
-    protected static function getNavigationBadge(): ?string
+    public static function getNavigationBadge(): ?string
     {
         return static::getModel()::where('status', config('zeus-wind.default_status'))->count();
     }
@@ -133,7 +133,7 @@ class LetterResource extends Resource
                         ->label(__('View')),
                     Action::make('Open')
                         ->color('warning')
-                        ->icon('heroicon-o-external-link')
+                        ->icon('heroicon-o-arrow-top-right-on-square')
                         ->label(__('Open'))
                         ->url(fn (Model $record): string => route('contact', ['departmentSlug' => $record]))
                         ->openUrlInNewTab(),
@@ -161,12 +161,12 @@ class LetterResource extends Resource
         return __('Letters');
     }
 
-    protected static function getNavigationLabel(): string
+    public static function getNavigationLabel(): string
     {
         return __('Letters');
     }
 
-    protected static function getNavigationGroup(): ?string
+    public static function getNavigationGroup(): ?string
     {
         return __(config('zeus-wind.navigation_group_label', __('Wind')));
     }
