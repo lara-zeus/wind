@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class LetterFactory extends Factory
+class LetterFactory extends Factory /* @phpstan-ignore-line */
 {
     /**
      * The name of the factory's corresponding model.

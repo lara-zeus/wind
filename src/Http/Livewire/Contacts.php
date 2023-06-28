@@ -6,14 +6,14 @@ use Livewire\Component;
 
 class Contacts extends Component
 {
-    public $departmentSlug = null;
+    public ?string $departmentSlug;
 
-    public function mount($departmentSlug = null)
+    public function mount(string $departmentSlug = null): void
     {
         $this->departmentSlug = $departmentSlug;
     }
 
-    public function render()
+    public function render(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         seo()
             ->site(config('app.name', 'Laravel'))

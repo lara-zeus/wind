@@ -7,7 +7,7 @@ use LaraZeus\Wind\Models\Department;
 
 class WindSeeder extends Seeder
 {
-    public function run()
+    public function run(): void
     {
         config('zeus-wind.models.department')::factory()
             ->has(

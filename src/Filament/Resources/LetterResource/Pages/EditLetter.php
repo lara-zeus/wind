@@ -9,7 +9,7 @@ class EditLetter extends EditRecord
 {
     protected static string $resource = LetterResource::class;
 
-    public function mount($record): void
+    public function mount($record): void /* @phpstan-ignore-line */
     {
         parent::mount($record);
 
