@@ -5,6 +5,7 @@ namespace LaraZeus\Wind;
 use Filament\PluginServiceProvider;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\View;
+use LaraZeus\Core\CoreServiceProvider;
 use LaraZeus\Wind\Console\PublishCommand;
 use LaraZeus\Wind\Filament\Resources\DepartmentResource;
 use LaraZeus\Wind\Filament\Resources\LetterResource;
@@ -24,14 +25,16 @@ class WindServiceProvider extends PluginServiceProvider
 
     public function bootingPackage(): void
     {
+        //CoreServiceProvider::setThemePath('wind');
+
+        $viewPath = 'zeus::themes.'.config("zeus-wind.theme",'zeus').'.wind';
+        View::share('windTheme', $viewPath);
+        App::singleton('windTheme', function () use ($viewPath) {
+            return $viewPath;
+        });
+
         Livewire::component('contact', Contacts::class);
         Livewire::component('contact-form', ContactsForm::class);
-
-        View::share('', 'wind-theme::themes.' . config('zeus-wind.theme', 'zeus'));
-
-        App::singleton('wind-theme', function () {
-            return 'zeus-wind::themes.' . config('zeus-wind.theme', 'zeus');
-        });
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
@@ -51,10 +54,11 @@ class WindServiceProvider extends PluginServiceProvider
         ];
     }
 
-    public function packageConfiguring(Package $package): void
+    public function packageConfigured(Package $package): void
     {
         $package
             ->hasMigrations(['create_department_table', 'create_letters_table'])
+            ->hasViews('zeus')
             ->hasRoute('web');
     }
 }

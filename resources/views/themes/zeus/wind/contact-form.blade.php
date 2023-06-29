@@ -1,6 +1,6 @@
 <div>
     @if($sent)
-        @include(app('wind-theme').'.submitted')
+        @include(app('windTheme').'.submitted')
     @else
         <form wire:submit.prevent="store">
             <div class="max-w-4xl mx-auto my-4 px-4">

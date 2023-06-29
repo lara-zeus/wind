@@ -88,7 +88,7 @@ class LetterResource extends Resource
         return $table
             ->columns([
                 ViewColumn::make('from')
-                    ->view('zeus-wind::filament.message-from')
+                    ->view('zeus::filament.message-from')
                     ->sortable(['name'])
                     ->searchable(['name', 'email'])
                     ->toggleable()
