@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e76625471a798c9204ca086cac05a048",
+    "content-hash": "678b4708234f2488ccbc72d9f7bfa6ac",
     "packages": [
         {
             "name": "akaunting/laravel-money",
@@ -1431,11 +1431,11 @@
         },
         {
             "name": "lara-zeus/core",
-            "version": "dev-main",
+            "version": "dev-themes",
             "dist": {
                 "type": "path",
                 "url": "../core",
-                "reference": "e45844b0e9d84662570925db622b4b8d8434e321"
+                "reference": "762194d06ac48aa51761a64531a48a0cbe6af973"
             },
             "require": {
                 "archtechx/laravel-seo": "^0.7",
