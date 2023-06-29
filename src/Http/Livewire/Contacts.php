@@ -24,6 +24,6 @@ class Contacts extends Component
             ->withUrl()
             ->twitter();
 
-        return view(app('windTheme') . '.contact')->layout(config('zeus-wind.layout'));
+        return view(app('windTheme') . '.contact')->layout(config('zeus.layout'));
     }
 }
