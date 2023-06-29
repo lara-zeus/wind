@@ -18,7 +18,7 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
 {
     use Forms\Concerns\InteractsWithForms;
 
-    public Department|null $department = null;
+    public ?Department $department = null;
 
     public string $name = '';
 
@@ -28,7 +28,7 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
 
     public string $message = '';
 
-    public int $department_id;
+    public ?int $department_id;
 
     public bool $sent = false;
 
