@@ -2,6 +2,14 @@
 
 All notable changes to `wind` will be documented in this file
 
+## 2.4.19 - 2023-06-29
+
+### What's Changed
+
+- change department id to accept null by @atmonshi in https://github.com/lara-zeus/wind/pull/55
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/2.4.18...2.4.19
+
 ## 2.4.18 - 2023-06-28
 
 ### What's Changed
