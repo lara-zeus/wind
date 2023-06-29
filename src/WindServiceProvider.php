@@ -27,7 +27,7 @@ class WindServiceProvider extends PluginServiceProvider
     {
         //CoreServiceProvider::setThemePath('wind');
 
-        $viewPath = 'zeus::themes.'.config("zeus-wind.theme",'zeus').'.wind';
+        $viewPath = 'zeus::themes.' . config('zeus-wind.theme', 'zeus') . '.wind';
         View::share('windTheme', $viewPath);
         App::singleton('windTheme', function () use ($viewPath) {
             return $viewPath;
