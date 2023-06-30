@@ -2,6 +2,14 @@
 
 All notable changes to `wind` will be documented in this file
 
+## 2.4.20 - 2023-06-30
+
+### What's Changed
+
+- update core by @atmonshi in https://github.com/lara-zeus/wind/pull/56
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/2.4.19...2.4.20
+
 ## 2.4.19 - 2023-06-29
 
 ### What's Changed
