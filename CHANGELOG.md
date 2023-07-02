@@ -2,6 +2,21 @@
 
 All notable changes to `wind` will be documented in this file
 
+## 2.4.22 - 2023-07-02
+
+### What's Changed
+
+- fix migration by @atmonshi in https://github.com/lara-zeus/wind/pull/58
+
+### publish the migration:
+
+`php artisan vendor:publish --tag=zeus-wind-migrations`
+
+and run:
+`php artisan migrate`
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/2.4.21...2.4.22
+
 ## 2.4.21 - 2023-07-02
 
 ### What's Changed
