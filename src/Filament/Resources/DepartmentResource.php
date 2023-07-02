@@ -13,15 +13,23 @@ use Filament\Resources\Table;
 use Filament\Tables\Actions\Action;
 use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ForceDeleteAction;
+use Filament\Tables\Actions\ForceDeleteBulkAction;
+use Filament\Tables\Actions\RestoreAction;
+use Filament\Tables\Actions\RestoreBulkAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
+use Filament\Tables\Filters\TrashedFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
 use LaraZeus\Wind\Filament\Resources\DepartmentResource\Pages;
+use LaraZeus\Wind\Models\Department;
 
 class DepartmentResource extends Resource
 {
@@ -74,6 +82,17 @@ class DepartmentResource extends Resource
             ]);
     }
 
+    /**
+     * @return Builder<Department>
+     */
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()
+            ->withoutGlobalScopes([
+                SoftDeletingScope::class,
+            ]);
+    }
+
     public static function table(Table $table): Table
     {
         return $table
@@ -105,6 +124,7 @@ class DepartmentResource extends Resource
             ])
             ->defaultSort('id', 'desc')
             ->filters([
+                TrashedFilter::make(),
                 Filter::make('is_active')
                     ->label(__('is active'))
                     ->toggle()
@@ -113,6 +133,11 @@ class DepartmentResource extends Resource
                     ->label(__('not active'))
                     ->toggle()
                     ->query(fn (Builder $query): Builder => $query->where('is_active', false)),
+            ])
+            ->bulkActions([
+                DeleteBulkAction::make(),
+                ForceDeleteBulkAction::make(),
+                RestoreBulkAction::make(),
             ])
             ->actions([
                 ActionGroup::make([
@@ -126,8 +151,9 @@ class DepartmentResource extends Resource
                         ->label(__('Open'))
                         ->url(fn (Model $record): string => route('contact', ['departmentSlug' => $record]))
                         ->openUrlInNewTab(),
-                    DeleteAction::make('delete')
-                        ->label(__('Delete')),
+                    DeleteAction::make('delete'),
+                    ForceDeleteAction::make(),
+                    RestoreAction::make(),
                 ]),
             ]);
     }
