@@ -11,13 +11,22 @@ use Filament\Resources\Table;
 use Filament\Tables\Actions\Action;
 use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ForceDeleteAction;
+use Filament\Tables\Actions\ForceDeleteBulkAction;
+use Filament\Tables\Actions\RestoreAction;
+use Filament\Tables\Actions\RestoreBulkAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ViewColumn;
 use Filament\Tables\Filters\SelectFilter;
+use Filament\Tables\Filters\TrashedFilter;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
 use LaraZeus\Wind\Filament\Resources\LetterResource\Pages;
+use LaraZeus\Wind\Models\Letter;
 
 class LetterResource extends Resource
 {
@@ -33,6 +42,17 @@ class LetterResource extends Resource
     protected static function getNavigationBadge(): ?string
     {
         return static::getModel()::where('status', config('zeus-wind.default_status'))->count();
+    }
+
+    /**
+     * @return Builder<Letter>
+     */
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()
+            ->withoutGlobalScopes([
+                SoftDeletingScope::class,
+            ]);
     }
 
     public static function form(Form $form): Form
@@ -112,7 +132,13 @@ class LetterResource extends Resource
                     ->formatStateUsing(fn (string $state): string => __("status_{$state}")),
             ])
             ->defaultSort('id', 'desc')
+            ->bulkActions([
+                DeleteBulkAction::make(),
+                ForceDeleteBulkAction::make(),
+                RestoreBulkAction::make(),
+            ])
             ->filters([
+                TrashedFilter::make(),
                 SelectFilter::make('status')
                     ->options([
                         'NEW' => __('NEW'),
@@ -137,8 +163,9 @@ class LetterResource extends Resource
                         ->label(__('Open'))
                         ->url(fn (Model $record): string => route('contact', ['departmentSlug' => $record]))
                         ->openUrlInNewTab(),
-                    DeleteAction::make('delete')
-                        ->label(__('Delete')),
+                    DeleteAction::make('delete'),
+                    ForceDeleteAction::make(),
+                    RestoreAction::make(),
                 ]),
             ]);
     }

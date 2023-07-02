@@ -54,7 +54,11 @@ class WindServiceProvider extends PluginServiceProvider
     public function packageConfiguring(Package $package): void
     {
         $package
-            ->hasMigrations(['create_department_table', 'create_letters_table'])
+            ->hasMigrations([
+                'create_department_table',
+                'create_letters_table',
+                'alter_letters_constraints',
+            ])
             ->hasRoute('web');
     }
 }
