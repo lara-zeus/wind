@@ -2,6 +2,15 @@
 
 All notable changes to `wind` will be documented in this file
 
+## 2.4.23 - 2023-07-04
+
+### What's Changed
+
+- Bump dependabot/fetch-metadata from 1.5.1 to 1.6.0 by @dependabot in https://github.com/lara-zeus/wind/pull/59
+- update all dependecies by @atmonshi in https://github.com/lara-zeus/wind/pull/60
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/2.4.22...2.4.23
+
 ## 2.4.22 - 2023-07-02
 
 ### What's Changed
