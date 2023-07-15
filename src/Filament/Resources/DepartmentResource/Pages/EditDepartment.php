@@ -2,8 +2,8 @@
 
 namespace LaraZeus\Wind\Filament\Resources\DepartmentResource\Pages;
 
-use Filament\Resources\Pages\EditRecord;
 use Filament\Pages\Actions\Action;
+use Filament\Resources\Pages\EditRecord;
 use LaraZeus\Wind\Filament\Resources\DepartmentResource;
 
 class EditDepartment extends EditRecord
