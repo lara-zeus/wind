@@ -2,64 +2,32 @@
 
 namespace LaraZeus\Wind;
 
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\View;
 use LaraZeus\Wind\Commands\PublishCommand;
+use LaraZeus\Core\CoreServiceProvider;
 use LaraZeus\Wind\Http\Livewire\Contacts;
 use LaraZeus\Wind\Http\Livewire\ContactsForm;
 use Livewire\Livewire;
-use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class WindServiceProvider extends PackageServiceProvider
 {
-    public static string $name = 'zeus-wind';
-
-    public static string $viewNamespace = 'zeus-wind';
-
     public function configurePackage(Package $package): void
     {
-        $package->name(static::$name)
-            ->hasCommands($this->getCommands())
+        $package
+            ->name('zeus-wind')
+            ->hasMigrations($this->getMigrations())
+            ->hasViews('zeus')
             ->hasRoute('web')
-            ->hasInstallCommand(function (InstallCommand $command) {
-                $command
-                    ->publishConfigFile()
-                    ->publishMigrations()
-                    ->askToRunMigrations()
-                    ->askToStarRepoOnGitHub('lara-zeus/wind');
-            });
-
-        $configFileName = $package->shortName();
-
-        if (file_exists($package->basePath("/../config/{$configFileName}.php"))) {
-            $package->hasConfigFile();
-        }
-
-        if (file_exists($package->basePath('/../database/migrations'))) {
-            $package->hasMigrations($this->getMigrations());
-        }
-
-        if (file_exists($package->basePath('/../resources/lang'))) {
-            $package->hasTranslations();
-        }
-
-        if (file_exists($package->basePath('/../resources/views'))) {
-            $package->hasViews(static::$viewNamespace);
-        }
+            ->hasCommands($this->getCommands());
     }
 
     public function bootingPackage(): void
     {
+        CoreServiceProvider::setThemePath('wind');
+
         Livewire::component('contact', Contacts::class);
         Livewire::component('contact-form', ContactsForm::class);
-
-        View::share('wind-theme', 'wind-theme::themes.' . config('zeus-wind.theme', 'zeus'));
-
-        App::singleton('wind-theme', function () {
-            return 'zeus-wind::themes.' . config('zeus-wind.theme', 'zeus');
-        });
 
         if ($this->app->runningInConsole()) {
             $this->publishes([

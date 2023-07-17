@@ -64,7 +64,7 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
         return [
             Grid::make()->schema([
                 ViewField::make('department_id')
-                    ->view(app('wind-theme') . '.departments')
+                    ->view(app('windTheme') . '.departments')
                     ->columnSpan([
                         'default' => 1,
                         'sm' => 1,
@@ -99,6 +99,6 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
 
     public function render(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        return view(app('wind-theme') . '.contact-form');
+        return view(app('windTheme') . '.contact-form');
     }
 }

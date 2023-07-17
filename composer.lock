@@ -1595,7 +1595,7 @@
             "dist": {
                 "type": "path",
                 "url": "../core",
-                "reference": "7efdc080e1f6d3d5a450b9c7878131048340b9bd"
+                "reference": "22bc7b790c31abf5c26d139005feaf50ba2035c4"
             },
             "require": {
                 "archtechx/laravel-seo": "^0.7",
