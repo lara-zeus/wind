@@ -2,8 +2,8 @@
 
 namespace LaraZeus\Wind;
 
-use LaraZeus\Wind\Commands\PublishCommand;
 use LaraZeus\Core\CoreServiceProvider;
+use LaraZeus\Wind\Commands\PublishCommand;
 use LaraZeus\Wind\Http\Livewire\Contacts;
 use LaraZeus\Wind\Http\Livewire\ContactsForm;
 use Livewire\Livewire;
@@ -12,17 +12,7 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class WindServiceProvider extends PackageServiceProvider
 {
-    public function configurePackage(Package $package): void
-    {
-        $package
-            ->name('zeus-wind')
-            ->hasMigrations($this->getMigrations())
-            ->hasViews('zeus')
-            ->hasRoute('web')
-            ->hasCommands($this->getCommands());
-    }
-
-    public function bootingPackage(): void
+    public function packageBooted(): void
     {
         CoreServiceProvider::setThemePath('wind');
 
@@ -38,6 +28,21 @@ class WindServiceProvider extends PackageServiceProvider
                 __DIR__ . '/../database/factories' => database_path('factories'),
             ], 'zeus-wind-factories');
         }
+    }
+
+    public function configurePackage(Package $package): void
+    {
+        $package
+            ->name('zeus-wind')
+            ->hasConfigFile()
+            ->hasMigrations($this->getMigrations())
+            ->hasRoute('web')
+            ->hasCommands($this->getCommands());
+    }
+
+    public function packageRegistered(): void
+    {
+        $this->package->hasViews('zeus');
     }
 
     /**

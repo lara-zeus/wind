@@ -2,6 +2,9 @@
 
 namespace LaraZeus\Wind\Http\Livewire;
 
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Foundation\Application;
 use Livewire\Component;
 
 class Contacts extends Component
@@ -13,7 +16,7 @@ class Contacts extends Component
         $this->departmentSlug = $departmentSlug;
     }
 
-    public function render(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    public function render(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
         seo()
             ->site(config('app.name', 'Laravel'))
