@@ -18,23 +18,23 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
 {
     use Forms\Concerns\InteractsWithForms;
 
-    public Department|null $department = null;
+    public ?Department $department = null;
 
-    public $name = '';
+    public string $name = '';
 
-    public $email = '';
+    public string $email = '';
 
-    public $title = '';
+    public string $title = '';
 
-    public $message = '';
+    public string $message = '';
 
-    public $department_id;
+    public ?int $department_id;
 
-    public $sent = false;
+    public bool $sent = false;
 
-    public $status = 'NEW';
+    public string $status = 'NEW';
 
-    public function mount($departmentSlug)
+    public function mount(string $departmentSlug = null): void
     {
         if (config('zeus-wind.enableDepartments')) {
             if ($departmentSlug !== null) {
@@ -52,7 +52,7 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
         );
     }
 
-    public function store()
+    public function store(): void
     {
         $letter = config('zeus-wind.models.letter')::create($this->form->getState());
         $this->sent = true;
@@ -73,8 +73,16 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
                     ->label('')
                     ->visible(fn (): bool => config('zeus-wind.enableDepartments')),
 
-                TextInput::make('name')->required()->minLength('6')->label(__('name')),
-                TextInput::make('email')->required()->email()->label(__('email')),
+                TextInput::make('name')
+                    ->required()
+                    ->minLength(6)
+                    ->label(__('name')),
+
+                TextInput::make('email')
+                    ->required()
+                    ->email()
+                    ->label(__('email')),
+
             ])->columns([
                 'default' => 1,
                 'sm' => 1,
@@ -89,7 +97,7 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
         ];
     }
 
-    public function render()
+    public function render(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         return view(app('wind-theme') . '.contact-form');
     }

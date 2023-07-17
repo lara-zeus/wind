@@ -144,44 +144,6 @@ class WindServiceProvider extends PackageServiceProvider
         ];
     }
 
-    /*public function panel(Panel $panel): Panel
-    {
-        return $panel
-            ->id('zeus-wind')
-            ->path('zeus-wind')
-            ->resources([
-                DepartmentResource::class,
-                LetterResource::class,
-            ])
-            ->pages([
-                // ...
-            ])
-            ->widgets([
-                // ...
-            ])
-            ->middleware([
-                // ...
-            ])
-            ->authMiddleware([
-                // ...
-            ]);
-    }*/
-
-    /*public static function make(): static
-    {
-        return app(static::class);
-    }*/
-
-    public function boot()
-    {
-        // let me have my fun 🤷🏽‍
-        Blade::directive('zeus', function () {
-            return '<span class="text-secondary-700 group"><span class="font-semibold text-primary-600 group-hover:text-secondary-500 transition ease-in-out duration-300">Lara&nbsp;<span class="line-through italic text-secondary-500 group-hover:text-primary-600 transition ease-in-out duration-300">Z</span>eus</span></span>';
-        });
-
-        return parent::boot();
-    }
-
     public function bootingPackage(): void
     {
         Livewire::component('contact', Contacts::class);

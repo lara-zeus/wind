@@ -2,6 +2,70 @@
 
 All notable changes to `wind` will be documented in this file
 
+## 2.4.24 - 2023-07-12
+
+### What's Changed
+
+- update core by @atmonshi in https://github.com/lara-zeus/wind/pull/61
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/2.4.23...2.4.24
+
+## 2.4.23 - 2023-07-04
+
+### What's Changed
+
+- Bump dependabot/fetch-metadata from 1.5.1 to 1.6.0 by @dependabot in https://github.com/lara-zeus/wind/pull/59
+- update all dependecies by @atmonshi in https://github.com/lara-zeus/wind/pull/60
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/2.4.22...2.4.23
+
+## 2.4.22 - 2023-07-02
+
+### What's Changed
+
+- fix migration by @atmonshi in https://github.com/lara-zeus/wind/pull/58
+
+### publish the migration:
+
+`php artisan vendor:publish --tag=zeus-wind-migrations`
+
+and run:
+`php artisan migrate`
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/2.4.21...2.4.22
+
+## 2.4.21 - 2023-07-02
+
+### What's Changed
+
+- improve delete department by @atmonshi in https://github.com/lara-zeus/wind/pull/57
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/2.4.20...2.4.21
+
+## 2.4.20 - 2023-06-30
+
+### What's Changed
+
+- update core by @atmonshi in https://github.com/lara-zeus/wind/pull/56
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/2.4.19...2.4.20
+
+## 2.4.19 - 2023-06-29
+
+### What's Changed
+
+- change department id to accept null by @atmonshi in https://github.com/lara-zeus/wind/pull/55
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/2.4.18...2.4.19
+
+## 2.4.18 - 2023-06-28
+
+### What's Changed
+
+- clean up some code and phpstan level: 6 by @atmonshi in https://github.com/lara-zeus/wind/pull/54
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/2.4.17...2.4.18
+
 ## 2.4.17 - 2023-06-24
 
 ### What's Changed

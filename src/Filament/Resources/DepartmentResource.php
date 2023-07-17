@@ -6,21 +6,29 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
-use Filament\Forms\Form;
+use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Tables\Actions\Action;
 use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\DeleteBulkAction;
 use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\ForceDeleteAction;
+use Filament\Tables\Actions\ForceDeleteBulkAction;
+use Filament\Tables\Actions\RestoreAction;
+use Filament\Tables\Actions\RestoreBulkAction;
 use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
+use Filament\Tables\Filters\TrashedFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
 use LaraZeus\Wind\Filament\Resources\DepartmentResource\Pages;
+use LaraZeus\Wind\Models\Department;
 
 class DepartmentResource extends Resource
 {
@@ -52,7 +60,7 @@ class DepartmentResource extends Resource
                     ->maxLength(255)
                     ->reactive()
                     ->label(__('name'))
-                    ->afterStateUpdated(function (\Filament\Forms\Set $set, $state, $context) {
+                    ->afterStateUpdated(function (Set $set, $state, $context) {
                         if ($context === 'edit') {
                             return;
                         }
@@ -70,6 +78,17 @@ class DepartmentResource extends Resource
                     ->directory(config('zeus-wind.uploads.dir', 'logos'))
                     ->columnSpan(['sm' => 2])
                     ->label(__('logo')),
+            ]);
+    }
+
+    /**
+     * @return Builder<Department>
+     */
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()
+            ->withoutGlobalScopes([
+                SoftDeletingScope::class,
             ]);
     }
 
@@ -104,6 +123,7 @@ class DepartmentResource extends Resource
             ])
             ->defaultSort('id', 'desc')
             ->filters([
+                TrashedFilter::make(),
                 Filter::make('is_active')
                     ->label(__('is active'))
                     ->toggle()
@@ -112,6 +132,11 @@ class DepartmentResource extends Resource
                     ->label(__('not active'))
                     ->toggle()
                     ->query(fn (Builder $query): Builder => $query->where('is_active', false)),
+            ])
+            ->bulkActions([
+                DeleteBulkAction::make(),
+                ForceDeleteBulkAction::make(),
+                RestoreBulkAction::make(),
             ])
             ->actions([
                 ActionGroup::make([
@@ -125,8 +150,9 @@ class DepartmentResource extends Resource
                         ->label(__('Open'))
                         ->url(fn (Model $record): string => route('contact', ['departmentSlug' => $record]))
                         ->openUrlInNewTab(),
-                    DeleteAction::make('delete')
-                        ->label(__('Delete')),
+                    DeleteAction::make('delete'),
+                    ForceDeleteAction::make(),
+                    RestoreAction::make(),
                 ]),
             ]);
     }
