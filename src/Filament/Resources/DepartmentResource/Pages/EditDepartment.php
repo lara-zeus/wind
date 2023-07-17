@@ -24,7 +24,7 @@ class EditDepartment extends EditRecord
             [
                 Action::make('Open')
                     ->color('warning')
-                    ->icon('heroicon-o-external-link')
+                    ->icon('heroicon-o-arrow-top-right-on-square')
                     ->label(__('Open'))
                     ->url(fn (): string => route('contact', ['departmentSlug' => $this->record]))
                     ->openUrlInNewTab(),

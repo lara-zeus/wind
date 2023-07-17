@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "51cd68c0ac82bc2855c9cd7a76757677",
+    "content-hash": "53d38bbabfd1e3dc0af2528f343901aa",
     "packages": [
         {
             "name": "archtechx/laravel-seo",
@@ -1588,6 +1588,97 @@
                 "source": "https://github.com/kirschbaum-development/eloquent-power-joins/tree/2.7.3"
             },
             "time": "2023-03-05T11:19:12+00:00"
+        },
+        {
+            "name": "lara-zeus/core",
+            "version": "3.x-dev",
+            "dist": {
+                "type": "path",
+                "url": "../core",
+                "reference": "7efdc080e1f6d3d5a450b9c7878131048340b9bd"
+            },
+            "require": {
+                "archtechx/laravel-seo": "^0.7",
+                "calebporzio/sushi": "^2.4",
+                "codeat3/blade-iconpark": "^1.5",
+                "filament/filament": "^3.0",
+                "filament/notifications": "^3.0",
+                "illuminate/support": "^9.0 || ^10.0",
+                "php": "^8.0.2"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.0",
+                "nunomaduro/collision": "^6.0",
+                "nunomaduro/larastan": "^2.0.1",
+                "orchestra/testbench": "^7.0 || ^8.0",
+                "pestphp/pest": "^1.21",
+                "pestphp/pest-plugin-laravel": "^1.1",
+                "pestphp/pest-plugin-livewire": "^1.0",
+                "pestphp/pest-plugin-parallel": "^0.3",
+                "phpstan/extension-installer": "^1.1",
+                "phpstan/phpstan-deprecation-rules": "^1.0",
+                "phpstan/phpstan-phpunit": "^1.0",
+                "phpunit/phpunit": "^9.5",
+                "spatie/laravel-ray": "^1.26"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaraZeus\\Core\\CoreServiceProvider"
+                    ],
+                    "aliases": {
+                        "Core": "LaraZeus\\Core\\CoreFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaraZeus\\Core\\": "src"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "LaraZeus\\Core\\Tests\\": "tests"
+                }
+            },
+            "scripts": {
+                "pint": [
+                    "vendor/bin/pint"
+                ],
+                "test:pest": [
+                    "vendor/bin/pest --parallel"
+                ],
+                "test:phpstan": [
+                    "vendor/bin/phpstan analyse"
+                ],
+                "test": [
+                    "@test:pest",
+                    "@test:phpstan"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "php coder",
+                    "email": "info@larazeus.com",
+                    "role": "Owner"
+                }
+            ],
+            "description": "the core for zeus packages",
+            "homepage": "https://github.com/lara-zeus",
+            "keywords": [
+                "contact",
+                "core",
+                "form",
+                "lara-zeus",
+                "laravel"
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "laravel/framework",
@@ -10714,7 +10805,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "lara-zeus/core": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

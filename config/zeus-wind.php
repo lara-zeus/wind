@@ -34,7 +34,7 @@ return [
      * you can use the default layout as a starting point for your blog.
      * however, if you're already using your own component, just set the path here.
      */
-    'layout' => 'components.app',
+    'layout' => 'zeus::components.app',
 
     /**
      * set the default upload options for departments logo.
