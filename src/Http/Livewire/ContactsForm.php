@@ -4,9 +4,13 @@ namespace LaraZeus\Wind\Http\Livewire;
 
 use Filament\Forms;
 use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\ViewField;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Foundation\Application;
 use LaraZeus\Wind\Events\LetterSent;
 use LaraZeus\Wind\Models\Department;
 use Livewire\Component;
@@ -44,6 +48,8 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
             }
         }
 
+        $this->status = config('zeus-wind.default_status', 'NEW');
+
         $this->form->fill(
             [
                 'department_id' => $this->department->id ?? null,
@@ -62,42 +68,51 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
     protected function getFormSchema(): array
     {
         return [
-            Grid::make()->schema([
-                ViewField::make('department_id')
-                    ->view(app('windTheme') . '.departments')
-                    ->columnSpan([
-                        'default' => 1,
-                        'sm' => 1,
-                        'md' => 2,
-                    ])
-                    ->label('')
-                    ->visible(fn (): bool => config('zeus-wind.enableDepartments')),
+            Grid::make()
+                ->schema([
+                    ViewField::make('department_id')
+                        ->view(app('windTheme') . '.departments')
+                        ->columnSpan([
+                            'default' => 1,
+                            'sm' => 1,
+                            'md' => 2,
+                        ])
+                        ->label('')
+                        ->visible(fn (): bool => config('zeus-wind.enableDepartments')),
 
-                TextInput::make('name')
-                    ->required()
-                    ->minLength(6)
-                    ->label(__('name')),
+                    TextInput::make('name')
+                        ->required()
+                        ->minLength(6)
+                        ->label(__('name')),
 
-                TextInput::make('email')
-                    ->required()
-                    ->email()
-                    ->label(__('email')),
+                    TextInput::make('email')
+                        ->required()
+                        ->email()
+                        ->label(__('email')),
 
-            ])->columns([
-                'default' => 1,
-                'sm' => 1,
-                'md' => 2,
-            ]),
+                ])
+                ->columns([
+                    'default' => 1,
+                    'sm' => 1,
+                    'md' => 2,
+                ]),
 
-            Grid::make()->schema([
-                TextInput::make('title')->required()->label(__('title')),
-                Textarea::make('message')->required()->label(__('message')),
-                Forms\Components\Hidden::make('status')->default('NEW'),
-            ])->columns(1),
+            Grid::make()
+                ->schema([
+                    TextInput::make('title')
+                        ->required()
+                        ->label(__('title')),
+                    Textarea::make('message')
+                        ->required()
+                        ->label(__('message')),
+                    Hidden::make('status')
+                        ->default($this->status),
+                ])
+                ->columns(1),
         ];
     }
 
-    public function render(): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    public function render(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
         return view(app('windTheme') . '.contact-form');
     }

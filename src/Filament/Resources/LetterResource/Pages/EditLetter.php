@@ -5,6 +5,9 @@ namespace LaraZeus\Wind\Filament\Resources\LetterResource\Pages;
 use Filament\Resources\Pages\EditRecord;
 use LaraZeus\Wind\Filament\Resources\LetterResource;
 
+/**
+ * @property mixed $record
+ */
 class EditLetter extends EditRecord
 {
     protected static string $resource = LetterResource::class;
@@ -13,7 +16,6 @@ class EditLetter extends EditRecord
     {
         parent::mount($record);
 
-        // @phpstan-ignore-next-line
         if (strtoupper($this->record->status) === config('zeus-wind.default_status')) {
             $this->record->update(['status' => 'READ']);
         }
@@ -21,7 +23,6 @@ class EditLetter extends EditRecord
 
     protected function afterSave(): void
     {
-        // @phpstan-ignore-next-line
         if ($this->record->reply_message !== null) {
             $this->record->update(['status' => 'REPLIED']);
         }

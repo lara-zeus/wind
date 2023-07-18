@@ -37,12 +37,8 @@ class WindServiceProvider extends PackageServiceProvider
             ->hasConfigFile()
             ->hasMigrations($this->getMigrations())
             ->hasRoute('web')
+            ->hasViews('zeus')
             ->hasCommands($this->getCommands());
-    }
-
-    public function packageRegistered(): void
-    {
-        $this->package->hasViews('zeus');
     }
 
     /**
