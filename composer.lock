@@ -1591,7 +1591,7 @@
             "dist": {
                 "type": "path",
                 "url": "../core",
-                "reference": "ae74031223e190f9c7cba20f84f7aedaa48fc8a6"
+                "reference": "8477f62918782e0c94c5ddcc4997847e1b5223b9"
             },
             "require": {
                 "archtechx/laravel-seo": "^0.7",
@@ -1681,12 +1681,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "53b02b3c1d926c095cccca06883a35a5c6729773"
+                "reference": "9c44052743b0ee7f3adea36994918b4d8019e8b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/53b02b3c1d926c095cccca06883a35a5c6729773",
-                "reference": "53b02b3c1d926c095cccca06883a35a5c6729773",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/9c44052743b0ee7f3adea36994918b4d8019e8b3",
+                "reference": "9c44052743b0ee7f3adea36994918b4d8019e8b3",
                 "shasum": ""
             },
             "require": {
@@ -1874,7 +1874,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2023-07-17T14:39:36+00:00"
+            "time": "2023-07-19T11:36:21+00:00"
         },
         {
             "name": "laravel/serializable-closure",
@@ -8177,12 +8177,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "7282daa43673e2970b4b082c3d82a815af0f49ff"
+                "reference": "5d660cbb7e1b89253a47147ae44044f49832351f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/7282daa43673e2970b4b082c3d82a815af0f49ff",
-                "reference": "7282daa43673e2970b4b082c3d82a815af0f49ff",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/5d660cbb7e1b89253a47147ae44044f49832351f",
+                "reference": "5d660cbb7e1b89253a47147ae44044f49832351f",
                 "shasum": ""
             },
             "require": {
@@ -8231,7 +8231,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-07-17T08:18:17+00:00"
+            "time": "2023-07-19T12:44:37+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
@@ -9990,16 +9990,16 @@
         },
         {
             "name": "spatie/laravel-ray",
-            "version": "1.32.5",
+            "version": "1.32.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-ray.git",
-                "reference": "288f30c94c9725dfd78d8a1b82b230521f4d697e"
+                "reference": "8526dd6c6c838b4bac4e0df2ea7896b688b0d43e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-ray/zipball/288f30c94c9725dfd78d8a1b82b230521f4d697e",
-                "reference": "288f30c94c9725dfd78d8a1b82b230521f4d697e",
+                "url": "https://api.github.com/repos/spatie/laravel-ray/zipball/8526dd6c6c838b4bac4e0df2ea7896b688b0d43e",
+                "reference": "8526dd6c6c838b4bac4e0df2ea7896b688b0d43e",
                 "shasum": ""
             },
             "require": {
@@ -10059,7 +10059,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-ray/issues",
-                "source": "https://github.com/spatie/laravel-ray/tree/1.32.5"
+                "source": "https://github.com/spatie/laravel-ray/tree/1.32.6"
             },
             "funding": [
                 {
@@ -10071,7 +10071,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2023-06-23T07:04:32+00:00"
+            "time": "2023-07-19T12:30:16+00:00"
         },
         {
             "name": "spatie/macroable",
