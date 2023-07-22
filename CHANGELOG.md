@@ -2,6 +2,14 @@
 
 All notable changes to `wind` will be documented in this file
 
+## v3.0.0-beta2 - 2023-07-22
+
+### What's Changed
+
+update core
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/2.4.24...v3.0.0-beta2
+
 ## 2.4.24 - 2023-07-12
 
 ### What's Changed
