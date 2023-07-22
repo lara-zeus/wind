@@ -70,11 +70,5 @@
                 "LaraZeus\\Wind\\WindServiceProvider"
             ]
         }
-    },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../core"
-        }
-    ]
+    }
 }
