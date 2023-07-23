@@ -27,12 +27,13 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use LaraZeus\Wind\Filament\Resources\LetterResource\Pages;
 use LaraZeus\Wind\Models\Letter;
+use LaraZeus\Wind\WindPlugin;
 
 class LetterResource extends Resource
 {
     public static function getModel(): string
     {
-        return config('zeus-wind.models.letter');
+        return WindPlugin::get()->getLetterModel();
     }
 
     protected static ?string $navigationIcon = 'heroicon-o-inbox';
@@ -72,9 +73,9 @@ class LetterResource extends Resource
                     ->maxLength(255),
                 Select::make('department_id')
                     ->label(__('department'))
-                    ->options(config('zeus-wind.models.department')::pluck('name', 'id'))
+                    ->options(WindPlugin::get()->getDepartmentModel()::pluck('name', 'id'))
                     ->required()
-                    ->visible(fn (): bool => config('zeus-wind.enableDepartments')),
+                    ->visible(fn (): bool => WindPlugin::get()->hasDepartmentResource()),
                 TextInput::make('status')
                     ->label(__('status'))
                     ->required()
@@ -122,7 +123,7 @@ class LetterResource extends Resource
                     ->sortable()
                     ->searchable()
                     ->toggleable()
-                    ->visible(fn (): bool => config('zeus-wind.enableDepartments'))
+                    ->visible(fn (): bool => WindPlugin::get()->hasDepartmentResource())
                     ->label(__('department')),
                 TextColumn::make('status')
                     ->sortable()
@@ -148,8 +149,8 @@ class LetterResource extends Resource
                     ])
                     ->label(__('status')),
                 SelectFilter::make('department_id')
-                    ->visible(fn (): bool => config('zeus-wind.enableDepartments'))
-                    ->options(config('zeus-wind.models.department')::pluck('name', 'id'))
+                    ->visible(fn (): bool => WindPlugin::get()->hasDepartmentResource())
+                    ->options(WindPlugin::get()->getDepartmentModel()::pluck('name', 'id'))
                     ->label(__('department')),
             ])
             ->actions([
@@ -196,6 +197,6 @@ class LetterResource extends Resource
 
     public static function getNavigationGroup(): ?string
     {
-        return __(config('zeus-wind.navigation_group_label', __('Wind')));
+        return WindPlugin::get()->getNavigationGroupLabel();
     }
 }

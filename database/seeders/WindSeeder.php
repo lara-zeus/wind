@@ -4,14 +4,15 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use LaraZeus\Wind\Models\Department;
+use LaraZeus\Wind\WindPlugin;
 
 class WindSeeder extends Seeder
 {
     public function run(): void
     {
-        config('zeus-wind.models.department')::factory()
+        WindPlugin::get()->getDepartmentModel()::factory()
             ->has(
-                config('zeus-wind.models.letter')::factory()
+                WindPlugin::get()->getLetterModel()::factory()
                     ->count(5)
                     ->state(function (array $attributes, Department $department) {
                         return [

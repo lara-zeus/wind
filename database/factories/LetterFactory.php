@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use LaraZeus\Wind\WindPlugin;
 
 class LetterFactory extends Factory /* @phpstan-ignore-line */
 {
@@ -11,7 +12,7 @@ class LetterFactory extends Factory /* @phpstan-ignore-line */
      */
     public function getModel(): string
     {
-        return config('zeus-wind.models.letter');
+        return WindPlugin::get()->getDepartmentModel();
     }
 
     /**
@@ -22,7 +23,7 @@ class LetterFactory extends Factory /* @phpstan-ignore-line */
         return [
             'name' => $this->faker->name,
             'email' => $this->faker->email,
-            'department_id' => config('zeus-wind.models.department')::factory(),
+            'department_id' => WindPlugin::get()->getDepartmentModel()::factory(),
             'title' => $this->faker->words(3, true),
             'message' => $this->faker->words(5, true),
             'status' => 'NEW',

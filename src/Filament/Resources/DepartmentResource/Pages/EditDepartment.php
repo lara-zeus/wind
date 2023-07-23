@@ -10,13 +10,6 @@ class EditDepartment extends EditRecord
 {
     protected static string $resource = DepartmentResource::class;
 
-    public function mount(int|string $record): void
-    {
-        abort_unless(config('zeus-wind.enableDepartments'), 404);
-
-        parent::mount($record);
-    }
-
     protected function getHeaderActions(): array
     {
         return [

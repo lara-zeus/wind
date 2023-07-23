@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use LaraZeus\Wind\WindPlugin;
 
 /**
  * @property string $name
@@ -35,7 +36,7 @@ class Letter extends Model
     /** @return BelongsTo<Letter, Department> */
     public function department(): BelongsTo
     {
-        return $this->belongsTo(config('zeus-wind.models.department'));
+        return $this->belongsTo(WindPlugin::get()->getDepartmentModel());
     }
 
     public function getReplyTitleAttribute(): string

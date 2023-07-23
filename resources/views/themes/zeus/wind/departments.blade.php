@@ -1,10 +1,10 @@
 <x-dynamic-component
-        :component="$getFieldWrapperView()"
-        :field="$field"
+    :component="$getFieldWrapperView()"
+    :field="$field"
 >
     <div x-data="{ state: $wire.entangle('{{ $getStatePath() }}').defer }">
-        @if(config('zeus-wind.enableDepartments'))
-            @php $departments = config('zeus-wind.models.department')::whereIsActive(1)->orderBy('ordering')->get(); @endphp
+        @if(\LaraZeus\Wind\WindPlugin::get()->hasDepartmentResource())
+            @php $departments = \LaraZeus\Wind\WindPlugin::get()->getDepartmentModel()::whereIsActive(1)->orderBy('ordering')->get(); @endphp
             @if($departments->isEmpty())
                 <x-filament::card>
                     <div class="text-red-400">
@@ -38,6 +38,5 @@
                 </div>
             @endif
         @endif
-
     </div>
 </x-dynamic-component>

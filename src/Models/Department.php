@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
+use LaraZeus\Wind\WindPlugin;
 
 /**
  * @property string $slug
@@ -50,7 +51,7 @@ class Department extends Model
     /** @phpstan-return hasMany<Letter> */
     public function letters(): HasMany
     {
-        return $this->hasMany(config('zeus-wind.models.letter'));
+        return $this->hasMany(WindPlugin::get()->getDepartmentModel());
     }
 
     public function image(): ?string

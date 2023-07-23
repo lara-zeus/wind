@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use LaraZeus\Wind\WindPlugin;
 
 class DepartmentFactory extends Factory /* @phpstan-ignore-line */
 {
@@ -11,7 +12,7 @@ class DepartmentFactory extends Factory /* @phpstan-ignore-line */
      */
     public function getModel(): string
     {
-        return config('zeus-wind.models.department');
+        return WindPlugin::get()->getDepartmentModel();
     }
 
     /**

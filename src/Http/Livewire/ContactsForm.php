@@ -13,6 +13,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use LaraZeus\Wind\Events\LetterSent;
 use LaraZeus\Wind\Models\Department;
+use LaraZeus\Wind\WindPlugin;
 use Livewire\Component;
 
 /**
@@ -40,11 +41,11 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
 
     public function mount(string $departmentSlug = null): void
     {
-        if (config('zeus-wind.enableDepartments')) {
+        if (WindPlugin::get()->hasDepartmentResource()) {
             if ($departmentSlug !== null) {
-                $this->department = config('zeus-wind.models.department')::where('slug', $departmentSlug)->first();
+                $this->department = WindPlugin::get()->getDepartmentModel()::where('slug', $departmentSlug)->first();
             } elseif (config('zeus-wind.defaultDepartmentId') !== null) {
-                $this->department = config('zeus-wind.models.department')::find(config('zeus-wind.defaultDepartmentId'));
+                $this->department = WindPlugin::get()->getDepartmentModel()::find(config('zeus-wind.defaultDepartmentId'));
             }
         }
 
@@ -60,7 +61,7 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
 
     public function store(): void
     {
-        $letter = config('zeus-wind.models.letter')::create($this->form->getState());
+        $letter = WindPlugin::get()->getLetterModel()::create($this->form->getState());
         $this->sent = true;
         LetterSent::dispatch($letter);
     }
@@ -78,7 +79,7 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
                             'md' => 2,
                         ])
                         ->label('')
-                        ->visible(fn (): bool => config('zeus-wind.enableDepartments')),
+                        ->visible(fn (): bool => WindPlugin::get()->hasDepartmentResource()),
 
                     TextInput::make('name')
                         ->required()

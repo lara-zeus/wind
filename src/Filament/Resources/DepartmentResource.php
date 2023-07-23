@@ -30,26 +30,22 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use LaraZeus\Wind\Filament\Resources\DepartmentResource\Pages;
 use LaraZeus\Wind\Models\Department;
+use LaraZeus\Wind\WindPlugin;
 
 class DepartmentResource extends Resource
 {
-    public static function getModel(): string
-    {
-        return config('zeus-wind.models.department');
-    }
-
     protected static ?string $navigationIcon = 'heroicon-o-document-duplicate';
 
     protected static ?int $navigationSort = 1;
 
+    public static function getModel(): string
+    {
+        return WindPlugin::get()->getDepartmentModel();
+    }
+
     public static function getNavigationBadge(): ?string
     {
         return static::getModel()::count();
-    }
-
-    public static function shouldRegisterNavigation(): bool
-    {
-        return config('zeus-wind.enableDepartments');
     }
 
     public static function form(Form $form): Form
@@ -75,8 +71,8 @@ class DepartmentResource extends Resource
                 Textarea::make('desc')->maxLength(65535)->columnSpan(['sm' => 2])->label(__('desc')),
 
                 FileUpload::make('logo')
-                    ->disk(config('zeus-wind.uploads.disk', 'public'))
-                    ->directory(config('zeus-wind.uploads.dir', 'logos'))
+                    ->disk(WindPlugin::get()->getUploadDisk())
+                    ->directory(WindPlugin::get()->getUploadDirectory())
                     ->columnSpan(['sm' => 2])
                     ->label(__('logo')),
             ]);
@@ -118,7 +114,7 @@ class DepartmentResource extends Resource
                     ->label(__('is active'))
                     ->toggleable(),
                 ImageColumn::make('logo')
-                    ->disk(config('zeus-wind.uploads.disk', 'public'))
+                    ->disk(WindPlugin::get()->getUploadDisk())
                     ->label(__('logo'))
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
@@ -184,6 +180,6 @@ class DepartmentResource extends Resource
 
     public static function getNavigationGroup(): ?string
     {
-        return __(config('zeus-wind.navigation_group_label', __('Wind')));
+        return WindPlugin::get()->getNavigationGroupLabel();
     }
 }
