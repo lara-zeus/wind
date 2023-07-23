@@ -127,6 +127,7 @@ class LetterResource extends Resource
                 TextColumn::make('status')
                     ->sortable()
                     ->searchable()
+                    ->badge()
                     ->toggleable()
                     ->label(__('status'))
                     ->formatStateUsing(fn (string $state): string => __("status_{$state}")),

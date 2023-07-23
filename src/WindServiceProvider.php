@@ -35,6 +35,7 @@ class WindServiceProvider extends PackageServiceProvider
         $package
             ->name('zeus-wind')
             ->hasConfigFile()
+            ->hasTranslations()
             ->hasMigrations($this->getMigrations())
             ->hasRoute('web')
             ->hasViews('zeus')

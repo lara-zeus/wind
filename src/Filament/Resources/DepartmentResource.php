@@ -120,7 +120,7 @@ class DepartmentResource extends Resource
                 ImageColumn::make('logo')
                     ->disk(config('zeus-wind.uploads.disk', 'public'))
                     ->label(__('logo'))
-                    ->toggleable(),
+                    ->toggleable(isToggledHiddenByDefault:true),
             ])
             ->defaultSort('id', 'desc')
             ->filters([
