@@ -12,7 +12,7 @@ class EditLetter extends EditRecord
 {
     protected static string $resource = LetterResource::class;
 
-    public function mount(int|string $record): void
+    public function mount(int | string $record): void
     {
         parent::mount($record);
 
