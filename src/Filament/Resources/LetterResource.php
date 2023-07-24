@@ -2,10 +2,13 @@
 
 namespace LaraZeus\Wind\Filament\Resources;
 
+use Filament\Forms\Components\Card;
+use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+use Filament\Infolists\Components\TextEntry;
 use Filament\Resources\Resource;
 use Filament\Tables\Actions\Action;
 use Filament\Tables\Actions\ActionGroup;
@@ -17,6 +20,9 @@ use Filament\Tables\Actions\ForceDeleteBulkAction;
 use Filament\Tables\Actions\RestoreAction;
 use Filament\Tables\Actions\RestoreBulkAction;
 use Filament\Tables\Actions\ViewAction;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\Layout\Split;
+use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ViewColumn;
 use Filament\Tables\Filters\SelectFilter;
@@ -60,47 +66,67 @@ class LetterResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('name')
-                    ->label(__('name'))
-                    ->required()
-                    ->disabled()
-                    ->maxLength(255),
-                TextInput::make('email')
-                    ->label(__('email'))
-                    ->email()
-                    ->required()
-                    ->disabled()
-                    ->maxLength(255),
-                Select::make('department_id')
-                    ->label(__('department'))
-                    ->options(WindPlugin::get()->getDepartmentModel()::pluck('name', 'id'))
-                    ->required()
-                    ->visible(fn (): bool => WindPlugin::get()->hasDepartmentResource()),
-                TextInput::make('status')
-                    ->label(__('status'))
-                    ->required()
-                    ->maxLength(255),
-                TextInput::make('title')
-                    ->label(__('title'))
-                    ->required()
-                    ->disabled()
-                    ->maxLength(255)
-                    ->columnSpan(['sm' => 2]),
-                Textarea::make('message')
-                    ->label(__('message'))
-                    ->disabled()
-                    ->maxLength(65535)
-                    ->columnSpan(['sm' => 2]),
-                TextInput::make('reply_title')
-                    ->label(__('reply_title'))
-                    ->required()
-                    ->maxLength(255)
-                    ->columnSpan(['sm' => 2]),
-                Textarea::make('reply_message')
-                    ->label(__('reply_message'))
-                    ->required()
-                    ->maxLength(65535)
-                    ->columnSpan(['sm' => 2]),
+
+                Card::make()
+                    ->schema([
+                        Placeholder::make('sender_info')
+                            ->label('Sender Info:')
+                            ->columnSpan(['sm' => 2]),
+
+                        TextInput::make('name')
+                            ->label(__('name'))
+                            ->required()
+                            ->disabled()
+                            ->maxLength(255),
+                        TextInput::make('email')
+                            ->label(__('email'))
+                            ->email()
+                            ->required()
+                            ->disabled()
+                            ->maxLength(255),
+
+                        TextInput::make('title')
+                            ->label(__('title'))
+                            ->required()
+                            ->disabled()
+                            ->maxLength(255),
+
+                        TextInput::make('created_at')
+                            ->label(__('sent at'))
+                            ->disabled(),
+
+                        Textarea::make('message')
+                            ->label(__('message'))
+                            ->disabled()
+                            ->maxLength(65535)
+                            ->columnSpan(['sm' => 2]),
+                    ])
+                    ->columns(2),
+
+                Card::make()
+                    ->schema([
+                        Select::make('department_id')
+                            ->label(__('department'))
+                            ->options(WindPlugin::get()->getDepartmentModel()::pluck('name', 'id'))
+                            ->required()
+                            ->visible(fn(): bool => WindPlugin::get()->hasDepartmentResource()),
+                        TextInput::make('status')
+                            ->label(__('status'))
+                            ->required()
+                            ->maxLength(255),
+
+
+                        TextInput::make('reply_title')
+                            ->label(__('reply_title'))
+                            ->required()
+                            ->maxLength(255)
+                            ->columnSpan(['sm' => 2]),
+                        Textarea::make('reply_message')
+                            ->label(__('reply_message'))
+                            ->required()
+                            ->maxLength(65535)
+                            ->columnSpan(['sm' => 2]),
+                    ])->columns(2),
             ]);
     }
 
@@ -108,31 +134,67 @@ class LetterResource extends Resource
     {
         return $table
             ->columns([
-                ViewColumn::make('from')
-                    ->view('zeus::filament.message-from')
-                    ->sortable(['name'])
-                    ->searchable(['name', 'email'])
-                    ->toggleable()
-                    ->label(__('from')),
-                TextColumn::make('title')
-                    ->sortable()
-                    ->searchable()
-                    ->toggleable()
-                    ->label(__('title')),
-                TextColumn::make('department.name')
-                    ->sortable()
-                    ->searchable()
-                    ->toggleable()
-                    ->visible(fn (): bool => WindPlugin::get()->hasDepartmentResource())
-                    ->label(__('department')),
-                TextColumn::make('status')
-                    ->sortable()
-                    ->searchable()
-                    ->badge()
-                    ->toggleable()
-                    ->label(__('status'))
-                    ->formatStateUsing(fn (string $state): string => __("status_{$state}")),
+                Split::make([
+                    ImageColumn::make('avatar')
+                        ->getStateUsing(fn($record
+                        ) => 'https://ui-avatars.com/api/?name='.urlencode($record->name).'&color=FFFFFF&background=111827')
+                        ->toggleable()
+                        ->circular()
+                        ->grow(false),
+                    Stack::make([
+                        TextColumn::make('name')
+                            ->weight('bold')
+                            ->toggleable()
+                            ->searchable()
+                            ->limit(20)
+                            ->sortable(),
+                        TextColumn::make('email')
+                            ->limit(20),
+                    ]),
+                    Stack::make([
+                        TextColumn::make('title')
+                            ->sortable()
+                            ->searchable()
+                            ->toggleable()
+                            ->label(__('title')),
+                        TextColumn::make('department.name')
+                            ->sortable()
+                            ->badge()
+                            ->searchable()
+                            ->toggleable()
+                            ->visible(fn(): bool => WindPlugin::get()->hasDepartmentResource())
+                            ->label(__('department')),
+                    ]),
+
+                    Stack::make([
+                        TextColumn::make('created_at')
+                            ->sortable()
+                            ->searchable()
+                            ->toggleable()
+                            ->dateTime()
+                            ->label(__('sent at')),
+                        TextColumn::make('status')
+                            ->formatStateUsing(fn(string $state): string => __("status_{$state}"))
+                            ->label(__('status'))
+                            ->sortable()
+                            ->searchable()
+                            ->toggleable()
+                            ->badge()
+                            ->color(fn (string $state): string => match ($state) {
+                                'NEW' => 'danger',
+                                'REPLIED' => 'gray',
+                                'READ' => 'success',
+                                default => '',
+                            }),
+                    ]),
+                ]),
             ])
+            ->recordClasses(fn (Model $record) => match ($record->status) {
+                'NEW' => 'border-s-2 border-danger-600 dark:border-danger-300',
+                'REPLIED' => 'border-s-2 border-gray-600 dark:border-gray-300',
+                'READ' => 'border-s-2 border-success-600 dark:border-success-300',
+                default => '',
+            })
             ->defaultSort('id', 'desc')
             ->bulkActions([
                 DeleteBulkAction::make(),
@@ -149,22 +211,13 @@ class LetterResource extends Resource
                     ])
                     ->label(__('status')),
                 SelectFilter::make('department_id')
-                    ->visible(fn (): bool => WindPlugin::get()->hasDepartmentResource())
+                    ->visible(fn(): bool => WindPlugin::get()->hasDepartmentResource())
                     ->options(WindPlugin::get()->getDepartmentModel()::pluck('name', 'id'))
                     ->label(__('department')),
             ])
             ->actions([
                 ActionGroup::make([
                     EditAction::make('edit')->label(__('Edit')),
-                    ViewAction::make('view')
-                        ->color('primary')
-                        ->label(__('View')),
-                    Action::make('Open')
-                        ->color('warning')
-                        ->icon('heroicon-o-arrow-top-right-on-square')
-                        ->label(__('Open'))
-                        ->url(fn (Model $record): string => route('contact', ['departmentSlug' => $record]))
-                        ->openUrlInNewTab(),
                     DeleteAction::make('delete'),
                     ForceDeleteAction::make(),
                     RestoreAction::make(),

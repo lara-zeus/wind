@@ -4,7 +4,6 @@ namespace LaraZeus\Wind;
 
 trait Configuration
 {
-    //www
     protected bool $hasDepartmentResource = true;
 
     protected string $departmentModel = \LaraZeus\Wind\Models\Department::class;

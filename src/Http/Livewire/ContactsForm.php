@@ -106,8 +106,6 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
                     Textarea::make('message')
                         ->required()
                         ->label(__('message')),
-                    Hidden::make('status')
-                        ->default($this->status),
                 ])
                 ->columns(1),
         ];
