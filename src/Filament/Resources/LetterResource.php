@@ -8,9 +8,7 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
-use Filament\Infolists\Components\TextEntry;
 use Filament\Resources\Resource;
-use Filament\Tables\Actions\Action;
 use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\DeleteBulkAction;
@@ -19,12 +17,10 @@ use Filament\Tables\Actions\ForceDeleteAction;
 use Filament\Tables\Actions\ForceDeleteBulkAction;
 use Filament\Tables\Actions\RestoreAction;
 use Filament\Tables\Actions\RestoreBulkAction;
-use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\Layout\Split;
 use Filament\Tables\Columns\Layout\Stack;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Columns\ViewColumn;
 use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
@@ -109,12 +105,11 @@ class LetterResource extends Resource
                             ->label(__('department'))
                             ->options(WindPlugin::get()->getDepartmentModel()::pluck('name', 'id'))
                             ->required()
-                            ->visible(fn(): bool => WindPlugin::get()->hasDepartmentResource()),
+                            ->visible(fn (): bool => WindPlugin::get()->hasDepartmentResource()),
                         TextInput::make('status')
                             ->label(__('status'))
                             ->required()
                             ->maxLength(255),
-
 
                         TextInput::make('reply_title')
                             ->label(__('reply_title'))
@@ -136,8 +131,9 @@ class LetterResource extends Resource
             ->columns([
                 Split::make([
                     ImageColumn::make('avatar')
-                        ->getStateUsing(fn($record
-                        ) => 'https://ui-avatars.com/api/?name='.urlencode($record->name).'&color=FFFFFF&background=111827')
+                        ->getStateUsing(fn (
+                            $record
+                        ) => 'https://ui-avatars.com/api/?name=' . urlencode($record->name) . '&color=FFFFFF&background=111827')
                         ->toggleable()
                         ->circular()
                         ->grow(false),
@@ -162,7 +158,7 @@ class LetterResource extends Resource
                             ->badge()
                             ->searchable()
                             ->toggleable()
-                            ->visible(fn(): bool => WindPlugin::get()->hasDepartmentResource())
+                            ->visible(fn (): bool => WindPlugin::get()->hasDepartmentResource())
                             ->label(__('department')),
                     ]),
 
@@ -174,7 +170,7 @@ class LetterResource extends Resource
                             ->dateTime()
                             ->label(__('sent at')),
                         TextColumn::make('status')
-                            ->formatStateUsing(fn(string $state): string => __("status_{$state}"))
+                            ->formatStateUsing(fn (string $state): string => __("status_{$state}"))
                             ->label(__('status'))
                             ->sortable()
                             ->searchable()
@@ -211,7 +207,7 @@ class LetterResource extends Resource
                     ])
                     ->label(__('status')),
                 SelectFilter::make('department_id')
-                    ->visible(fn(): bool => WindPlugin::get()->hasDepartmentResource())
+                    ->visible(fn (): bool => WindPlugin::get()->hasDepartmentResource())
                     ->options(WindPlugin::get()->getDepartmentModel()::pluck('name', 'id'))
                     ->label(__('department')),
             ])
