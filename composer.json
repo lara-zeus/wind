@@ -10,7 +10,11 @@
         "mailing",
         "filamentphp"
     ],
-    "homepage": "https://github.com/lara-zeus",
+    "homepage": "https://larazeus.com/wind",
+    "support": {
+        "issues": "https://github.com/lara-zeus/wind/issues",
+        "source": "https://github.com/lara-zeus/wind"
+    },
     "license": "MIT",
     "type": "library",
     "authors": [

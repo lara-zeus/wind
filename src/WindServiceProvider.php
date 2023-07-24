@@ -12,6 +12,8 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class WindServiceProvider extends PackageServiceProvider
 {
+    public static string $name = 'zeus-wind';
+
     public function packageBooted(): void
     {
         CoreServiceProvider::setThemePath('wind');
@@ -33,7 +35,7 @@ class WindServiceProvider extends PackageServiceProvider
     public function configurePackage(Package $package): void
     {
         $package
-            ->name('zeus-wind')
+            ->name(static::$name)
             ->hasConfigFile()
             ->hasTranslations()
             ->hasMigrations($this->getMigrations())
