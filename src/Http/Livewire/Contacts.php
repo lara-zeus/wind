@@ -16,7 +16,7 @@ class Contacts extends Component
         $this->departmentSlug = $departmentSlug;
     }
 
-    public function render(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
+    public function render(): View | Application | Factory | \Illuminate\Contracts\Foundation\Application
     {
         seo()
             ->site(config('app.name', 'Laravel'))

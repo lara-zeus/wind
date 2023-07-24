@@ -111,7 +111,7 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
         ];
     }
 
-    public function render(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
+    public function render(): View | Application | Factory | \Illuminate\Contracts\Foundation\Application
     {
         return view(app('windTheme') . '.contact-form');
     }
