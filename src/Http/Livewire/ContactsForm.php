@@ -4,7 +4,6 @@ namespace LaraZeus\Wind\Http\Livewire;
 
 use Filament\Forms;
 use Filament\Forms\Components\Grid;
-use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\ViewField;
