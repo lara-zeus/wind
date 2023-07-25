@@ -14,7 +14,7 @@ trait Configuration
 
     protected string $uploadDirectory = 'logos';
 
-    protected string $navigationGroupLabel = 'wind';
+    protected string $navigationGroupLabel = 'Wind';
 
     public function departmentResource(bool $condition = true): static
     {
