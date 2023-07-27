@@ -111,6 +111,15 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
 
     public function render(): View | Application | Factory | \Illuminate\Contracts\Foundation\Application
     {
+        seo()
+            ->site(config('app.name', 'Laravel'))
+            ->title(config('zeus.site_title'))
+            ->description(config('zeus.site_description'))
+            ->rawTag('favicon', '<link rel="icon" type="image/x-icon" href="' . asset('favicon/favicon.ico') . '">')
+            ->rawTag('<meta name="theme-color" content="' . config('zeus.color') . '" />')
+            ->withUrl()
+            ->twitter();
+
         return view(app('windTheme') . '.contact-form')
             ->layout(config('zeus.layout'));
     }
