@@ -1,9 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use LaraZeus\Wind\Http\Livewire\Contacts;
+use LaraZeus\Wind\Http\Livewire\ContactsForm;
+use LaraZeus\Wind\WindPlugin;
 
-Route::middleware(config('zeus-wind.middleware'))
-    ->prefix(config('zeus-wind.path'))
-    ->get('{departmentSlug?}', Contacts::class)
-    ->name('contact');
+if (app('filament')->hasPlugin('zeus-wind')) {
+    Route::middleware(WindPlugin::get()->getWindPrefix())
+        ->prefix(WindPlugin::get()->getWindPrefix())
+        ->get('{departmentSlug?}', ContactsForm::class)
+        ->name('contact');
+}

@@ -28,7 +28,6 @@ class PublishCommand extends Command
     public function handle()
     {
         // publish Wind files
-        $this->callSilent('vendor:publish', ['--tag' => 'zeus-wind-config', '--force' => (bool) $this->option('force')]);
         $this->callSilent('vendor:publish', ['--tag' => 'zeus-wind-migrations', '--force' => (bool) $this->option('force')]);
         $this->callSilent('vendor:publish', ['--tag' => 'zeus-wind-translations', '--force' => (bool) $this->option('force')]);
 

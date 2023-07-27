@@ -4,6 +4,27 @@ namespace LaraZeus\Wind;
 
 trait Configuration
 {
+    /**
+     * set the default path for the contact form homepage.
+     */
+    protected string $windPrefix = 'wind';
+
+    /**
+     * the middleware you want to apply on all the blogs routes
+     * for example if you want to make your blog for users only, add the middleware 'auth'.
+     */
+    protected array $windMiddleware = ['web'];
+
+    /**
+     * you can set a default department to receive all messages, if the user didn't chose one.
+     */
+    protected int $defaultDepartmentId = 1;
+
+    /**
+     * set the default status that all messages will have when received.
+     */
+    protected string $defaultStatus = 'NEW';
+
     protected bool $hasDepartmentResource = true;
 
     protected string $departmentModel = \LaraZeus\Wind\Models\Department::class;
@@ -15,6 +36,54 @@ trait Configuration
     protected string $uploadDirectory = 'logos';
 
     protected string $navigationGroupLabel = 'Wind';
+
+    public function windPrefix(string $prefix): static
+    {
+        $this->windPrefix = $prefix;
+
+        return $this;
+    }
+
+    public function getWindPrefix(): string
+    {
+        return $this->windPrefix;
+    }
+
+    public function windMiddleware(array $middleware): static
+    {
+        $this->windMiddleware = $middleware;
+
+        return $this;
+    }
+
+    public function getMiddleware(): array
+    {
+        return $this->windMiddleware;
+    }
+
+    public function defaultStatus(string $status): static
+    {
+        $this->defaultStatus = $status;
+
+        return $this;
+    }
+
+    public function getDefaultStatus(): string
+    {
+        return $this->defaultStatus;
+    }
+
+    public function defaultDepartmentId(string $defaultDepartment): static
+    {
+        $this->defaultDepartmentId = $defaultDepartment;
+
+        return $this;
+    }
+
+    public function getDefaultDepartmentId(): string
+    {
+        return $this->defaultDepartmentId;
+    }
 
     public function departmentResource(bool $condition = true): static
     {

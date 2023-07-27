@@ -36,7 +36,6 @@ class WindServiceProvider extends PackageServiceProvider
     {
         $package
             ->name(static::$name)
-            ->hasConfigFile()
             ->hasTranslations()
             ->hasMigrations($this->getMigrations())
             ->hasRoute('web')

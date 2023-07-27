@@ -112,6 +112,7 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
 
     public function render(): View | Application | Factory | \Illuminate\Contracts\Foundation\Application
     {
-        return view(app('windTheme') . '.contact-form');
+        return view(app('windTheme') . '.contact-form')
+            ->layout(config('zeus.layout'));
     }
 }
