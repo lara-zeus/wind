@@ -4,6 +4,7 @@ namespace LaraZeus\Wind\Filament\Resources\LetterResource\Pages;
 
 use Filament\Resources\Pages\EditRecord;
 use LaraZeus\Wind\Filament\Resources\LetterResource;
+use LaraZeus\Wind\WindPlugin;
 
 /**
  * @property mixed $record
@@ -16,7 +17,7 @@ class EditLetter extends EditRecord
     {
         parent::mount($record);
 
-        if ($this->record->reply_message !== null && strtoupper($this->record->status) === config('zeus-wind.default_status')) {
+        if ($this->record->reply_message !== null && strtoupper($this->record->status) === WindPlugin::get()->getDefaultStatus()) {
             $this->record->update(['status' => 'READ']);
         }
     }

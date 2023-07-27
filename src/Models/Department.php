@@ -60,7 +60,7 @@ class Department extends Model
             return $this->logo;
         }
         if ($this->logo !== null) {
-            return Storage::disk(config('zeus-wind.uploads.disk', 'public'))
+            return Storage::disk(WindPlugin::get()->getUploadDisk())
                 ->url($this->logo);
         }
 

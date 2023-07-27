@@ -44,7 +44,7 @@ class LetterResource extends Resource
 
     public static function getNavigationBadge(): ?string
     {
-        return static::getModel()::where('status', config('zeus-wind.default_status'))->count();
+        return static::getModel()::where('status', WindPlugin::get()->getDefaultStatus())->count();
     }
 
     /**

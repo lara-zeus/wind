@@ -73,14 +73,14 @@ trait Configuration
         return $this->defaultStatus;
     }
 
-    public function defaultDepartmentId(string $defaultDepartment): static
+    public function defaultDepartmentId(int $defaultDepartment): static
     {
         $this->defaultDepartmentId = $defaultDepartment;
 
         return $this;
     }
 
-    public function getDefaultDepartmentId(): string
+    public function getDefaultDepartmentId(): int
     {
         return $this->defaultDepartmentId;
     }

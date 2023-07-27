@@ -43,17 +43,17 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
         if (WindPlugin::get()->hasDepartmentResource()) {
             if ($departmentSlug !== null) {
                 $this->department = WindPlugin::get()->getDepartmentModel()::where('slug', $departmentSlug)->first();
-            } elseif (config('zeus-wind.defaultDepartmentId') !== null) {
-                $this->department = WindPlugin::get()->getDepartmentModel()::find(config('zeus-wind.defaultDepartmentId'));
+            } elseif (WindPlugin::get()->getDefaultDepartmentId() !== null) {
+                $this->department = WindPlugin::get()->getDepartmentModel()::find(WindPlugin::get()->getDefaultDepartmentId());
             }
         }
 
-        $this->status = config('zeus-wind.default_status', 'NEW');
+        $this->status = WindPlugin::get()->getDefaultStatus();
 
         $this->form->fill(
             [
                 'department_id' => $this->department->id ?? null,
-                'status' => config('zeus-wind.default_status'),
+                'status' => WindPlugin::get()->getDefaultStatus(),
             ]
         );
     }
@@ -89,7 +89,6 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
                         ->required()
                         ->email()
                         ->label(__('email')),
-
                 ])
                 ->columns([
                     'default' => 1,
