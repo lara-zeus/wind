@@ -113,7 +113,7 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
     {
         seo()
             ->site(config('app.name', 'Laravel'))
-            ->title(__('Contact Us') .' ' . config('zeus.site_title'))
+            ->title(__('Contact Us') . ' ' . config('zeus.site_title'))
             ->description(__('Contact Us') . ' ' . config('zeus.site_description'))
             ->rawTag('favicon', '<link rel="icon" type="image/x-icon" href="' . asset('favicon/favicon.ico') . '">')
             ->rawTag('<meta name="theme-color" content="' . config('zeus.site_color') . '" />')
