@@ -21,7 +21,7 @@ contact form, with simple dashboard to read and replay to any messages you recei
 ## Support Filament
 
 <a href="https://github.com/sponsors/danharrin">
-<img width="320" alt="filament-logo" src="https://filamentadmin.com/images/sponsor-banner.jpg">
+<img width="320" alt="filament-logo" src="https://larazeus.com/images/filament-sponsor-banner.png">
 </a>
 
 ## features
