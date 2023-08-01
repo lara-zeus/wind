@@ -2,8 +2,8 @@
 
 namespace LaraZeus\Wind\Filament\Resources;
 
-use Filament\Forms\Components\Card;
 use Filament\Forms\Components\Placeholder;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -63,7 +63,7 @@ class LetterResource extends Resource
         return $form
             ->schema([
 
-                Card::make()
+                Section::make()
                     ->schema([
                         Placeholder::make('sender_info')
                             ->label('Sender Info:')
@@ -99,7 +99,7 @@ class LetterResource extends Resource
                     ])
                     ->columns(2),
 
-                Card::make()
+                Section::make()
                     ->schema([
                         Select::make('department_id')
                             ->label(__('department'))
