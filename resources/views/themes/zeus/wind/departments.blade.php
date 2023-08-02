@@ -11,7 +11,7 @@
                         {{ __('no departments available!') }}
                     </div>
                 </x-filament::card>
-                <input type="hidden" name="{{ $getStatePath() }}" wire:model="{{ $getStatePath() }}" value="{{ WindPlugin::get()->getDefaultDepartmentId() }}">
+                <input type="hidden" name="{{ $getStatePath() }}" wire:model="{{ $getStatePath() }}" value="{{ \LaraZeus\Wind\WindPlugin::get()->getDefaultDepartmentId() }}">
             @else
                 <div class="max-w-4xl mx-auto text-primary-600 -mb-4 mt-4">
                     {{ __('Select Department') }}:

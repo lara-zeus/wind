@@ -10,8 +10,7 @@ trait Configuration
     protected string $windPrefix = 'wind';
 
     /**
-     * the middleware you want to apply on all the blogs routes
-     * for example if you want to make your blog for users only, add the middleware 'auth'.
+     * the middleware you want to apply on the contact routes
      */
     protected array $windMiddleware = ['web'];
 

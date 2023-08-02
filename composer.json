@@ -26,7 +26,7 @@
     ],
     "require": {
         "php": "^8.0.2",
-        "lara-zeus/core": "3.x-dev"
+        "lara-zeus/core": "^3.0"
     },
     "require-dev": {
         "pestphp/pest": "^2.0",
