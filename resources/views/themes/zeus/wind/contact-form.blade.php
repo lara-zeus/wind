@@ -4,9 +4,9 @@
     </x-slot>
 
     <div class="max-w-4xl mx-auto">
-        <x-filament::card>
+        <x-filament::section>
             {{ __('feel free to contact us.') }}
-        </x-filament::card>
+        </x-filament::section>
     </div>
 
     @if($sent)

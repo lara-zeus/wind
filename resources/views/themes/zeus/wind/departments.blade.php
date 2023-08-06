@@ -6,11 +6,11 @@
         @if(\LaraZeus\Wind\WindPlugin::get()->hasDepartmentResource())
             @php $departments = \LaraZeus\Wind\WindPlugin::get()->getDepartmentModel()::whereIsActive(1)->orderBy('ordering')->get(); @endphp
             @if($departments->isEmpty())
-                <x-filament::card>
+                <x-filament::section>
                     <div class="text-red-400">
                         {{ __('no departments available!') }}
                     </div>
-                </x-filament::card>
+                </x-filament::section>
                 <input type="hidden" name="{{ $getStatePath() }}" wire:model="{{ $getStatePath() }}" value="{{ \LaraZeus\Wind\WindPlugin::get()->getDefaultDepartmentId() }}">
             @else
                 <div class="max-w-4xl mx-auto text-primary-600 -mb-4 mt-4">
