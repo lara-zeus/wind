@@ -3,17 +3,17 @@ title: Theming
 weight: 20
 ---
 
-## tailwind config
+## Tailwind config
 
 ### for filament
-we only have small classes used in `LetterResource`, add to your tailwind config `content`
+We only have small classes used in `LetterResource`, add to your tailwind config `content`
 
 ```
 './vendor/lara-zeus/wind/src/Filament/Resources/LetterResource.php',
 ```
 
-### for the frontend
-if you have custom theme you should add the blade files:
+### For the frontend
+If you have a custom theme you should add the blade files:
 
 ```
 './vendor/lara-zeus/wind/resources/views/themes/**/*.blade.php',

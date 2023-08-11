@@ -55,7 +55,7 @@ class DepartmentResource extends Resource
                 TextInput::make('name')
                     ->required()
                     ->maxLength(255)
-                    ->reactive()
+                    ->live(onBlur: true)
                     ->label(__('name'))
                     ->afterStateUpdated(function (Set $set, $state, $context) {
                         if ($context === 'edit') {
