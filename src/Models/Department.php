@@ -36,6 +36,7 @@ class Department extends Model
         'start_date' => 'datetime',
         'end_date' => 'datetime',
         'options' => 'array',
+        'is_active' => 'boolean',
     ];
 
     public function getRouteKeyName(): string
