@@ -67,7 +67,7 @@ class DepartmentResource extends Resource
 
                 TextInput::make('slug')->required()->maxLength(255)->label(__('slug')),
                 TextInput::make('ordering')->required()->numeric()->label(__('ordering')),
-                Toggle::make('is_active')->label(__('is active')),
+                Toggle::make('is_active')->label(__('is active'))->inline(false),
                 Textarea::make('desc')->maxLength(65535)->columnSpan(['sm' => 2])->label(__('desc')),
 
                 FileUpload::make('logo')
