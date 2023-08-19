@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
 use LaraZeus\Wind\WindPlugin;
+use Illuminate\Database\Eloquent\Builder;
 
 /**
  * @property string $slug
@@ -66,5 +67,10 @@ class Department extends Model
         }
 
         return null;
+    }
+
+    public function scopeDepartments(Builder $query): void
+    {
+        $query->whereIsActive(true)->orderBy('ordering');
     }
 }
