@@ -5,10 +5,20 @@ weight: 3
 
 ## Configuration
 
-to publish the config file run the command:
+to configure the plugin Wind, you can pass the configuration to the plugin in `adminPanelProvider`
 
-```bash
-php artisan vendor:publish --tag=zeus-wind-config
+these all the available configuration, and their defaults values
+
+```php
+WindPlugin::make()
+    ->windPrefix('wind')
+    ->windMiddleware(['web'])
+    ->defaultDepartmentId(1)
+    ->defaultStatus('NEW')
+    ->departmentResource()
+    ->departmentModel(\LaraZeus\Wind\Models\Department::class)
+    ->letterModel(\LaraZeus\Wind\Models\Letter::class)
+    ->uploadDisk('public')
+    ->uploadDirectory('logos')
+    ->navigationGroupLabel('Wind'),
 ```
-
-you can pass `--force` option to force publishing the config file
