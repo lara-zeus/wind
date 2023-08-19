@@ -72,13 +72,13 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
             Grid::make()
                 ->schema([
                     ViewField::make('department_id')
-                        ->view(app('windTheme') . '.departments')
+                        ->view(app('windTheme').'.departments')
                         ->columnSpan([
                             'default' => 1,
                             'md' => 2,
                         ])
                         ->label('')
-                        ->visible(fn (): bool => WindPlugin::get()->hasDepartmentResource()),
+                        ->visible(fn(): bool => WindPlugin::get()->hasDepartmentResource()),
 
                     Section::make('')
                         ->schema([
@@ -112,18 +112,18 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
         ];
     }
 
-    public function render(): View | Application | Factory | \Illuminate\Contracts\Foundation\Application
+    public function render(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
         seo()
-            ->site(config('app.name', 'Laravel'))
-            ->title(__('Contact Us') . ' ' . config('zeus.site_title'))
-            ->description(__('Contact Us') . ' ' . config('zeus.site_description'))
-            ->rawTag('favicon', '<link rel="icon" type="image/x-icon" href="' . asset('favicon/favicon.ico') . '">')
-            ->rawTag('<meta name="theme-color" content="' . config('zeus.site_color') . '" />')
+            ->site(config('zeus.site_title', 'Laravel'))
+            ->title(__('Contact Us').' - '.config('zeus.site_title'))
+            ->description(__('Contact Us').' - '.config('zeus.site_description').' '.config('zeus.site_title'))
+            ->rawTag('favicon', '<link rel="icon" type="image/x-icon" href="'.asset('favicon/favicon.ico').'">')
+            ->rawTag('<meta name="theme-color" content="'.config('zeus.site_color').'" />')
             ->withUrl()
             ->twitter();
 
-        return view(app('windTheme') . '.contact-form')
+        return view(app('windTheme').'.contact-form')
             ->layout(config('zeus.layout'));
     }
 }
