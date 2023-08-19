@@ -3,6 +3,7 @@
 namespace LaraZeus\Wind\Models;
 
 use Database\Factories\DepartmentFactory;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -66,5 +67,10 @@ class Department extends Model
         }
 
         return null;
+    }
+
+    public function scopeDepartments(Builder $query): void
+    {
+        $query->whereIsActive(true)->orderBy('ordering');
     }
 }

@@ -4,7 +4,7 @@
 >
     <div x-data="{ state: $wire.entangle('{{ $getStatePath() }}').defer }">
         @if(\LaraZeus\Wind\WindPlugin::get()->hasDepartmentResource())
-            @php $departments = \LaraZeus\Wind\WindPlugin::get()->getDepartmentModel()::whereIsActive(1)->orderBy('ordering')->get(); @endphp
+            @php $departments = \LaraZeus\Wind\WindPlugin::get()->getDepartmentModel()::departments()->get(); @endphp
             @if($departments->isEmpty())
                 <x-filament::section>
                     <div class="text-red-400">
@@ -30,7 +30,7 @@
                                         @endif
                                         {{ $dept->name ?? '' }}
                                     </span>
-                                    <span class="text-gray-500 dark:text-gray-100 text-center px-2 overflow-clip overflow-hidden ">{{ $dept->desc ?? '' }}</span>
+                                    <span class="text-gray-500 dark:text-gray-100 text-center px-2 overflow-clip">{{ $dept->desc ?? '' }}</span>
                                 </span>
                             </label>
                         </div>

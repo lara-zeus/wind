@@ -4,6 +4,7 @@ namespace LaraZeus\Wind\Http\Livewire;
 
 use Filament\Forms;
 use Filament\Forms\Components\Grid;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\ViewField;
@@ -74,38 +75,40 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
                         ->view(app('windTheme') . '.departments')
                         ->columnSpan([
                             'default' => 1,
-                            'sm' => 1,
                             'md' => 2,
                         ])
                         ->label('')
                         ->visible(fn (): bool => WindPlugin::get()->hasDepartmentResource()),
 
-                    TextInput::make('name')
-                        ->required()
-                        ->minLength(6)
-                        ->label(__('name')),
+                    Section::make('')
+                        ->schema([
+                            TextInput::make('name')
+                                ->columnSpan(1)
+                                ->required()
+                                ->minLength(6)
+                                ->label(__('name')),
 
-                    TextInput::make('email')
-                        ->required()
-                        ->email()
-                        ->label(__('email')),
-                ])
-                ->columns([
-                    'default' => 1,
-                    'sm' => 1,
-                    'md' => 2,
+                            TextInput::make('email')
+                                ->columnSpan(1)
+                                ->required()
+                                ->email()
+                                ->label(__('email')),
+
+                            TextInput::make('title')
+                                ->columnSpan(2)
+                                ->required()
+                                ->label(__('title')),
+
+                            Textarea::make('message')
+                                ->columnSpan(2)
+                                ->required()
+                                ->label(__('message')),
+                        ])
+                        ->columns([
+                            'default' => 1,
+                            'md' => 2,
+                        ]),
                 ]),
-
-            Grid::make()
-                ->schema([
-                    TextInput::make('title')
-                        ->required()
-                        ->label(__('title')),
-                    Textarea::make('message')
-                        ->required()
-                        ->label(__('message')),
-                ])
-                ->columns(1),
         ];
     }
 
