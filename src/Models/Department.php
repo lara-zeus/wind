@@ -3,6 +3,7 @@
 namespace LaraZeus\Wind\Models;
 
 use Database\Factories\DepartmentFactory;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -10,7 +11,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
 use LaraZeus\Wind\WindPlugin;
-use Illuminate\Database\Eloquent\Builder;
 
 /**
  * @property string $slug
