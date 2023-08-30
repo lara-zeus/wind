@@ -25,7 +25,6 @@ use Filament\Tables\Filters\SelectFilter;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use LaraZeus\Wind\Filament\Resources\LetterResource\Pages;
 use LaraZeus\Wind\Models\Letter;
@@ -185,7 +184,7 @@ class LetterResource extends Resource
                     ]),
                 ]),
             ])
-            ->recordClasses(fn (Model $record) => match ($record->status) {
+            ->recordClasses(fn (Letter $record) => match ($record->status) {
                 'NEW' => 'border-s-2 border-danger-600 dark:border-danger-300',
                 'REPLIED' => 'border-s-2 border-gray-600 dark:border-gray-300',
                 'READ' => 'border-s-2 border-success-600 dark:border-success-300',

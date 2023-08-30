@@ -4,8 +4,7 @@ namespace LaraZeus\Wind;
 
 use LaraZeus\Core\CoreServiceProvider;
 use LaraZeus\Wind\Commands\PublishCommand;
-use LaraZeus\Wind\Http\Livewire\Contacts;
-use LaraZeus\Wind\Http\Livewire\ContactsForm;
+use LaraZeus\Wind\Livewire\ContactsForm;
 use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
@@ -18,7 +17,6 @@ class WindServiceProvider extends PackageServiceProvider
     {
         CoreServiceProvider::setThemePath('wind');
 
-        Livewire::component('contact', Contacts::class);
         Livewire::component('contact-form', ContactsForm::class);
 
         if ($this->app->runningInConsole()) {

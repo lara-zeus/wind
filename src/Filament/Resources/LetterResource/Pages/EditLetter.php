@@ -3,6 +3,7 @@
 namespace LaraZeus\Wind\Filament\Resources\LetterResource\Pages;
 
 use Filament\Resources\Pages\EditRecord;
+use LaraZeus\Wind\Events\ReplySent;
 use LaraZeus\Wind\Filament\Resources\LetterResource;
 use LaraZeus\Wind\WindPlugin;
 
@@ -17,7 +18,7 @@ class EditLetter extends EditRecord
     {
         parent::mount($record);
 
-        if ($this->record->reply_message !== null && strtoupper($this->record->status) === WindPlugin::get()->getDefaultStatus()) {
+        if ($this->record->reply_message === null && strtoupper($this->record->status) === WindPlugin::get()->getDefaultStatus()) {
             $this->record->update(['status' => 'READ']);
         }
     }
@@ -26,6 +27,7 @@ class EditLetter extends EditRecord
     {
         if ($this->record->reply_message !== null) {
             $this->record->update(['status' => 'REPLIED']);
+            ReplySent::dispatch($this->record);
         }
     }
 }

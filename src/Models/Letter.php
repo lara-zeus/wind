@@ -24,9 +24,7 @@ class Letter extends Model
     use SoftDeletes;
     use HasFactory;
 
-    protected $fillable = [
-        'name', 'email', 'department_id', 'title', 'message', 'status', 'reply_message', 'reply_title',
-    ];
+    protected $guarded = [];
 
     protected static function newFactory(): LetterFactory
     {
