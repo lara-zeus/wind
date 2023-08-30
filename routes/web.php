@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use LaraZeus\Wind\Http\Livewire\ContactsForm;
+use LaraZeus\Wind\Livewire\ContactsForm;
 use LaraZeus\Wind\WindPlugin;
 
 if (app('filament')->hasPlugin('zeus-wind')) {

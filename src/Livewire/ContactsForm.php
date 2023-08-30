@@ -1,6 +1,6 @@
 <?php
 
-namespace LaraZeus\Wind\Http\Livewire;
+namespace LaraZeus\Wind\Livewire;
 
 use Filament\Forms;
 use Filament\Forms\Components\Grid;

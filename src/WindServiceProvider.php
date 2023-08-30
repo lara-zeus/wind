@@ -4,8 +4,8 @@ namespace LaraZeus\Wind;
 
 use LaraZeus\Core\CoreServiceProvider;
 use LaraZeus\Wind\Commands\PublishCommand;
-use LaraZeus\Wind\Http\Livewire\Contacts;
-use LaraZeus\Wind\Http\Livewire\ContactsForm;
+use LaraZeus\Wind\Livewire\Contacts;
+use LaraZeus\Wind\Livewire\ContactsForm;
 use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
