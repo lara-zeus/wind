@@ -69,6 +69,6 @@ class Department extends Model
 
     public function scopeDepartments(Builder $query): void
     {
-        $query->where('is-active', true)->orderBy('ordering');
+        $query->where('is_active', true)->orderBy('ordering');
     }
 }
