@@ -5,19 +5,13 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use LaraZeus\Wind\WindPlugin;
 
-class DepartmentFactory extends Factory /* @phpstan-ignore-line */
+class DepartmentFactory extends Factory
 {
-    /**
-     * The name of the factory's corresponding model.
-     */
     public function getModel(): string
     {
         return WindPlugin::get()->getDepartmentModel();
     }
 
-    /**
-     * Define the model's default state.
-     */
     public function definition(): array
     {
         return [

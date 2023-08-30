@@ -29,9 +29,7 @@ class Department extends Model
     use SoftDeletes;
     use HasFactory;
 
-    protected $fillable = [
-        'name', 'is_active', 'user_id', 'ordering', 'desc', 'options', 'logo', 'start_date', 'end_date', 'slug',
-    ];
+    protected $guarded = [];
 
     protected $casts = [
         'start_date' => 'datetime',
@@ -71,6 +69,6 @@ class Department extends Model
 
     public function scopeDepartments(Builder $query): void
     {
-        $query->whereIsActive(true)->orderBy('ordering');
+        $query->where('is-active', true)->orderBy('ordering');
     }
 }

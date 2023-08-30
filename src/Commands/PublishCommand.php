@@ -31,9 +31,6 @@ class PublishCommand extends Command
         $this->callSilent('vendor:publish', ['--tag' => 'zeus-wind-migrations', '--force' => (bool) $this->option('force')]);
         $this->callSilent('vendor:publish', ['--tag' => 'zeus-wind-translations', '--force' => (bool) $this->option('force')]);
 
-        $this->callSilent('vendor:publish', ['--tag' => 'zeus-wind-seeder', '--force' => (bool) $this->option('force')]);
-        $this->callSilent('vendor:publish', ['--tag' => 'zeus-wind-factories', '--force' => (bool) $this->option('force')]);
-
         // publish Zeus files
         $this->callSilent('vendor:publish', ['--tag' => 'zeus-config', '--force' => (bool) $this->option('force')]);
         $this->callSilent('vendor:publish', ['--tag' => 'zeus-views', '--force' => (bool) $this->option('force')]);
