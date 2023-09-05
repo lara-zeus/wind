@@ -26,8 +26,8 @@ use LaraZeus\Wind\WindPlugin;
  */
 class Department extends Model
 {
-    use SoftDeletes;
     use HasFactory;
+    use SoftDeletes;
 
     protected $guarded = [];
 

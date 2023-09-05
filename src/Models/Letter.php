@@ -21,8 +21,8 @@ use LaraZeus\Wind\WindPlugin;
  */
 class Letter extends Model
 {
-    use SoftDeletes;
     use HasFactory;
+    use SoftDeletes;
 
     protected $guarded = [];
 
