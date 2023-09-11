@@ -19,7 +19,7 @@ WindPlugin::make()
     ->windModels([
         'Department' => \LaraZeus\Wind\Models\Department::class,
         'Letter' => \LaraZeus\Wind\Models\Letter::class,
-    ]);
+    ])
     ->uploadDisk('public')
     ->uploadDirectory('logos')
     ->navigationGroupLabel('Wind'),
