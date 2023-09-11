@@ -40,7 +40,7 @@ class DepartmentResource extends Resource
 
     public static function getModel(): string
     {
-        return WindPlugin::get()->getDepartmentModel();
+        return WindPlugin::get()->getModel('Department');
     }
 
     public static function getNavigationBadge(): ?string

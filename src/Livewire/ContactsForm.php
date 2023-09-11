@@ -43,9 +43,9 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
     {
         if (WindPlugin::get()->hasDepartmentResource()) {
             if ($departmentSlug !== null) {
-                $this->department = WindPlugin::get()->getDepartmentModel()::where('slug', $departmentSlug)->first();
+                $this->department = WindPlugin::get()->getModel('Department')::where('slug', $departmentSlug)->first();
             } elseif (WindPlugin::get()->getDefaultDepartmentId() !== null) {
-                $this->department = WindPlugin::get()->getDepartmentModel()::find(WindPlugin::get()->getDefaultDepartmentId());
+                $this->department = WindPlugin::get()->getModel('Department')::find(WindPlugin::get()->getDefaultDepartmentId());
             }
         }
 
@@ -61,7 +61,7 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
 
     public function store(): void
     {
-        $letter = WindPlugin::get()->getLetterModel()::create($this->form->getState());
+        $letter = WindPlugin::get()->getModel('Letter')::create($this->form->getState());
         $this->sent = true;
         LetterSent::dispatch($letter);
     }

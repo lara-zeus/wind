@@ -16,8 +16,10 @@ WindPlugin::make()
     ->defaultDepartmentId(1)
     ->defaultStatus('NEW')
     ->departmentResource()
-    ->departmentModel(\LaraZeus\Wind\Models\Department::class)
-    ->letterModel(\LaraZeus\Wind\Models\Letter::class)
+    ->windModels([
+        'Department' => \LaraZeus\Wind\Models\Department::class,
+        'Letter' => \LaraZeus\Wind\Models\Letter::class,
+    ]);
     ->uploadDisk('public')
     ->uploadDirectory('logos')
     ->navigationGroupLabel('Wind'),

@@ -34,7 +34,7 @@ class LetterResource extends Resource
 {
     public static function getModel(): string
     {
-        return WindPlugin::get()->getLetterModel();
+        return WindPlugin::get()->getModel('Letter');
     }
 
     protected static ?string $navigationIcon = 'heroicon-o-inbox';
@@ -102,7 +102,7 @@ class LetterResource extends Resource
                     ->schema([
                         Select::make('department_id')
                             ->label(__('department'))
-                            ->options(WindPlugin::get()->getDepartmentModel()::pluck('name', 'id'))
+                            ->options(WindPlugin::get()->getModel('Department')::pluck('name', 'id'))
                             ->required()
                             ->visible(fn (): bool => WindPlugin::get()->hasDepartmentResource()),
                         TextInput::make('status')
@@ -207,7 +207,7 @@ class LetterResource extends Resource
                     ->label(__('status')),
                 SelectFilter::make('department_id')
                     ->visible(fn (): bool => WindPlugin::get()->hasDepartmentResource())
-                    ->options(WindPlugin::get()->getDepartmentModel()::pluck('name', 'id'))
+                    ->options(WindPlugin::get()->getModel('Department')::pluck('name', 'id'))
                     ->label(__('department')),
             ])
             ->actions([

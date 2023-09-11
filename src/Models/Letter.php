@@ -34,7 +34,7 @@ class Letter extends Model
     /** @return BelongsTo<Letter, Department> */
     public function department(): BelongsTo
     {
-        return $this->belongsTo(WindPlugin::get()->getDepartmentModel());
+        return $this->belongsTo(WindPlugin::get()->getModel('Department'));
     }
 
     public function getReplyTitleAttribute(): string
