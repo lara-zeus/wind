@@ -24,7 +24,7 @@ contact form, with simple dashboard to read and replay to any messages you recei
 <img alt="filament-logo" src="https://larazeus.com/images/filament-sponsor-banner.png">
 </a>
 
-## features
+## Features
 - 🔥 built with [TALL stack](https://tallstack.dev/)
 - 🔥 using [filament](https://filamentadmin.com) as an admin panel
 - 🔥 optionally you can add categories to the contact form like 'sales','dev','report bug' etc.
@@ -58,6 +58,11 @@ visit the url `/admin` to manage the Letters, and `/contact-us` to access the co
 ## Full Documentation
 
 > visit our website to get the full documentation: https://larazeus.com/wind
+
+## Quick start
+
+[![starter-kit](https://larazeus.com/images/starter-kit-mini.png?v=2)](https://github.com/lara-zeus/zeus)
+[![artemis](https://larazeus.com/images/artemis-mini.png?v=2)](https://github.com/lara-zeus/artemis)
 
 ## Changelog
 
