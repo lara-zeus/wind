@@ -2,12 +2,14 @@
 
 namespace LaraZeus\Wind;
 
+use Closure;
+
 trait Configuration
 {
     /**
      * set the default path for the contact form homepage.
      */
-    protected string $windPrefix = 'wind';
+    protected Closure | string $windPrefix = 'wind';
 
     /**
      * the middleware you want to apply on the contact routes
@@ -17,7 +19,7 @@ trait Configuration
     /**
      * you can set a default department to receive all messages, if the user didn't chose one.
      */
-    protected int $defaultDepartmentId = 1;
+    protected Closure | int $defaultDepartmentId = 1;
 
     /**
      * set the default status that all messages will have when received.
@@ -26,26 +28,30 @@ trait Configuration
 
     protected bool $hasDepartmentResource = true;
 
-    protected string $departmentModel = \LaraZeus\Wind\Models\Department::class;
+    /**
+     * you can overwrite any model and use your own
+     */
+    protected array $windModels = [
+        'Department' => \LaraZeus\Wind\Models\Department::class,
+        'Letter' => \LaraZeus\Wind\Models\Letter::class,
+    ];
 
-    protected string $letterModel = \LaraZeus\Wind\Models\Letter::class;
+    protected Closure | string $uploadDisk = 'public';
 
-    protected string $uploadDisk = 'public';
+    protected Closure | string $uploadDirectory = 'logos';
 
-    protected string $uploadDirectory = 'logos';
+    protected Closure | string $navigationGroupLabel = 'Wind';
 
-    protected string $navigationGroupLabel = 'Wind';
-
-    public function windPrefix(string $prefix): static
+    public function windPrefix(Closure | string $prefix): static
     {
         $this->windPrefix = $prefix;
 
         return $this;
     }
 
-    public function getWindPrefix(): string
+    public function getWindPrefix(): Closure | string
     {
-        return $this->windPrefix;
+        return $this->evaluate($this->windPrefix);
     }
 
     public function windMiddleware(array $middleware): static
@@ -72,16 +78,16 @@ trait Configuration
         return $this->defaultStatus;
     }
 
-    public function defaultDepartmentId(int $defaultDepartment): static
+    public function defaultDepartmentId(Closure | int $defaultDepartment): static
     {
         $this->defaultDepartmentId = $defaultDepartment;
 
         return $this;
     }
 
-    public function getDefaultDepartmentId(): int
+    public function getDefaultDepartmentId(): Closure | int
     {
-        return $this->defaultDepartmentId;
+        return $this->evaluate($this->defaultDepartmentId);
     }
 
     public function departmentResource(bool $condition = true): static
@@ -96,63 +102,59 @@ trait Configuration
         return $this->hasDepartmentResource;
     }
 
-    public function departmentModel(string $model): static
-    {
-        $this->departmentModel = $model;
-
-        return $this;
-    }
-
-    public function getDepartmentModel(): string
-    {
-        return $this->departmentModel;
-    }
-
-    public function letterModel(string $model): static
-    {
-        $this->letterModel = $model;
-
-        return $this;
-    }
-
-    public function getLetterModel(): string
-    {
-        return $this->letterModel;
-    }
-
-    public function uploadDisk(string $disk): static
+    public function uploadDisk(Closure | string $disk): static
     {
         $this->uploadDisk = $disk;
 
         return $this;
     }
 
-    public function getUploadDisk(): string
+    public function getUploadDisk(): Closure | string
     {
-        return $this->uploadDisk;
+        return $this->evaluate($this->uploadDisk);
     }
 
-    public function uploadDirectory(string $dir): static
+    public function uploadDirectory(Closure | string $dir): static
     {
         $this->uploadDirectory = $dir;
 
         return $this;
     }
 
-    public function getUploadDirectory(): string
+    public function getUploadDirectory(): Closure | string
     {
-        return $this->uploadDirectory;
+        return $this->evaluate($this->uploadDirectory);
     }
 
-    public function navigationGroupLabel(string $lable): static
+    public function navigationGroupLabel(Closure | string $lable): static
     {
         $this->navigationGroupLabel = $lable;
 
         return $this;
     }
 
-    public function getNavigationGroupLabel(): string
+    public function getNavigationGroupLabel(): Closure | string
     {
-        return $this->navigationGroupLabel;
+        return $this->evaluate($this->navigationGroupLabel);
+    }
+
+    public function windModels(array $models): static
+    {
+        $this->windModels = $models;
+
+        return $this;
+    }
+
+    public function getWindModels(): array
+    {
+        return $this->windModels;
+    }
+
+    public static function getModel(string $model): string
+    {
+        return array_merge(
+            (new static())->windModels,
+            (new static())::get()->getWindModels()
+        )[$model];
     }
 }

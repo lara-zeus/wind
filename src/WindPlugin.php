@@ -4,12 +4,14 @@ namespace LaraZeus\Wind;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
+use Filament\Support\Concerns\EvaluatesClosures;
 use LaraZeus\Wind\Filament\Resources\DepartmentResource;
 use LaraZeus\Wind\Filament\Resources\LetterResource;
 
 final class WindPlugin implements Plugin
 {
     use Configuration;
+    use EvaluatesClosures;
 
     public function getId(): string
     {

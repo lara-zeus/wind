@@ -10,7 +10,7 @@ class LetterFactory extends Factory
 {
     public function getModel(): string
     {
-        return WindPlugin::get()->getDepartmentModel();
+        return WindPlugin::get()->getModel('Department');
     }
 
     public function definition(): array

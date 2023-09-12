@@ -10,9 +10,9 @@ class WindSeeder extends Seeder
 {
     public function run(): void
     {
-        WindPlugin::get()->getDepartmentModel()::factory()
+        WindPlugin::get()->getModel('Department')::factory()
             ->has(
-                WindPlugin::get()->getLetterModel()::factory()
+                WindPlugin::get()->getModel('Letter')::factory()
                     ->count(5)
                     ->state(function (array $attributes, Department $department) {
                         return [

@@ -51,7 +51,7 @@ class Department extends Model
     /** @phpstan-return hasMany<Letter> */
     public function letters(): HasMany
     {
-        return $this->hasMany(WindPlugin::get()->getDepartmentModel());
+        return $this->hasMany(WindPlugin::get()->getModel('Department'));
     }
 
     public function image(): ?string
