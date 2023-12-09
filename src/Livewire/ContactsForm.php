@@ -39,7 +39,7 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
 
     public string $status = 'NEW';
 
-    public function mount(string $departmentSlug = null): void
+    public function mount(?string $departmentSlug = null): void
     {
         if (WindPlugin::get()->hasDepartmentResource()) {
             if ($departmentSlug !== null) {
