@@ -72,7 +72,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 
 available support channels:
 * open an issue on [GitHub](https://github.com/lara-zeus/wind/issues)
-* email us using the [contact center](https://atm-code.com/contact-us/lara-zeus)
+* email us using the [contact center](https://still-code.com/contact-us/lara-zeus)
 
 ## Contributing
 
