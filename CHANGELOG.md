@@ -2,6 +2,14 @@
 
 All notable changes to `wind` will be documented in this file
 
+## v3.1.4 - 2023-12-18
+
+### What's Changed
+
+* update textarea rows by @atmonshi in https://github.com/lara-zeus/wind/pull/76
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/v3.1.3...v3.1.4
+
 ## v3.1.3 - 2023-12-15
 
 ### What's Changed
