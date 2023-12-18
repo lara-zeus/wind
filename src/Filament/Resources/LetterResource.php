@@ -92,6 +92,7 @@ class LetterResource extends Resource
 
                         Textarea::make('message')
                             ->label(__('message'))
+                            ->rows(10)
                             ->disabled()
                             ->maxLength(65535)
                             ->columnSpan(['sm' => 2]),
@@ -117,6 +118,7 @@ class LetterResource extends Resource
                             ->columnSpan(['sm' => 2]),
                         Textarea::make('reply_message')
                             ->label(__('reply_message'))
+                            ->rows(10)
                             ->required()
                             ->maxLength(65535)
                             ->columnSpan(['sm' => 2]),
