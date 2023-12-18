@@ -101,6 +101,7 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
 
                             Textarea::make('message')
                                 ->columnSpan(2)
+                                ->rows(10)
                                 ->required()
                                 ->label(__('message')),
                         ])
