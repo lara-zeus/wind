@@ -35,7 +35,7 @@ contact form, with simple dashboard to read and replay to any messages you recei
 
 > visit our website to get the full documentation: https://larazeus.com/wind
 
-> real use: https://still-code.com/contact-us
+> real use: https://larazeus.com/contact-us
 
 ## Installation
 
@@ -72,7 +72,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 
 available support channels:
 * open an issue on [GitHub](https://github.com/lara-zeus/wind/issues)
-* email us using the [contact center](https://still-code.com/contact-us/lara-zeus)
+* email us using the [contact center](https://larazeus.com/contact-us)
 
 ## Contributing
 

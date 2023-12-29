@@ -22,4 +22,4 @@ Lara-zeus Wind, is a package provides a simple contact form manger, with the abi
 available support channels:
 * join our channel in discord [Discord](https://discord.com/channels/883083792112300104/943098344174141460)
 * open an issue on [GitHub](https://github.com/lara-zeus/wind/issues)
-* email us using the [contact center](https://still-code.com/contact-us/lara-zeus)
+* email us using the [contact center](https://larazeus.com/contact-us)
