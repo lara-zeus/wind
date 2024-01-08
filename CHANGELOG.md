@@ -2,6 +2,15 @@
 
 All notable changes to `wind` will be documented in this file
 
+## v3.2.0 - 2024-01-08
+
+### What's Changed
+
+* Bump aglipanci/laravel-pint-action from 2.3.0 to 2.3.1 by @dependabot in https://github.com/lara-zeus/wind/pull/77
+* fix style and use filament v3.1 by @atmonshi in https://github.com/lara-zeus/wind/pull/78
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/v3.1.4...v3.2.0
+
 ## v3.1.4 - 2023-12-18
 
 ### What's Changed
