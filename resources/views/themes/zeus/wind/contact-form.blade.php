@@ -15,11 +15,17 @@
         </x-filament::section>
     </div>
 
+    @php
+        $colors = \Illuminate\Support\Arr::toCssStyles([
+            \Filament\Support\get_color_css_variables('primary', shades: [50, 100, 200, 300, 400, 500, 600, 700, 800, 900]),
+        ]);
+    @endphp
+
     @if($sent)
         @include(app('windTheme').'.submitted')
     @else
         <form wire:submit.prevent="store">
-            <div class="max-w-4xl mx-auto my-4 px-4">
+            <div style="{{ $colors }}" class="max-w-4xl mx-auto my-4 px-4">
                 {{ $this->form }}
                 <div class="p-4 text-center">
                     <x-filament::button type="submit">
