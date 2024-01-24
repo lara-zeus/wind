@@ -7,10 +7,8 @@ use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\ViewField;
 use Filament\Support\Enums\Alignment;
 use Filament\Support\Enums\IconPosition;
-use Filament\Support\Enums\IconSize;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
@@ -36,6 +34,7 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
     public string $title = '';
 
     public string $message = '';
+
     public string $type = '';
 
     public ?int $department_id;
@@ -80,16 +79,17 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
             $options = $departments->pluck('name', 'id');
             $icons = $departments->mapWithKeys(function ($item) {
                 return [
-                    $item->id => $item->image() ?? 'heroicon-s-envelope'
+                    $item->id => $item->image() ?? 'heroicon-s-envelope',
                 ];
             });
             $descriptions = $departments->pluck('desc', 'id');
         }
+
         return [
             Grid::make()
                 ->schema([
                     RadioDeck::make('department_id')
-                        ->visible(fn(): bool => WindPlugin::get()->hasDepartmentResource())
+                        ->visible(fn (): bool => WindPlugin::get()->hasDepartmentResource())
                         ->label(__('Select Department'))
                         ->required()
                         ->options($options)
@@ -109,10 +109,10 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
                         ->padding('duration-200 transition ease-in-out shadow-md px-2 py-4') // Padding around the deck (Any TailwindCSS padding utility)
                         ->direction('column') // Column | Row (Allows to place the Icon on top)
                         ->extraOptionsAttributes([ // Extra Attributes to add to the option HTML element
-                            'class' => '*:text-primary-500 text-xl leading-none w-full flex flex-col items-center justify-center py-2'
+                            'class' => '*:text-primary-500 text-xl leading-none w-full flex flex-col items-center justify-center py-2',
                         ])
                         ->extraDescriptionsAttributes([ // Extra Attributes to add to the description HTML element
-                            'class' => 'text-sm font-light !text-gray-600 my-1 text-center'
+                            'class' => 'text-sm font-light !text-gray-600 my-1 text-center',
                         ])
                         ->columnSpanFull(),
 
@@ -149,18 +149,18 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
         ];
     }
 
-    public function render(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
+    public function render(): View | Application | Factory | \Illuminate\Contracts\Foundation\Application
     {
         seo()
             ->site(config('zeus.site_title', 'Laravel'))
-            ->title(__('Contact Us').' - '.config('zeus.site_title'))
-            ->description(__('Contact Us').' - '.config('zeus.site_description').' '.config('zeus.site_title'))
-            ->rawTag('favicon', '<link rel="icon" type="image/x-icon" href="'.asset('favicon/favicon.ico').'">')
-            ->rawTag('<meta name="theme-color" content="'.config('zeus.site_color').'" />')
+            ->title(__('Contact Us') . ' - ' . config('zeus.site_title'))
+            ->description(__('Contact Us') . ' - ' . config('zeus.site_description') . ' ' . config('zeus.site_title'))
+            ->rawTag('favicon', '<link rel="icon" type="image/x-icon" href="' . asset('favicon/favicon.ico') . '">')
+            ->rawTag('<meta name="theme-color" content="' . config('zeus.site_color') . '" />')
             ->withUrl()
             ->twitter();
 
-        return view(app('windTheme').'.contact-form')
+        return view(app('windTheme') . '.contact-form')
             ->layout(config('zeus.layout'));
     }
 }
