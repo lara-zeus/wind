@@ -18,7 +18,7 @@
                     @error($getStatePath()) <p class="text-red-500">{{ $message }}</p> @enderror
                 </div>
 
-                <div class="max-w-4xl mx-auto my-6 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-2 ">
+                <div class="max-w-4xl mx-auto my-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-2 ">
                     @foreach($departments as $dept)
                         <div>
                             <label class="checkbox-wrapper">
