@@ -2,7 +2,6 @@
 
 namespace LaraZeus\Wind\Tests;
 
-use LaraZeus\SEO\SEOServiceProvider;
 use BladeUI\Heroicons\BladeHeroiconsServiceProvider;
 use BladeUI\Icons\BladeIconsServiceProvider;
 use Filament\Actions\ActionsServiceProvider;
@@ -16,6 +15,7 @@ use Filament\Tables\TablesServiceProvider;
 use Filament\Widgets\WidgetsServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use LaraZeus\Core\CoreServiceProvider;
+use LaraZeus\SEO\SEOServiceProvider;
 use LaraZeus\Wind\WindServiceProvider;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
