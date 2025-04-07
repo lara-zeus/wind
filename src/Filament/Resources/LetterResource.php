@@ -4,19 +4,20 @@ namespace LaraZeus\Wind\Filament\Resources;
 
 use Filament\Forms\Components\Placeholder;
 use Filament\Forms\Components\RichEditor;
-use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Form;
+use Filament\Infolists\Components\TextEntry;
 use Filament\Resources\Resource;
-use Filament\Tables\Actions\ActionGroup;
-use Filament\Tables\Actions\DeleteAction;
-use Filament\Tables\Actions\DeleteBulkAction;
-use Filament\Tables\Actions\EditAction;
-use Filament\Tables\Actions\ForceDeleteAction;
-use Filament\Tables\Actions\ForceDeleteBulkAction;
-use Filament\Tables\Actions\RestoreAction;
-use Filament\Tables\Actions\RestoreBulkAction;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Schema;
+use Filament\Actions\ActionGroup;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Actions\EditAction;
+use Filament\Actions\ForceDeleteAction;
+use Filament\Actions\ForceDeleteBulkAction;
+use Filament\Actions\RestoreAction;
+use Filament\Actions\RestoreBulkAction;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\Layout\Split;
 use Filament\Tables\Columns\Layout\Stack;
@@ -33,7 +34,7 @@ use LaraZeus\Wind\WindPlugin;
 
 class LetterResource extends Resource
 {
-    protected static ?string $navigationIcon = 'heroicon-o-inbox';
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-inbox';
 
     protected static ?int $navigationSort = 2;
 
@@ -58,14 +59,15 @@ class LetterResource extends Resource
             ]);
     }
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
+        return $schema
             ->schema([
                 Section::make()
+                    ->columnSpanFull()
                     ->visibleOn('edit')
                     ->schema([
-                        Placeholder::make('sender_info')
+                        TextEntry::make('sender_info')
                             ->label('Sender Info:')
                             ->columnSpan(['sm' => 2]),
 
@@ -92,15 +94,16 @@ class LetterResource extends Resource
                             ->label(__('sent at'))
                             ->disabled(),
 
-                        Placeholder::make('message')
+                        TextEntry::make('message')
                             ->label(__('message'))
                             ->disabled()
-                            ->content(fn (Letter $record) => new HtmlString($record->message))
+                            ->state(fn (Letter $record) => new HtmlString($record->message))
                             ->columnSpan(['sm' => 2]),
                     ])
                     ->columns(),
 
                 Section::make()
+                    ->columnSpanFull()
                     ->visibleOn('edit')
                     ->schema([
                         Select::make('department_id')
