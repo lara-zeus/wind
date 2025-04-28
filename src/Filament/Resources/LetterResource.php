@@ -131,6 +131,7 @@ class LetterResource extends Resource
                     ->columns(),
 
                 Section::make()
+                    ->columnSpanFull()
                     ->visibleOn('create')
                     ->schema([
                         TextInput::make('name')
