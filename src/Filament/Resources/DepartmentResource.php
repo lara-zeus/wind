@@ -2,6 +2,9 @@
 
 namespace LaraZeus\Wind\Filament\Resources;
 
+use LaraZeus\Wind\Filament\Resources\DepartmentResource\Pages\ListDepartments;
+use LaraZeus\Wind\Filament\Resources\DepartmentResource\Pages\CreateDepartment;
+use LaraZeus\Wind\Filament\Resources\DepartmentResource\Pages\EditDepartment;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Actions\DeleteAction;
@@ -51,7 +54,7 @@ class DepartmentResource extends Resource
     public static function form(Schema $schema): Schema
     {
         return $schema
-            ->schema([
+            ->components([
                 TextInput::make('name')
                     ->required()
                     ->maxLength(255)
@@ -130,12 +133,12 @@ class DepartmentResource extends Resource
                     ->toggle()
                     ->query(fn (Builder $query): Builder => $query->where('is_active', false)),
             ])
-            ->bulkActions([
+            ->toolbarActions([
                 DeleteBulkAction::make(),
                 ForceDeleteBulkAction::make(),
                 RestoreBulkAction::make(),
             ])
-            ->actions([
+            ->recordActions([
                 ActionGroup::make([
                     EditAction::make('edit')->label(__('Edit')),
                     ViewAction::make('view')
@@ -157,9 +160,9 @@ class DepartmentResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListDepartments::route('/'),
-            'create' => Pages\CreateDepartment::route('/create'),
-            'edit' => Pages\EditDepartment::route('/{record}/edit'),
+            'index' => ListDepartments::route('/'),
+            'create' => CreateDepartment::route('/create'),
+            'edit' => EditDepartment::route('/{record}/edit'),
         ];
     }
 

@@ -2,6 +2,8 @@
 
 namespace LaraZeus\Wind\Livewire;
 
+use Filament\Forms\Contracts\HasForms;
+use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -19,9 +21,9 @@ use Livewire\Component;
 /**
  * @property mixed $form
  */
-class ContactsForm extends Component implements Forms\Contracts\HasForms
+class ContactsForm extends Component implements HasForms
 {
-    use Forms\Concerns\InteractsWithForms;
+    use InteractsWithForms;
 
     public ?Department $department = null;
 

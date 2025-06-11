@@ -2,6 +2,7 @@
 
 namespace LaraZeus\Wind\Filament\Resources\DepartmentResource\Pages;
 
+use Filament\Actions\CreateAction;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 use LaraZeus\Wind\Filament\Resources\DepartmentResource;
@@ -13,7 +14,7 @@ class ListDepartments extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            CreateAction::make(),
         ];
     }
 }

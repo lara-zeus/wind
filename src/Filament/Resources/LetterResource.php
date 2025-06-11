@@ -2,6 +2,9 @@
 
 namespace LaraZeus\Wind\Filament\Resources;
 
+use LaraZeus\Wind\Filament\Resources\LetterResource\Pages\ListLetters;
+use LaraZeus\Wind\Filament\Resources\LetterResource\Pages\CreateLetter;
+use LaraZeus\Wind\Filament\Resources\LetterResource\Pages\EditLetter;
 use Filament\Actions\ActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
@@ -61,7 +64,7 @@ class LetterResource extends Resource
     public static function form(Schema $schema): Schema
     {
         return $schema
-            ->schema([
+            ->components([
                 Section::make()
                     ->columnSpanFull()
                     ->visibleOn('edit')
@@ -233,7 +236,7 @@ class LetterResource extends Resource
                 default => '',
             })
             ->defaultSort('id', 'desc')
-            ->bulkActions([
+            ->toolbarActions([
                 DeleteBulkAction::make(),
                 ForceDeleteBulkAction::make(),
                 RestoreBulkAction::make(),
@@ -252,7 +255,7 @@ class LetterResource extends Resource
                     ->options(WindPlugin::get()->getModel('Department')::pluck('name', 'id'))
                     ->label(__('department')),
             ])
-            ->actions([
+            ->recordActions([
                 ActionGroup::make([
                     EditAction::make('edit')->label(__('Edit')),
                     DeleteAction::make('delete'),
@@ -265,9 +268,9 @@ class LetterResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListLetters::route('/'),
-            'create' => Pages\CreateLetter::route('/create'),
-            'edit' => Pages\EditLetter::route('/{record}/edit'),
+            'index' => ListLetters::route('/'),
+            'create' => CreateLetter::route('/create'),
+            'edit' => EditLetter::route('/{record}/edit'),
         ];
     }
 
