@@ -2,12 +2,13 @@
 
 namespace LaraZeus\Wind\Livewire;
 
-use Filament\Forms;
-use Filament\Forms\Components\Grid;
-use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\ViewField;
+use Filament\Forms\Concerns\InteractsWithForms;
+use Filament\Forms\Contracts\HasForms;
+use Filament\Schemas\Components\Grid;
+use Filament\Schemas\Components\Section;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
@@ -19,9 +20,9 @@ use Livewire\Component;
 /**
  * @property mixed $form
  */
-class ContactsForm extends Component implements Forms\Contracts\HasForms
+class ContactsForm extends Component implements HasForms
 {
-    use Forms\Concerns\InteractsWithForms;
+    use InteractsWithForms;
 
     public ?Department $department = null;
 
@@ -70,6 +71,7 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
     {
         return [
             Grid::make()
+                ->columnSpanFull()
                 ->schema([
                     ViewField::make('department_id')
                         ->view(app('windTheme') . '.departments')
@@ -81,8 +83,10 @@ class ContactsForm extends Component implements Forms\Contracts\HasForms
                         ->visible(fn (): bool => WindPlugin::get()->hasDepartmentResource()),
 
                     Section::make()
+                        ->columnSpanFull()
                         ->schema([
                             Grid::make()
+                                ->columnSpanFull()
                                 ->schema([
                                     TextInput::make('name')
                                         ->required()

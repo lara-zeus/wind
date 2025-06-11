@@ -2,7 +2,7 @@
 
 namespace LaraZeus\Wind\Filament\Resources\LetterResource\Pages;
 
-use Filament\Actions;
+use Filament\Actions\CreateAction;
 use Filament\Resources\Pages\ListRecords;
 use LaraZeus\Wind\Filament\Resources\LetterResource;
 
@@ -13,7 +13,7 @@ class ListLetters extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+            CreateAction::make(),
         ];
     }
 }
