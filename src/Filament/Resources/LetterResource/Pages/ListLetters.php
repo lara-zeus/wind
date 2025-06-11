@@ -3,7 +3,6 @@
 namespace LaraZeus\Wind\Filament\Resources\LetterResource\Pages;
 
 use Filament\Actions\CreateAction;
-use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 use LaraZeus\Wind\Filament\Resources\LetterResource;
 

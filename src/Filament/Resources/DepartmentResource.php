@@ -2,9 +2,6 @@
 
 namespace LaraZeus\Wind\Filament\Resources;
 
-use LaraZeus\Wind\Filament\Resources\DepartmentResource\Pages\ListDepartments;
-use LaraZeus\Wind\Filament\Resources\DepartmentResource\Pages\CreateDepartment;
-use LaraZeus\Wind\Filament\Resources\DepartmentResource\Pages\EditDepartment;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Actions\DeleteAction;
@@ -31,7 +28,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use LaraZeus\Wind\Filament\Resources\DepartmentResource\Pages;
+use LaraZeus\Wind\Filament\Resources\DepartmentResource\Pages\CreateDepartment;
+use LaraZeus\Wind\Filament\Resources\DepartmentResource\Pages\EditDepartment;
+use LaraZeus\Wind\Filament\Resources\DepartmentResource\Pages\ListDepartments;
 use LaraZeus\Wind\Models\Department;
 use LaraZeus\Wind\WindPlugin;
 

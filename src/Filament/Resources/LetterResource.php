@@ -2,9 +2,6 @@
 
 namespace LaraZeus\Wind\Filament\Resources;
 
-use LaraZeus\Wind\Filament\Resources\LetterResource\Pages\ListLetters;
-use LaraZeus\Wind\Filament\Resources\LetterResource\Pages\CreateLetter;
-use LaraZeus\Wind\Filament\Resources\LetterResource\Pages\EditLetter;
 use Filament\Actions\ActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
@@ -30,7 +27,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\HtmlString;
-use LaraZeus\Wind\Filament\Resources\LetterResource\Pages;
+use LaraZeus\Wind\Filament\Resources\LetterResource\Pages\CreateLetter;
+use LaraZeus\Wind\Filament\Resources\LetterResource\Pages\EditLetter;
+use LaraZeus\Wind\Filament\Resources\LetterResource\Pages\ListLetters;
 use LaraZeus\Wind\Models\Letter;
 use LaraZeus\Wind\WindPlugin;
 
