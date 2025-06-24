@@ -2,6 +2,7 @@
 
 namespace LaraZeus\Wind\Filament\Resources;
 
+use BackedEnum;
 use Filament\Actions\ActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
@@ -35,7 +36,7 @@ use LaraZeus\Wind\WindPlugin;
 
 class LetterResource extends Resource
 {
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-inbox';
+    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-inbox';
 
     protected static ?int $navigationSort = 2;
 

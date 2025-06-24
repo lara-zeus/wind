@@ -48,7 +48,7 @@ class Department extends Model
         return DepartmentFactory::new();
     }
 
-    /** @phpstan-return hasMany<Letter> */
+    /** @phpstan-return HasMany<Letter> */
     public function letters(): HasMany
     {
         return $this->hasMany(WindPlugin::get()->getModel('Department'));

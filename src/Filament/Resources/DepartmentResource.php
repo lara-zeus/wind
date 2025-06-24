@@ -2,6 +2,7 @@
 
 namespace LaraZeus\Wind\Filament\Resources;
 
+use BackedEnum;
 use Filament\Actions\Action;
 use Filament\Actions\ActionGroup;
 use Filament\Actions\DeleteAction;
@@ -36,7 +37,7 @@ use LaraZeus\Wind\WindPlugin;
 
 class DepartmentResource extends Resource
 {
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-duplicate';
+    protected static string | BackedEnum | null $navigationIcon = 'heroicon-o-document-duplicate';
 
     protected static ?int $navigationSort = 1;
 
@@ -67,10 +68,23 @@ class DepartmentResource extends Resource
                         $set('slug', str()->slug($state));
                     }),
 
-                TextInput::make('slug')->required()->maxLength(255)->label(__('slug')),
-                TextInput::make('ordering')->required()->numeric()->label(__('ordering')),
-                Toggle::make('is_active')->label(__('is active')),
-                Textarea::make('desc')->maxLength(65535)->columnSpan(['sm' => 2])->label(__('desc')),
+                TextInput::make('slug')
+                    ->required()
+                    ->maxLength(255)
+                    ->label(__('slug')),
+
+                TextInput::make('ordering')
+                    ->required()
+                    ->numeric()
+                    ->label(__('ordering')),
+
+                Toggle::make('is_active')
+                    ->label(__('is active')),
+
+                Textarea::make('desc')
+                    ->maxLength(65535)
+                    ->columnSpan(['sm' => 2])
+                    ->label(__('desc')),
 
                 FileUpload::make('logo')
                     ->disk(WindPlugin::get()->getUploadDisk())
