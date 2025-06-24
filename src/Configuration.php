@@ -3,6 +3,8 @@
 namespace LaraZeus\Wind;
 
 use Closure;
+use LaraZeus\Wind\Models\Department;
+use LaraZeus\Wind\Models\Letter;
 
 trait Configuration
 {
@@ -32,8 +34,8 @@ trait Configuration
      * you can overwrite any model and use your own
      */
     protected array $windModels = [
-        'Department' => \LaraZeus\Wind\Models\Department::class,
-        'Letter' => \LaraZeus\Wind\Models\Letter::class,
+        'Department' => Department::class,
+        'Letter' => Letter::class,
     ];
 
     protected Closure | string $uploadDisk = 'public';
