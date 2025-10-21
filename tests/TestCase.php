@@ -15,7 +15,7 @@ use Filament\Widgets\WidgetsServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use LaraZeus\Core\CoreServiceProvider;
 use LaraZeus\SEO\SEOServiceProvider;
-use LaraZeus\SpatieTranslatable\SpatieLaravelTranslatablePluginServiceProvider;
+use LaraZeus\SpatieTranslatable\SpatieTranslatableServiceProvider;
 use LaraZeus\Wind\WindServiceProvider;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
@@ -44,7 +44,7 @@ class TestCase extends Orchestra
             InfolistsServiceProvider::class,
             LivewireServiceProvider::class,
             NotificationsServiceProvider::class,
-            SpatieLaravelTranslatablePluginServiceProvider::class,
+            SpatieTranslatableServiceProvider::class,
             SupportServiceProvider::class,
             TablesServiceProvider::class,
             WidgetsServiceProvider::class,
