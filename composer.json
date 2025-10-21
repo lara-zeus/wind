@@ -19,12 +19,12 @@
     "type": "library",
     "authors": [
         {
-            "name": "Lara Zeus (Ash)",
+            "name": "Lara Zeus",
             "email": "info@larazeus.com"
         }
     ],
     "require": {
-        "php": "^8.1",
+        "php": "^8.2",
         "lara-zeus/core": "^4.0"
     },
     "require-dev": {
@@ -66,7 +66,7 @@
             "dealerdirect/phpcodesniffer-composer-installer": true
         }
     },
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "extra": {
         "laravel": {
             "providers": [
