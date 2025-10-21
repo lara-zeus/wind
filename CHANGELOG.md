@@ -2,6 +2,14 @@
 
 All notable changes to `wind` will be documented in this file
 
+## 4.0.2 - 2025-10-21
+
+### What's Changed
+
+* update for filament 4 by @atmonshi in https://github.com/lara-zeus/wind/pull/100
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/4.0.1...4.0.2
+
 ## v3.2.4 - 2025-03-07
 
 ### What's Changed
