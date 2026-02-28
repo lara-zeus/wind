@@ -20,16 +20,19 @@ final class WindPlugin implements Plugin
 
     public function register(Panel $panel): void
     {
-        if ($this->hasDepartmentResource()) {
+        $resources = $this->getWindResources();
+
+        if (isset($resources['Department']) && $this->hasDepartmentResource()) {
             $panel->resources([
-                DepartmentResource::class,
+                $resources['Department'],
             ]);
         }
 
-        $panel
-            ->resources([
-                LetterResource::class,
+        if (isset($resources['Letter'])) {
+            $panel->resources([
+                $resources['Letter'],
             ]);
+        }
     }
 
     public static function make(): static

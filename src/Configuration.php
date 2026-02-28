@@ -3,6 +3,8 @@
 namespace LaraZeus\Wind;
 
 use Closure;
+use LaraZeus\Wind\Filament\Resources\DepartmentResource;
+use LaraZeus\Wind\Filament\Resources\LetterResource;
 use LaraZeus\Wind\Models\Department;
 use LaraZeus\Wind\Models\Letter;
 
@@ -36,6 +38,11 @@ trait Configuration
     protected array $windModels = [
         'Department' => Department::class,
         'Letter' => Letter::class,
+    ];
+
+    protected array $windResources = [
+        'Department' => DepartmentResource::class,
+        'Letter' => LetterResource::class,
     ];
 
     protected Closure | string $uploadDisk = 'public';
@@ -150,6 +157,18 @@ trait Configuration
     public function getWindModels(): array
     {
         return $this->windModels;
+    }
+
+    public function windResources(array $models): static
+    {
+        $this->windResources = $models;
+
+        return $this;
+    }
+
+    public function getWindResources(): array
+    {
+        return $this->windResources;
     }
 
     public static function getModel(string $model): string
