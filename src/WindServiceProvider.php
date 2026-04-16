@@ -17,7 +17,7 @@ class WindServiceProvider extends PackageServiceProvider
     {
         CoreServiceProvider::setThemePath('wind');
 
-        Livewire::component('contact-form', ContactsForm::class);
+        Livewire::addComponent(name:'contact-form', class:ContactsForm::class);
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
