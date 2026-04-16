@@ -2,6 +2,22 @@
 
 All notable changes to `wind` will be documented in this file
 
+## 5.0.0 - 2026-04-16
+
+### What's Changed
+
+Add support for filament 5
+
+* Bump actions/checkout from 4 to 5 by @dependabot[bot] in https://github.com/lara-zeus/wind/pull/101
+* Bump aglipanci/laravel-pint-action from 2.5 to 2.6 by @dependabot[bot] in https://github.com/lara-zeus/wind/pull/102
+* Bump dependabot/fetch-metadata from 2.3.0 to 2.4.0 by @dependabot[bot] in https://github.com/lara-zeus/wind/pull/104
+* Bump filament/filament from 4.1.10 to 4.3.1 by @dependabot[bot] in https://github.com/lara-zeus/wind/pull/106
+* Bump dependabot/fetch-metadata from 2.4.0 to 2.5.0 by @dependabot[bot] in https://github.com/lara-zeus/wind/pull/107
+* Bump symfony/process from 7.4.0 to 7.4.5 by @dependabot[bot] in https://github.com/lara-zeus/wind/pull/108
+* Bump psy/psysh from 0.12.13 to 0.12.19 by @dependabot[bot] in https://github.com/lara-zeus/wind/pull/109
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/4.0.2...5.0.0
+
 ## 4.0.2 - 2025-10-21
 
 ### What's Changed
