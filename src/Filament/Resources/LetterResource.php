@@ -50,9 +50,6 @@ class LetterResource extends Resource
         return (string) static::getModel()::where('status', WindPlugin::get()->getDefaultStatus())->count();
     }
 
-    /**
-     * @return Builder
-     */
     public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()

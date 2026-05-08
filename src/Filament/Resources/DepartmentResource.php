@@ -32,7 +32,6 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 use LaraZeus\Wind\Filament\Resources\DepartmentResource\Pages\CreateDepartment;
 use LaraZeus\Wind\Filament\Resources\DepartmentResource\Pages\EditDepartment;
 use LaraZeus\Wind\Filament\Resources\DepartmentResource\Pages\ListDepartments;
-use LaraZeus\Wind\Models\Department;
 use LaraZeus\Wind\WindPlugin;
 
 class DepartmentResource extends Resource
@@ -94,9 +93,6 @@ class DepartmentResource extends Resource
             ]);
     }
 
-    /**
-     * @return Builder
-     */
     public static function getEloquentQuery(): Builder
     {
         return parent::getEloquentQuery()
