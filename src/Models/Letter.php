@@ -39,6 +39,6 @@ class Letter extends Model
 
     public function getReplyTitleAttribute(): string
     {
-        return $this->reply_title ?? __('re') . ': ' . $this->title;
+        return $this->reply_title ?? __('zeus-wind::wind.re') . ': ' . $this->title;
     }
 }

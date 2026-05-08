@@ -1,17 +1,17 @@
 <div>
     <x-slot name="header">
-        <h2>{{ __('Contact us') }}</h2>
+        <h2>{{ __('zeus-wind::wind.contact_us_1') }}</h2>
     </x-slot>
 
     <x-slot name="breadcrumbs">
         <li class="flex items-center">
-            {{ __('Contact us') }}
+            {{ __('zeus-wind::wind.contact_us_1') }}
         </li>
     </x-slot>
 
     <div class="max-w-4xl mx-auto">
         <x-filament::section>
-            {{ __('feel free to contact us.') }}
+            {{ __('zeus-wind::wind.feel_free_to_contact_us') }}
         </x-filament::section>
     </div>
 
@@ -23,7 +23,7 @@
                 {{ $this->form }}
                 <div class="p-4 text-center">
                     <x-filament::button type="submit">
-                        {{ __('Send') }}
+                        {{ __('zeus-wind::wind.send') }}
                     </x-filament::button>
                 </div>
             </div>

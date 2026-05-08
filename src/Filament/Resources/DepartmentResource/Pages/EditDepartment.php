@@ -15,7 +15,7 @@ class EditDepartment extends EditRecord
         return [
             Action::make('Open')
                 ->icon('heroicon-o-arrow-top-right-on-square')
-                ->label(__('Open'))
+                ->label(__('zeus-wind::wind.open'))
                 ->url(fn (): string => route('contact', ['departmentSlug' => $this->record]))
                 ->openUrlInNewTab(),
         ];
