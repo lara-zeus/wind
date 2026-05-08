@@ -94,22 +94,22 @@ class ContactsForm extends Component implements HasActions, HasForms
                                     TextInput::make('name')
                                         ->required()
                                         ->minLength(6)
-                                        ->label(__('name')),
+                                        ->label(__('zeus-wind::wind.name')),
 
                                     TextInput::make('email')
                                         ->required()
                                         ->email()
-                                        ->label(__('email')),
+                                        ->label(__('zeus-wind::wind.email')),
                                 ]),
 
                             TextInput::make('title')
                                 ->required()
-                                ->label(__('title')),
+                                ->label(__('zeus-wind::wind.title')),
 
                             Textarea::make('message')
                                 ->rows(10)
                                 ->required()
-                                ->label(__('message')),
+                                ->label(__('zeus-wind::wind.message')),
                         ]),
                 ]),
         ];
@@ -119,8 +119,8 @@ class ContactsForm extends Component implements HasActions, HasForms
     {
         seo()
             ->site(config('zeus.site_title', 'Laravel'))
-            ->title(__('Contact Us') . ' - ' . config('zeus.site_title'))
-            ->description(__('Contact Us') . ' - ' . config('zeus.site_description') . ' ' . config('zeus.site_title'))
+            ->title(__('zeus-wind::wind.contact_us') . ' - ' . config('zeus.site_title'))
+            ->description(__('zeus-wind::wind.contact_us') . ' - ' . config('zeus.site_description') . ' ' . config('zeus.site_title'))
             ->rawTag('favicon', '<link rel="icon" type="image/x-icon" href="' . asset('favicon/favicon.ico') . '">')
             ->rawTag('<meta name="theme-color" content="' . config('zeus.site_color') . '" />')
             ->withUrl()

@@ -48,7 +48,7 @@ class DepartmentResource extends Resource
 
     public static function getNavigationBadge(): ?string
     {
-        return static::getModel()::count();
+        return (string) static::getModel()::count();
     }
 
     public static function form(Schema $schema): Schema
@@ -59,7 +59,7 @@ class DepartmentResource extends Resource
                     ->required()
                     ->maxLength(255)
                     ->live(onBlur: true)
-                    ->label(__('name'))
+                    ->label(__('zeus-wind::wind.name'))
                     ->afterStateUpdated(function (Set $set, $state, $context) {
                         if ($context === 'edit') {
                             return;
@@ -71,31 +71,31 @@ class DepartmentResource extends Resource
                 TextInput::make('slug')
                     ->required()
                     ->maxLength(255)
-                    ->label(__('slug')),
+                    ->label(__('zeus-wind::wind.slug')),
 
                 TextInput::make('ordering')
                     ->required()
                     ->numeric()
-                    ->label(__('ordering')),
+                    ->label(__('zeus-wind::wind.ordering')),
 
                 Toggle::make('is_active')
-                    ->label(__('is active')),
+                    ->label(__('zeus-wind::wind.is_active')),
 
                 Textarea::make('desc')
                     ->maxLength(65535)
                     ->columnSpan(['sm' => 2])
-                    ->label(__('desc')),
+                    ->label(__('zeus-wind::wind.desc')),
 
                 FileUpload::make('logo')
                     ->disk(WindPlugin::get()->getUploadDisk())
                     ->directory(WindPlugin::get()->getUploadDirectory())
                     ->columnSpan(['sm' => 2])
-                    ->label(__('logo')),
+                    ->label(__('zeus-wind::wind.logo')),
             ]);
     }
 
     /**
-     * @return Builder<Department>
+     * @return Builder
      */
     public static function getEloquentQuery(): Builder
     {
@@ -110,39 +110,39 @@ class DepartmentResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->label(__('name'))
+                    ->label(__('zeus-wind::wind.name'))
                     ->sortable()
                     ->searchable()
                     ->toggleable(),
                 TextColumn::make('desc')
                     ->searchable()
-                    ->label(__('desc'))
+                    ->label(__('zeus-wind::wind.desc'))
                     ->toggleable(),
                 TextColumn::make('ordering')
                     ->searchable()
                     ->sortable()
-                    ->label(__('ordering'))
+                    ->label(__('zeus-wind::wind.ordering'))
                     ->toggleable(),
                 IconColumn::make('is_active')
                     ->boolean()
                     ->searchable()
                     ->sortable()
-                    ->label(__('is active'))
+                    ->label(__('zeus-wind::wind.is_active'))
                     ->toggleable(),
                 ImageColumn::make('logo')
                     ->disk(WindPlugin::get()->getUploadDisk())
-                    ->label(__('logo'))
+                    ->label(__('zeus-wind::wind.logo'))
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->defaultSort('id', 'desc')
             ->filters([
                 TrashedFilter::make(),
                 Filter::make('is_active')
-                    ->label(__('is active'))
+                    ->label(__('zeus-wind::wind.is_active'))
                     ->toggle()
                     ->query(fn (Builder $query): Builder => $query->where('is_active', true)),
                 Filter::make('not_active')
-                    ->label(__('not active'))
+                    ->label(__('zeus-wind::wind.not_active'))
                     ->toggle()
                     ->query(fn (Builder $query): Builder => $query->where('is_active', false)),
             ])
@@ -153,14 +153,14 @@ class DepartmentResource extends Resource
             ])
             ->recordActions([
                 ActionGroup::make([
-                    EditAction::make('edit')->label(__('Edit')),
+                    EditAction::make('edit')->label(__('zeus-wind::wind.edit')),
                     ViewAction::make('view')
                         ->color('primary')
-                        ->label(__('View')),
+                        ->label(__('zeus-wind::wind.view')),
                     Action::make('Open')
                         ->color('warning')
                         ->icon('heroicon-o-arrow-top-right-on-square')
-                        ->label(__('Open'))
+                        ->label(__('zeus-wind::wind.open'))
                         ->url(fn (Model $record): string => route('contact', ['departmentSlug' => $record]))
                         ->openUrlInNewTab(),
                     DeleteAction::make('delete'),
@@ -181,17 +181,17 @@ class DepartmentResource extends Resource
 
     public static function getLabel(): string
     {
-        return __('Department');
+        return __('zeus-wind::wind.department_1');
     }
 
     public static function getPluralLabel(): string
     {
-        return __('Departments');
+        return __('zeus-wind::wind.departments');
     }
 
     public static function getNavigationLabel(): string
     {
-        return __('Departments');
+        return __('zeus-wind::wind.departments');
     }
 
     public static function getNavigationGroup(): ?string

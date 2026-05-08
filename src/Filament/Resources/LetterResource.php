@@ -47,11 +47,11 @@ class LetterResource extends Resource
 
     public static function getNavigationBadge(): ?string
     {
-        return static::getModel()::where('status', WindPlugin::get()->getDefaultStatus())->count();
+        return (string) static::getModel()::where('status', WindPlugin::get()->getDefaultStatus())->count();
     }
 
     /**
-     * @return Builder<Letter>
+     * @return Builder
      */
     public static function getEloquentQuery(): Builder
     {
@@ -74,30 +74,30 @@ class LetterResource extends Resource
                             ->columnSpan(['sm' => 2]),
 
                         TextInput::make('name')
-                            ->label(__('name'))
+                            ->label(__('zeus-wind::wind.name'))
                             ->required()
                             ->disabled()
                             ->maxLength(255),
 
                         TextInput::make('email')
-                            ->label(__('email'))
+                            ->label(__('zeus-wind::wind.email'))
                             ->email()
                             ->required()
                             ->disabled()
                             ->maxLength(255),
 
                         TextInput::make('title')
-                            ->label(__('title'))
+                            ->label(__('zeus-wind::wind.title'))
                             ->required()
                             ->disabled()
                             ->maxLength(255),
 
                         TextInput::make('created_at')
-                            ->label(__('sent at'))
+                            ->label(__('zeus-wind::wind.sent_at'))
                             ->disabled(),
 
                         TextEntry::make('message')
-                            ->label(__('message'))
+                            ->label(__('zeus-wind::wind.message'))
                             ->disabled()
                             ->state(fn (Letter $record) => new HtmlString($record->message))
                             ->columnSpan(['sm' => 2]),
@@ -109,24 +109,24 @@ class LetterResource extends Resource
                     ->visibleOn('edit')
                     ->schema([
                         Select::make('department_id')
-                            ->label(__('department'))
+                            ->label(__('zeus-wind::wind.department'))
                             ->options(WindPlugin::get()->getModel('Department')::pluck('name', 'id'))
                             ->required()
                             ->visible(fn (): bool => WindPlugin::get()->hasDepartmentResource()),
 
                         TextInput::make('status')
-                            ->label(__('status'))
+                            ->label(__('zeus-wind::wind.status'))
                             ->required()
                             ->maxLength(255),
 
                         TextInput::make('reply_title')
-                            ->label(__('reply_title'))
+                            ->label(__('zeus-wind::wind.reply_title'))
                             ->required()
                             ->maxLength(255)
                             ->columnSpan(['sm' => 2]),
 
                         RichEditor::make('reply_message')
-                            ->label(__('reply_message'))
+                            ->label(__('zeus-wind::wind.reply_message'))
                             ->required()
                             ->maxLength(65535)
                             ->columnSpan(['sm' => 2]),
@@ -138,29 +138,29 @@ class LetterResource extends Resource
                     ->visibleOn('create')
                     ->schema([
                         TextInput::make('name')
-                            ->label(__('to name'))
+                            ->label(__('zeus-wind::wind.to_name'))
                             ->required()
                             ->maxLength(255),
 
                         TextInput::make('email')
-                            ->label(__('to email'))
+                            ->label(__('zeus-wind::wind.to_email'))
                             ->email()
                             ->required()
                             ->maxLength(255),
 
                         TextInput::make('title')
-                            ->label(__('title'))
+                            ->label(__('zeus-wind::wind.title'))
                             ->required()
                             ->maxLength(255),
 
                         Select::make('department_id')
-                            ->label(__('department'))
+                            ->label(__('zeus-wind::wind.department'))
                             ->options(WindPlugin::get()->getModel('Department')::pluck('name', 'id'))
                             ->required(fn (): bool => WindPlugin::get()->hasDepartmentResource())
                             ->visible(fn (): bool => WindPlugin::get()->hasDepartmentResource()),
 
                         RichEditor::make('message')
-                            ->label(__('message'))
+                            ->label(__('zeus-wind::wind.message'))
                             ->required()
                             ->maxLength(65535)
                             ->columnSpan(['sm' => 2]),
@@ -196,14 +196,14 @@ class LetterResource extends Resource
                             ->sortable()
                             ->searchable()
                             ->toggleable()
-                            ->label(__('title')),
+                            ->label(__('zeus-wind::wind.title')),
                         TextColumn::make('department.name')
                             ->sortable()
                             ->badge()
                             ->searchable()
                             ->toggleable()
                             ->visible(fn (): bool => WindPlugin::get()->hasDepartmentResource())
-                            ->label(__('department')),
+                            ->label(__('zeus-wind::wind.department')),
                     ]),
 
                     Stack::make([
@@ -212,10 +212,10 @@ class LetterResource extends Resource
                             ->searchable()
                             ->toggleable()
                             ->dateTime()
-                            ->label(__('sent at')),
+                            ->label(__('zeus-wind::wind.sent_at')),
                         TextColumn::make('status')
-                            ->formatStateUsing(fn (string $state): string => __("status_{$state}"))
-                            ->label(__('status'))
+                            ->formatStateUsing(fn (string $state): string => __('zeus-wind::wind.status_' . $state))
+                            ->label(__('zeus-wind::wind.status'))
                             ->sortable()
                             ->searchable()
                             ->toggleable()
@@ -245,19 +245,19 @@ class LetterResource extends Resource
                 TrashedFilter::make(),
                 SelectFilter::make('status')
                     ->options([
-                        'NEW' => __('NEW'),
-                        'READ' => __('READ'),
-                        'REPLIED' => __('REPLIED'),
+                        'NEW' => __('zeus-wind::wind.new'),
+                        'READ' => __('zeus-wind::wind.read'),
+                        'REPLIED' => __('zeus-wind::wind.replied'),
                     ])
-                    ->label(__('status')),
+                    ->label(__('zeus-wind::wind.status')),
                 SelectFilter::make('department_id')
                     ->visible(fn (): bool => WindPlugin::get()->hasDepartmentResource())
                     ->options(WindPlugin::get()->getModel('Department')::pluck('name', 'id'))
-                    ->label(__('department')),
+                    ->label(__('zeus-wind::wind.department')),
             ])
             ->recordActions([
                 ActionGroup::make([
-                    EditAction::make('edit')->label(__('Edit')),
+                    EditAction::make('edit')->label(__('zeus-wind::wind.edit')),
                     DeleteAction::make('delete'),
                     ForceDeleteAction::make(),
                     RestoreAction::make(),
@@ -276,17 +276,17 @@ class LetterResource extends Resource
 
     public static function getLabel(): string
     {
-        return __('Letter');
+        return __('zeus-wind::wind.letter');
     }
 
     public static function getPluralLabel(): string
     {
-        return __('Letters');
+        return __('zeus-wind::wind.letters');
     }
 
     public static function getNavigationLabel(): string
     {
-        return __('Letters');
+        return __('zeus-wind::wind.letters');
     }
 
     public static function getNavigationGroup(): ?string

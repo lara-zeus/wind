@@ -8,13 +8,13 @@
             @if($departments->isEmpty())
                 <x-filament::section>
                     <div class="text-red-400">
-                        {{ __('no departments available!') }}
+                        {{ __('zeus-wind::wind.no_departments_available') }}
                     </div>
                 </x-filament::section>
                 <input type="hidden" name="{{ $getStatePath() }}" wire:model="{{ $getStatePath() }}" value="{{ \LaraZeus\Wind\WindPlugin::get()->getDefaultDepartmentId() }}">
             @else
                 <div class="max-w-4xl mx-auto text-primary-600 -mb-4 mt-4">
-                    {{ __('Select Department') }}:
+                    {{ __('zeus-wind::wind.select_department') }}:
                     @error($getStatePath()) <p class="text-red-500">{{ $message }}</p> @enderror
                 </div>
 
