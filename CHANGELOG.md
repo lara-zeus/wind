@@ -2,6 +2,19 @@
 
 All notable changes to `wind` will be documented in this file
 
+## 5.0.1 - 2026-05-08
+
+### What's Changed
+
+* chore: align docs structure and cleanup by @atmonshi in https://github.com/lara-zeus/wind/pull/119
+* Translations by @atmonshi in https://github.com/lara-zeus/wind/pull/121
+* Bump dependabot/fetch-metadata from 2.5.0 to 3.1.0 by @dependabot[bot] in https://github.com/lara-zeus/wind/pull/120
+* Bump actions/checkout from 5 to 6 by @dependabot[bot] in https://github.com/lara-zeus/wind/pull/118
+* Bump ramsey/composer-install from 3 to 4 by @dependabot[bot] in https://github.com/lara-zeus/wind/pull/117
+* Bump stefanzweifel/git-auto-commit-action from 5 to 7 by @dependabot[bot] in https://github.com/lara-zeus/wind/pull/115
+
+**Full Changelog**: https://github.com/lara-zeus/wind/compare/5.0.0...5.0.1
+
 ## 5.0.0 - 2026-04-16
 
 ### What's Changed
