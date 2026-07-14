@@ -18,6 +18,14 @@
 contact form, with simple dashboard to read and replay to any messages you receive from your website.
 >small tasks can be time-consuming, let us build these for you,
 
+## Versions
+
+| Plugin Version | Filament Version |
+| --- | --- |
+| `v1.x` | `v2.x` |
+| `v2.x` | `v3.x` |
+| `v3.x` | `v3.x` |
+
 ## Support Filament
 
 <a href="https://github.com/sponsors/danharrin">
