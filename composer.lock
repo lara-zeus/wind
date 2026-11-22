@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4eed01ea7a4407bce1e827d20dd91ef9",
+    "content-hash": "834c199d0c706f6a002913c9b31ead61",
     "packages": [
         {
             "name": "blade-ui-kit/blade-heroicons",
@@ -2102,6 +2102,84 @@
                 }
             ],
             "time": "2026-04-24T15:05:57+00:00"
+        },
+        {
+            "name": "lara-zeus/filament-plugin-tools",
+            "version": "3.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lara-zeus/filament-plugin-tools.git",
+                "reference": "68cdb249d09d948ec319220a3dae883f2da63218"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lara-zeus/filament-plugin-tools/zipball/68cdb249d09d948ec319220a3dae883f2da63218",
+                "reference": "68cdb249d09d948ec319220a3dae883f2da63218",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^5.0",
+                "php": "^8.2"
+            },
+            "require-dev": {
+                "larastan/larastan": "^3.0",
+                "laravel/pint": "^1.0",
+                "nunomaduro/collision": "^8.6",
+                "nunomaduro/phpinsights": "^2.8",
+                "orchestra/testbench": "^10.0",
+                "pestphp/pest": "^3.0",
+                "phpstan/extension-installer": "^1.4",
+                "phpstan/phpstan": "^2.1",
+                "phpstan/phpstan-deprecation-rules": "^2.0",
+                "phpstan/phpstan-phpunit": "^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaraZeus\\FilamentPluginTools\\FilamentPluginToolsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaraZeus\\FilamentPluginTools\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lara Zeus (Ash)",
+                    "email": "info@larazeus.com"
+                }
+            ],
+            "description": "a set of tools to configure your plugin",
+            "homepage": "https://larazeus.com/filament-plugin-tools",
+            "keywords": [
+                "filament-plugin-tools",
+                "filamentphp",
+                "lara-zeus",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/lara-zeus/filament-plugin-tools/issues",
+                "source": "https://github.com/lara-zeus/filament-plugin-tools"
+            },
+            "funding": [
+                {
+                    "url": "https://www.buymeacoffee.com/larazeus",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/atmonshi",
+                    "type": "github"
+                }
+            ],
+            "time": "2026-11-22T18:31:17+00:00",
+            "published-time": "2026-11-22T18:33:11+00:00"
         },
         {
             "name": "lara-zeus/laravel-seo",
@@ -14707,5 +14785,5 @@
         "php": "^8.2"
     },
     "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.11.0"
 }

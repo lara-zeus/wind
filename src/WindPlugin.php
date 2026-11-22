@@ -5,6 +5,7 @@ namespace LaraZeus\Wind;
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 use Filament\Support\Concerns\EvaluatesClosures;
+use LaraZeus\FilamentPluginTools\Concerns\HasResources;
 use LaraZeus\Wind\Filament\Resources\DepartmentResource;
 use LaraZeus\Wind\Filament\Resources\LetterResource;
 
@@ -12,6 +13,7 @@ final class WindPlugin implements Plugin
 {
     use Configuration;
     use EvaluatesClosures;
+    use HasResources;
 
     public function getId(): string
     {
@@ -22,13 +24,13 @@ final class WindPlugin implements Plugin
     {
         if ($this->hasDepartmentResource()) {
             $panel->resources([
-                DepartmentResource::class,
+                $this->resolveResource('Department') ?? DepartmentResource::class,
             ]);
         }
 
         $panel
             ->resources([
-                LetterResource::class,
+                $this->resolveResource('Letter') ?? LetterResource::class,
             ]);
     }
 
